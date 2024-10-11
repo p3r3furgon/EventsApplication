@@ -1,0 +1,1086 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\C#_projects\\EventsApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95FA855B-F133-4CD0-B36F-B906017CD8C6}|Services\\Events\\Events.Application\\Events.Application.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.application\\services\\eventsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95FA855B-F133-4CD0-B36F-B906017CD8C6}|Services\\Events\\Events.Application\\Events.Application.csproj|solutionrelative:services\\events\\events.application\\services\\eventsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.persistance\\repositories\\eventsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|solutionrelative:services\\events\\events.persistance\\repositories\\eventsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.persistance\\entities\\evententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|solutionrelative:services\\events\\events.persistance\\entities\\evententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B68F2893-9199-4C08-AC87-286468867925}|Services\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.infrastructure\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B68F2893-9199-4C08-AC87-286468867925}|Services\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|solutionrelative:services\\events\\events.infrastructure\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.persistance\\eventsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|solutionrelative:services\\events\\events.persistance\\eventsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\extensions\\apiextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\extensions\\apiextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.domain\\interfaces\\services\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|solutionrelative:services\\events\\events.domain\\interfaces\\services\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\dtos\\updateeventrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\dtos\\updateeventrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.domain\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|solutionrelative:services\\users\\users.domain\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|solutionrelative:services\\users\\users.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C02BEB3-9437-43B8-AA2F-5B8D7BF17D39}|Services\\Users\\Users.Application\\Users.Application.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C02BEB3-9437-43B8-AA2F-5B8D7BF17D39}|Services\\Users\\Users.Application\\Users.Application.csproj|solutionrelative:services\\users\\users.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.persistance\\repositories\\refreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|solutionrelative:services\\users\\users.persistance\\repositories\\refreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C02BEB3-9437-43B8-AA2F-5B8D7BF17D39}|Services\\Users\\Users.Application\\Users.Application.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.application\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C02BEB3-9437-43B8-AA2F-5B8D7BF17D39}|Services\\Users\\Users.Application\\Users.Application.csproj|solutionrelative:services\\users\\users.application\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{298B76B6-53A7-4AAB-A196-579B54C98434}|Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.infrastructure\\jwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{298B76B6-53A7-4AAB-A196-579B54C98434}|Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj|solutionrelative:services\\users\\users.infrastructure\\jwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.persistance\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|solutionrelative:services\\users\\users.persistance\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.persistance\\usersdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|solutionrelative:services\\users\\users.persistance\\usersdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.api\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|solutionrelative:services\\users\\users.api\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{298B76B6-53A7-4AAB-A196-579B54C98434}|Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.infrastructure\\jwtoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{298B76B6-53A7-4AAB-A196-579B54C98434}|Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj|solutionrelative:services\\users\\users.infrastructure\\jwtoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\dtos\\createeventrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\dtos\\createeventrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\authorization\\requirements\\rolerequirement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\authorization\\requirements\\rolerequirement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\authorization\\requirementshandlers\\rolerequirementhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\authorization\\requirementshandlers\\rolerequirementhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.persistance\\events.persistance.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|solutionrelative:services\\events\\events.persistance\\events.persistance.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\events.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\events.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.domain\\interfaces\\services\\ieventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|solutionrelative:services\\events\\events.domain\\interfaces\\services\\ieventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.domain\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|solutionrelative:services\\events\\events.domain\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95FA855B-F133-4CD0-B36F-B906017CD8C6}|Services\\Events\\Events.Application\\Events.Application.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.application\\events.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{95FA855B-F133-4CD0-B36F-B906017CD8C6}|Services\\Events\\Events.Application\\Events.Application.csproj|solutionrelative:services\\events\\events.application\\events.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.domain\\interfaces\\repositories\\ieventsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|solutionrelative:services\\events\\events.domain\\interfaces\\repositories\\ieventsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\visualst\\ide\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|solutionrelative:services\\users\\users.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|solutionrelative:services\\users\\users.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.persistance\\configurations\\eventsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|solutionrelative:services\\events\\events.persistance\\configurations\\eventsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.persistance\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|solutionrelative:services\\users\\users.persistance\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{298B76B6-53A7-4AAB-A196-579B54C98434}|Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.infrastructure\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{298B76B6-53A7-4AAB-A196-579B54C98434}|Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj|solutionrelative:services\\users\\users.infrastructure\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B68F2893-9199-4C08-AC87-286468867925}|Services\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.infrastructure\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B68F2893-9199-4C08-AC87-286468867925}|Services\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|solutionrelative:services\\events\\events.infrastructure\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.domain\\models\\eventparticipant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|solutionrelative:services\\events\\events.domain\\models\\eventparticipant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.api\\dtos\\tokenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|solutionrelative:services\\users\\users.api\\dtos\\tokenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Migrations\\20240924173519_eventsDb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Events\\Events.Persistance\\Migrations\\20240924173519_eventsDb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.api\\dtos\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|solutionrelative:services\\users\\users.api\\dtos\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.api\\authorization\\requirementshandlers\\rolerequirementhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|solutionrelative:services\\users\\users.api\\authorization\\requirementshandlers\\rolerequirementhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.api\\authorization\\requirements\\rolerequirement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|solutionrelative:services\\users\\users.api\\authorization\\requirements\\rolerequirement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C02BEB3-9437-43B8-AA2F-5B8D7BF17D39}|Services\\Users\\Users.Application\\Users.Application.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.application\\users.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1C02BEB3-9437-43B8-AA2F-5B8D7BF17D39}|Services\\Users\\Users.Application\\Users.Application.csproj|solutionrelative:services\\users\\users.application\\users.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{298B76B6-53A7-4AAB-A196-579B54C98434}|Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.infrastructure\\users.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{298B76B6-53A7-4AAB-A196-579B54C98434}|Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj|solutionrelative:services\\users\\users.infrastructure\\users.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.persistance\\configurations\\usersconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|solutionrelative:services\\users\\users.persistance\\configurations\\usersconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.6\\build\\Container.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\events.api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\events.api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\events.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\events.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.persistance\\entities\\refreshtokenentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|solutionrelative:services\\users\\users.persistance\\entities\\refreshtokenentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.domain\\interfaces\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|solutionrelative:services\\users\\users.domain\\interfaces\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.domain\\models\\authmodels\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|solutionrelative:services\\users\\users.domain\\models\\authmodels\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{298B76B6-53A7-4AAB-A196-579B54C98434}|Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.infrastructure\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{298B76B6-53A7-4AAB-A196-579B54C98434}|Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj|solutionrelative:services\\users\\users.infrastructure\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.domain\\interfaces\\repositories\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|solutionrelative:services\\users\\users.domain\\interfaces\\repositories\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Migrations\\20240922025718_DbUsers0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Users\\Users.Persistance\\Migrations\\20240922025718_DbUsers0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.persistance\\configurations\\refreshtokensconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|solutionrelative:services\\users\\users.persistance\\configurations\\refreshtokensconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Migrations\\20240922025522_DbUsers3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Users\\Users.Persistance\\Migrations\\20240922025522_DbUsers3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.domain\\interfaces\\repositories\\irefreshtokensrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|solutionrelative:services\\users\\users.domain\\interfaces\\repositories\\irefreshtokensrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Migrations\\20240922015719_DbUsers1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Users\\Users.Persistance\\Migrations\\20240922015719_DbUsers1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.domain\\interfaces\\authentification\\ijwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|solutionrelative:services\\users\\users.domain\\interfaces\\authentification\\ijwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.domain\\interfaces\\services\\iusersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E115CF1D-64AC-4835-B355-F12E75CD870D}|Services\\Users\\Users.Domain\\Users.Domain.csproj|solutionrelative:services\\users\\users.domain\\interfaces\\services\\iusersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.persistance\\migrations\\20240922025919_dbusers0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDB1DF9B-94E1-404C-B0DB-4B71D70B62B2}|Services\\Users\\Users.Persistance\\Users.Persistance.csproj|solutionrelative:services\\users\\users.persistance\\migrations\\20240922025919_dbusers0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.api\\dtos\\createuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|solutionrelative:services\\users\\users.api\\dtos\\createuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|d:\\c#_projects\\eventsapp\\services\\users\\users.api\\dtos\\updateuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E898771E-C0D6-45EE-8136-2DE56227ADD2}|Services\\Users\\Users.API\\Users.API.csproj|solutionrelative:services\\users\\users.api\\dtos\\updateuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EventsController.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Controllers\\EventsController.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Controllers\\EventsController.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Controllers\\EventsController.cs",
+              "RelativeToolTip": "Services\\Events\\Events.API\\Controllers\\EventsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T12:44:47.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IFileService.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Domain\\Interfaces\\Services\\IFileService.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Domain\\Interfaces\\Services\\IFileService.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Domain\\Interfaces\\Services\\IFileService.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Domain\\Interfaces\\Services\\IFileService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T21:33:44.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EventsService.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Application\\services\\EventsService.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Application\\services\\EventsService.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Application\\services\\EventsService.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Application\\services\\EventsService.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAcwDUAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T16:40:40.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FileService.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Infrastructure\\Services\\FileService.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Infrastructure\\Services\\FileService.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Infrastructure\\Services\\FileService.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Infrastructure\\Services\\FileService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T21:35:11.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApiExtensions.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Extensions\\ApiExtensions.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Extensions\\ApiExtensions.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Extensions\\ApiExtensions.cs",
+              "RelativeToolTip": "Services\\Events\\Events.API\\Extensions\\ApiExtensions.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAuwB8AAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T19:39:46.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Program.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Program.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Program.cs",
+              "RelativeToolTip": "Services\\Events\\Events.API\\Program.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAuwBcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T12:31:03.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EventsDbContext.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\EventsDbContext.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Persistance\\EventsDbContext.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\EventsDbContext.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Persistance\\EventsDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T14:09:25.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EventsRepository.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Repositories\\EventsRepository.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Persistance\\Repositories\\EventsRepository.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Repositories\\EventsRepository.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Persistance\\Repositories\\EventsRepository.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAcwCkAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T12:47:05.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EventEntity.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Entities\\EventEntity.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Persistance\\Entities\\EventEntity.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Entities\\EventEntity.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Persistance\\Entities\\EventEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T16:23:47.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UpdateEventRequest.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Dtos\\UpdateEventRequest.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Dtos\\UpdateEventRequest.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Dtos\\UpdateEventRequest.cs",
+              "RelativeToolTip": "Services\\Events\\Events.API\\Dtos\\UpdateEventRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T17:16:36.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Domain\\Models\\User.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Models\\User.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Domain\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T12:39:55.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "JwtProvider.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Infrastructure\\JwtProvider.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Infrastructure\\JwtProvider.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Infrastructure\\JwtProvider.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Infrastructure\\JwtProvider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T09:32:29.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Dtos\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.API\\Dtos\\LoginRequest.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Dtos\\LoginRequest.cs",
+              "RelativeToolTip": "Services\\Users\\Users.API\\Dtos\\LoginRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T12:50:49.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Application\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Application\\Services\\AuthService.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Application\\Services\\AuthService.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Application\\Services\\AuthService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T17:20:28.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RefreshTokenRepository.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Repositories\\RefreshTokenRepository.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Persistance\\Repositories\\RefreshTokenRepository.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Repositories\\RefreshTokenRepository.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Persistance\\Repositories\\RefreshTokenRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T17:05:56.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UsersRepository.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Repositories\\UsersRepository.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Persistance\\Repositories\\UsersRepository.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Repositories\\UsersRepository.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Persistance\\Repositories\\UsersRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T18:55:36.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UsersDbContext.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\UsersDbContext.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Persistance\\UsersDbContext.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\UsersDbContext.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Persistance\\UsersDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T16:19:46.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UsersService.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Application\\Services\\UsersService.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Application\\Services\\UsersService.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Application\\Services\\UsersService.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Application\\Services\\UsersService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T11:38:35.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.API\\Controllers\\UsersController.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Services\\Users\\Users.API\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAmwF8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T23:33:46.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CreateEventRequest.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Dtos\\CreateEventRequest.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Dtos\\CreateEventRequest.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Dtos\\CreateEventRequest.cs",
+              "RelativeToolTip": "Services\\Events\\Events.API\\Dtos\\CreateEventRequest.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAA1wAoAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T17:16:24.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "JwtOptions.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Infrastructure\\JwtOptions.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Infrastructure\\JwtOptions.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Infrastructure\\JwtOptions.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Infrastructure\\JwtOptions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T08:17:51.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "RoleRequirementHandler.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Authorization\\RequirementsHandlers\\RoleRequirementHandler.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Authorization\\RequirementsHandlers\\RoleRequirementHandler.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Authorization\\RequirementsHandlers\\RoleRequirementHandler.cs",
+              "RelativeToolTip": "Services\\Events\\Events.API\\Authorization\\RequirementsHandlers\\RoleRequirementHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T23:31:19.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "RoleRequirement.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Authorization\\Requirements\\RoleRequirement.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Authorization\\Requirements\\RoleRequirement.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Authorization\\Requirements\\RoleRequirement.cs",
+              "RelativeToolTip": "Services\\Events\\Events.API\\Authorization\\Requirements\\RoleRequirement.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T15:12:55.596Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IEventService.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Domain\\Interfaces\\Services\\IEventService.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Domain\\Interfaces\\Services\\IEventService.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Domain\\Interfaces\\Services\\IEventService.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Domain\\Interfaces\\Services\\IEventService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAkAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T11:25:06.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Events.Persistance.csproj",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Events.Persistance.csproj",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Persistance\\Events.Persistance.csproj",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Events.Persistance.csproj",
+              "RelativeToolTip": "Services\\Events\\Events.Persistance\\Events.Persistance.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-10T22:51:35.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Events.API.csproj",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Events.API.csproj",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Events.API.csproj",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Events.API.csproj",
+              "RelativeToolTip": "Services\\Events\\Events.API\\Events.API.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-10T22:56:03.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Event.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Domain\\Models\\Event.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Domain\\Models\\Event.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Domain\\Models\\Event.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Domain\\Models\\Event.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAQAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T03:26:52.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "IEventsRepository.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Domain\\Interfaces\\Repositories\\IEventsRepository.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Domain\\Interfaces\\Repositories\\IEventsRepository.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Domain\\Interfaces\\Repositories\\IEventsRepository.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Domain\\Interfaces\\Repositories\\IEventsRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAACYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T16:39:30.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Events.Application.csproj",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Application\\Events.Application.csproj",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Application\\Events.Application.csproj",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Application\\Events.Application.csproj",
+              "RelativeToolTip": "Services\\Events\\Events.Application\\Events.Application.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-22T14:52:20.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "D:\\visualst\\ide\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\visualst\\ide\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "D:\\visualst\\ide\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\visualst\\ide\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AQIAAD8JAAAAAAAAAAArwFQJAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-10-10T13:23:21.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "EventsConfiguration.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Configurations\\EventsConfiguration.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Persistance\\Configurations\\EventsConfiguration.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Configurations\\EventsConfiguration.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Persistance\\Configurations\\EventsConfiguration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T12:05:02.845Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\appsettings.Development.json",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\appsettings.Development.json",
+              "RelativeToolTip": "Services\\Events\\Events.API\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-10T12:30:27.126Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\appsettings.json",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\appsettings.json",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\appsettings.json",
+              "RelativeToolTip": "Services\\Events\\Events.API\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-10T12:30:29.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.API\\appsettings.Development.json",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\appsettings.Development.json",
+              "RelativeToolTip": "Services\\Users\\Users.API\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-22T02:24:31.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\appsettings.json",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.API\\appsettings.json",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\appsettings.json",
+              "RelativeToolTip": "Services\\Users\\Users.API\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-22T15:02:03.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "UserEntity.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Entities\\UserEntity.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Persistance\\Entities\\UserEntity.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Entities\\UserEntity.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Persistance\\Entities\\UserEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T16:34:29.84Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "PasswordHasher.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Infrastructure\\PasswordHasher.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Infrastructure\\PasswordHasher.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Infrastructure\\PasswordHasher.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Infrastructure\\PasswordHasher.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T18:59:31.821Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Infrastructure\\Helper\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Infrastructure\\Helper\\MappingProfile.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Infrastructure\\Helper\\MappingProfile.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Infrastructure\\Helper\\MappingProfile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T16:06:34.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "EventParticipant.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Domain\\Models\\EventParticipant.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Domain\\Models\\EventParticipant.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Domain\\Models\\EventParticipant.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Domain\\Models\\EventParticipant.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T17:44:00.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "TokenRequest.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Dtos\\TokenRequest.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.API\\Dtos\\TokenRequest.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Dtos\\TokenRequest.cs",
+              "RelativeToolTip": "Services\\Users\\Users.API\\Dtos\\TokenRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T19:02:50.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "20240924173519_eventsDb.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Migrations\\20240924173519_eventsDb.cs",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.Persistance\\Migrations\\20240924173519_eventsDb.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Migrations\\20240924173519_eventsDb.cs",
+              "RelativeToolTip": "Services\\Events\\Events.Persistance\\Migrations\\20240924173519_eventsDb.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T17:35:19.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "CreateUserRequest.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Dtos\\CreateUserRequest.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.API\\Dtos\\CreateUserRequest.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Dtos\\CreateUserRequest.cs",
+              "RelativeToolTip": "Services\\Users\\Users.API\\Dtos\\CreateUserRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T12:39:43.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "RegisterRequest.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Dtos\\RegisterRequest.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.API\\Dtos\\RegisterRequest.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Dtos\\RegisterRequest.cs",
+              "RelativeToolTip": "Services\\Users\\Users.API\\Dtos\\RegisterRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T12:50:48.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "UpdateUserRequest.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Dtos\\UpdateUserRequest.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.API\\Dtos\\UpdateUserRequest.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Dtos\\UpdateUserRequest.cs",
+              "RelativeToolTip": "Services\\Users\\Users.API\\Dtos\\UpdateUserRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAQAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T12:50:40.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "RoleRequirementHandler.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Authorization\\RequirementsHandlers\\RoleRequirementHandler.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.API\\Authorization\\RequirementsHandlers\\RoleRequirementHandler.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Authorization\\RequirementsHandlers\\RoleRequirementHandler.cs",
+              "RelativeToolTip": "Services\\Users\\Users.API\\Authorization\\RequirementsHandlers\\RoleRequirementHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBJwAoAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T06:50:33.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "RoleRequirement.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Authorization\\Requirements\\RoleRequirement.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.API\\Authorization\\Requirements\\RoleRequirement.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.API\\Authorization\\Requirements\\RoleRequirement.cs",
+              "RelativeToolTip": "Services\\Users\\Users.API\\Authorization\\Requirements\\RoleRequirement.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T15:12:19.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Users.Infrastructure.csproj",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj",
+              "RelativeToolTip": "Services\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-23T13:36:30.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Users.Application.csproj",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Application\\Users.Application.csproj",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Application\\Users.Application.csproj",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Application\\Users.Application.csproj",
+              "RelativeToolTip": "Services\\Users\\Users.Application\\Users.Application.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-23T14:16:20.575Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "UsersConfiguration.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Configurations\\UsersConfiguration.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Persistance\\Configurations\\UsersConfiguration.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Configurations\\UsersConfiguration.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Persistance\\Configurations\\UsersConfiguration.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAIBJwAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T12:52:01.174Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Container.targets",
+              "DocumentMoniker": "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.6\\build\\Container.targets",
+              "ToolTip": "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.6\\build\\Container.targets",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAANYAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-09-22T14:38:05.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Events.API.http",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Events.API.http",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Events.API.http",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Events.API.http",
+              "RelativeToolTip": "Services\\Events\\Events.API\\Events.API.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-09-22T14:39:11.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Events.API",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Events.API.csproj",
+              "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Events.API.csproj",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Events.API.csproj",
+              "RelativeToolTip": "Services\\Events\\Events.API\\Events.API.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-22T14:40:28.006Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Models\\AuthModels\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Domain\\Models\\AuthModels\\RefreshToken.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Models\\AuthModels\\RefreshToken.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Domain\\Models\\AuthModels\\RefreshToken.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T16:15:54.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "RefreshTokenEntity.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Entities\\RefreshTokenEntity.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Persistance\\Entities\\RefreshTokenEntity.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Entities\\RefreshTokenEntity.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Persistance\\Entities\\RefreshTokenEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T16:40:26.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Interfaces\\Services\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Domain\\Interfaces\\Services\\IAuthService.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Interfaces\\Services\\IAuthService.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Domain\\Interfaces\\Services\\IAuthService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T01:52:40.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Infrastructure\\Helper\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Infrastructure\\Helper\\MappingProfile.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Infrastructure\\Helper\\MappingProfile.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Infrastructure\\Helper\\MappingProfile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T16:15:07.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "IUsersRepository.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Interfaces\\Repositories\\IUsersRepository.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Domain\\Interfaces\\Repositories\\IUsersRepository.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Interfaces\\Repositories\\IUsersRepository.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Domain\\Interfaces\\Repositories\\IUsersRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAcAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T16:54:55.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "20240922025919_DbUsers0.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Migrations\\20240922025919_DbUsers0.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Persistance\\Migrations\\20240922025919_DbUsers0.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Migrations\\20240922025919_DbUsers0.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Persistance\\Migrations\\20240922025919_DbUsers0.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T02:59:19.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "20240922025522_DbUsers3.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Migrations\\20240922025522_DbUsers3.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Persistance\\Migrations\\20240922025522_DbUsers3.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Migrations\\20240922025522_DbUsers3.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Persistance\\Migrations\\20240922025522_DbUsers3.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T02:55:23.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "20240922025718_DbUsers0.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Migrations\\20240922025718_DbUsers0.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Persistance\\Migrations\\20240922025718_DbUsers0.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Migrations\\20240922025718_DbUsers0.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Persistance\\Migrations\\20240922025718_DbUsers0.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T02:57:19.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "RefreshTokensConfiguration.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Configurations\\RefreshTokensConfiguration.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Persistance\\Configurations\\RefreshTokensConfiguration.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Configurations\\RefreshTokensConfiguration.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Persistance\\Configurations\\RefreshTokensConfiguration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T16:20:37.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "IRefreshTokensRepository.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Interfaces\\Repositories\\IRefreshTokensRepository.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Domain\\Interfaces\\Repositories\\IRefreshTokensRepository.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Interfaces\\Repositories\\IRefreshTokensRepository.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Domain\\Interfaces\\Repositories\\IRefreshTokensRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAUAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T16:55:23.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "20240922015719_DbUsers1.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Migrations\\20240922015719_DbUsers1.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Persistance\\Migrations\\20240922015719_DbUsers1.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Persistance\\Migrations\\20240922015719_DbUsers1.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Persistance\\Migrations\\20240922015719_DbUsers1.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T01:57:20.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "IJwtProvider.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Interfaces\\Authentification\\IJwtProvider.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Domain\\Interfaces\\Authentification\\IJwtProvider.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Interfaces\\Authentification\\IJwtProvider.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Domain\\Interfaces\\Authentification\\IJwtProvider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T19:06:33.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "IUsersService.cs",
+              "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Interfaces\\Services\\IUsersService.cs",
+              "RelativeDocumentMoniker": "Services\\Users\\Users.Domain\\Interfaces\\Services\\IUsersService.cs",
+              "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Domain\\Interfaces\\Services\\IUsersService.cs",
+              "RelativeToolTip": "Services\\Users\\Users.Domain\\Interfaces\\Services\\IUsersService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAACHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T12:41:57.179Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 246,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\bin\Debug\net8.0\Users.Persistance.deps.json
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\bin\Debug\net8.0\Users.Persistance.runtimeconfig.json
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\bin\Debug\net8.0\Users.Persistance.dll
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\bin\Debug\net8.0\Users.Persistance.pdb
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\bin\Debug\net8.0\Users.Domain.dll
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\bin\Debug\net8.0\Users.Domain.pdb
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Persistance.csproj.AssemblyReference.cache
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Persistance.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Persistance.AssemblyInfoInputs.cache
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Persistance.AssemblyInfo.cs
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Persistance.csproj.CoreCompileInputs.cache
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Pe.D3FC58BE.Up2Date
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Persistance.dll
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\refint\Users.Persistance.dll
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Persistance.pdb
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Persistance.genruntimeconfig.cache
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\ref\Users.Persistance.dll
