@@ -12,6 +12,7 @@
           "Events.Application": "1.0.0",
           "Events.Infrastructure": "1.0.0",
           "Events.Persistance": "1.0.0",
+          "Gridify": "2.14.2",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.8",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
@@ -39,6 +40,17 @@
           "lib/net6.0/BCrypt.Net-Next.dll": {
             "assemblyVersion": "4.0.3.0",
             "fileVersion": "4.0.3.0"
+          }
+        }
+      },
+      "Gridify/2.14.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Gridify.dll": {
+            "assemblyVersion": "2.14.2.0",
+            "fileVersion": "2.14.2.0"
           }
         }
       },
@@ -715,6 +727,7 @@
         "dependencies": {
           "AutoMapper": "13.0.1",
           "Events.Domain": "1.0.0",
+          "Gridify": "2.14.2",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.10"
         },
         "runtime": {
@@ -724,6 +737,7 @@
       "Events.Domain/1.0.0": {
         "dependencies": {
           "AutoMapper": "13.0.1",
+          "Gridify": "2.14.2",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.10"
         },
         "runtime": {
@@ -809,6 +823,13 @@
       "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
       "path": "bcrypt.net-next/4.0.3",
       "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
+    "Gridify/2.14.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hqP/0z5YdT6RBe0S6aE/Y6GoKOr9j/Mt7Gvh6v4SNH1BmBlUV2OA0WH7DXhcomePfz1X1XlrS/akaxXZWDy8iQ==",
+      "path": "gridify/2.14.2",
+      "hashPath": "gridify.2.14.2.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

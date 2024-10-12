@@ -1,6 +1,7 @@
 ﻿using Events.Domain.Interfaces.Repositories;
 using Events.Domain.Interfaces.Services;
 using Events.Domain.Models;
+using Gridify;
 using Microsoft.AspNetCore.Http;
 
 namespace Events.Application.services
@@ -15,7 +16,7 @@ namespace Events.Application.services
             _fileService = fileService;
         }
 
-        public async Task<List<Event>> GetAllEvents()
+        public async Task<List<Event>> GetEvents()
         {
             return await _eventsRepository.Get();
         }
@@ -65,5 +66,6 @@ namespace Events.Application.services
         {
             return _eventsRepository.GetById(id);
         }
+
     }
 }

@@ -31,6 +31,18 @@
           }
         }
       },
+      "Gridify/2.14.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "[8.0.0, 9.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/Gridify.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Gridify.dll": {}
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1232,6 +1244,7 @@
         "dependencies": {
           "AutoMapper": "13.0.1",
           "Events.Domain": "1.0.0",
+          "Gridify": "2.14.2",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.10"
         },
         "compile": {
@@ -1246,6 +1259,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "AutoMapper": "13.0.1",
+          "Gridify": "2.14.2",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.10"
         },
         "compile": {
@@ -1388,6 +1402,23 @@
         "lib/netstandard2.1/BCrypt.Net-Next.dll",
         "lib/netstandard2.1/BCrypt.Net-Next.xml",
         "readme.md"
+      ]
+    },
+    "Gridify/2.14.2": {
+      "sha512": "hqP/0z5YdT6RBe0S6aE/Y6GoKOr9j/Mt7Gvh6v4SNH1BmBlUV2OA0WH7DXhcomePfz1X1XlrS/akaxXZWDy8iQ==",
+      "type": "package",
+      "path": "gridify/2.14.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "gridify.2.14.2.nupkg.sha512",
+        "gridify.nuspec",
+        "lib/net6.0/Gridify.dll",
+        "lib/net7.0/Gridify.dll",
+        "lib/net8.0/Gridify.dll",
+        "lib/netstandard2.0/Gridify.dll",
+        "lib/netstandard2.1/Gridify.dll"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -3617,6 +3648,7 @@
       "Events.Application >= 1.0.0",
       "Events.Infrastructure >= 1.0.0",
       "Events.Persistance >= 1.0.0",
+      "Gridify >= 2.14.2",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 8.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.8",
       "Microsoft.Extensions.DependencyInjection >= 8.0.0",
@@ -3685,6 +3717,10 @@
           "AutoMapper": {
             "target": "Package",
             "version": "[13.0.1, )"
+          },
+          "Gridify": {
+            "target": "Package",
+            "version": "[2.14.2, )"
           },
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",

@@ -15,3 +15,4 @@ D:\C#_projects\EventsApp\Services\Events\Events.Persistance\obj\Debug\net8.0\Eve
 D:\C#_projects\EventsApp\Services\Events\Events.Persistance\obj\Debug\net8.0\Events.P.21FDC6FC.Up2Date
 D:\C#_projects\EventsApp\Services\Events\Events.Persistance\bin\Debug\net8.0\Events.Persistance.runtimeconfig.json
 D:\C#_projects\EventsApp\Services\Events\Events.Persistance\obj\Debug\net8.0\Events.Persistance.genruntimeconfig.cache
+D:\C#_projects\EventsApp\Services\Events\Events.Persistance\obj\Debug\net8.0\Events.Persistance.sourcelink.json

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "g7O2VHPfc5whuSAHK7q6P9t5Inr85duAiPrOpGaxaNWxCUk9vlBDTG4XN6Q6+PHWoSemz8yFVHl/y3QKizxWBQ==",
+  "dgSpecHash": "e1dpWH2L1waoenHsE88dpUFH2t3CEYMwiyJ4Sv6Bn1xO9ckefpKN9URgkbcyJqAdTzBgHzHHX6HYDWLJAeZBdw==",
   "success": true,
   "projectFilePath": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Events.Persistance.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\p3r3furgon\\.nuget\\packages\\gridify\\2.14.2\\gridify.2.14.2.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.10\\microsoft.aspnetcore.jsonpatch.8.0.10.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\8.0.10\\microsoft.aspnetcore.mvc.newtonsoftjson.8.0.10.nupkg.sha512",

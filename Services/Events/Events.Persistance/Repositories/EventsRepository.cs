@@ -4,6 +4,7 @@ using Events.Domain.Models;
 using Events.Persistance.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace Events.Persistance.Repositories
 {
@@ -26,9 +27,8 @@ namespace Events.Persistance.Repositories
 
         public async Task<List<Event>> Get()
         {
-            var eventsEntities = await _context.Events.Include(e => e.Participants).ToListAsync();
+            var eventsEntities = await _context.Events.ToListAsync();
             var events = _mapper.Map<List<EventEntity>, List<Event>>(eventsEntities);
-
             return events;
         }
 

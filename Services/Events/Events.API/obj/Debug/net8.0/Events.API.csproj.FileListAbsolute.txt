@@ -131,3 +131,5 @@ D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\Microsoft.A
 D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\Gridify.dll
+D:\C#_projects\EventsApp\Services\Events\Events.API\obj\Debug\net8.0\Events.API.sourcelink.json

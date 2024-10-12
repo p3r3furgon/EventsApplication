@@ -1,5 +1,5 @@
 ﻿using Events.Domain.Models;
-using Microsoft.AspNetCore.Http;
+using Gridify;
 
 namespace Events.Domain.Interfaces.Services
 {
@@ -7,7 +7,7 @@ namespace Events.Domain.Interfaces.Services
     {
         Task<Guid> CreateEvent(Event @event);
         Task<Guid> DeleteEvent(Guid id);
-        Task<List<Event>> GetAllEvents();
+        Task<List<Event>> GetEvents();
         Task<Event> GetEventById(Guid id);
         Task<string> RegisterUserOnEvent(Guid eventId, string firstName, string surname, string email, string userId);
         Task<string> UnsubscribeFromEvent(Guid eventId, Guid userId);

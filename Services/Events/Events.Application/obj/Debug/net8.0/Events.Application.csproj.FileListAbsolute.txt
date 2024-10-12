@@ -13,3 +13,4 @@ D:\C#_projects\EventsApp\Services\Events\Events.Application\bin\Debug\net8.0\Eve
 D:\C#_projects\EventsApp\Services\Events\Events.Application\bin\Debug\net8.0\Events.Domain.pdb
 D:\C#_projects\EventsApp\Services\Events\Events.Application\obj\Debug\net8.0\Events.Application.csproj.AssemblyReference.cache
 D:\C#_projects\EventsApp\Services\Events\Events.Application\obj\Debug\net8.0\Events.A.254B4014.Up2Date
+D:\C#_projects\EventsApp\Services\Events\Events.Application\obj\Debug\net8.0\Events.Application.sourcelink.json

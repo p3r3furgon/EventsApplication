@@ -10,3 +10,4 @@ D:\C#_projects\EventsApp\Services\Events\Events.Domain\obj\Debug\net8.0\refint\E
 D:\C#_projects\EventsApp\Services\Events\Events.Domain\obj\Debug\net8.0\Events.Domain.pdb
 D:\C#_projects\EventsApp\Services\Events\Events.Domain\obj\Debug\net8.0\ref\Events.Domain.dll
 D:\C#_projects\EventsApp\Services\Events\Events.Domain\obj\Debug\net8.0\Events.Domain.csproj.AssemblyReference.cache
+D:\C#_projects\EventsApp\Services\Events\Events.Domain\obj\Debug\net8.0\Events.Domain.sourcelink.json

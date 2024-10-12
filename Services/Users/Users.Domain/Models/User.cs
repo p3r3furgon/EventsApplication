@@ -1,8 +1,10 @@
-﻿namespace Users.Domain.Models
+﻿using System.Runtime.InteropServices;
+
+namespace Users.Domain.Models
 {
     public class User
     {
-        public User(Guid id, string firstName, string surname, 
+        private User(Guid id, string firstName, string surname, 
             DateTime birthDate, string email, string passwordHash, string role)
         {
             Id = id;
@@ -21,6 +23,13 @@
         public string Email { get; } = string.Empty;
         public string PasswordHash { get; } = string.Empty;
         public string Role { get; } = string.Empty;
+
+        public static User Create(Guid id, string firstName, string surname,
+            DateTime birthDate, string email, string passwordHash, string role)
+        {
+            return new User(id, firstName, surname, birthDate, email, passwordHash, role);
+        }
+
 
     }
 }

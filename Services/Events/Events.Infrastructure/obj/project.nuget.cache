@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "9aTTk4bklH8J40Uc5DcVqUaVz2WKoOzbZcmsSonkJCJkfwRflGa6H4kqOkCirhaTvSc8iBTeIR/10KUG1sosug==",
+  "dgSpecHash": "zZC+Pr15mFBLAnKo5RiOIJD2COF+Pjne1Ewa7zAuaSF4yZqxrLuOxx2rwnaMBpLnMpnIsYjmySBWvFI9RpvNGQ==",
   "success": true,
   "projectFilePath": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\p3r3furgon\\.nuget\\packages\\gridify\\2.14.2\\gridify.2.14.2.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.10\\microsoft.aspnetcore.jsonpatch.8.0.10.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\8.0.10\\microsoft.aspnetcore.mvc.newtonsoftjson.8.0.10.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

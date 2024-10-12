@@ -28,7 +28,7 @@ namespace Users.Application.Services
         public async Task<Guid> CreateUser(string firstName, string surname, DateTime birthDate, string email, string password, string role)
         {
             string passwordHash = _passwordHasher.Generate(password);
-            var user = new User(Guid.NewGuid(), firstName, surname, birthDate, email, passwordHash, role);
+            var user = User.Create(Guid.NewGuid(), firstName, surname, birthDate, email, passwordHash, role);
             return await _usersRepository.Create(user);
         }
 
@@ -51,7 +51,7 @@ namespace Users.Application.Services
                 if (us.Email == email)
                     throw new Exception("This email is already used");
             }
-            var user = new User(Guid.NewGuid(), firstName, surname, birthDate, email, passwordHash, "User");
+            var user = User.Create(Guid.NewGuid(), firstName, surname, birthDate, email, passwordHash, "User");
             await _usersRepository.Create(user);
         }
 

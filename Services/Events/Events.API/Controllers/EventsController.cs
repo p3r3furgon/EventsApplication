@@ -1,6 +1,7 @@
 using Events.API.Dtos;
 using Events.Domain.Interfaces.Services;
 using Events.Domain.Models;
+using Gridify;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,9 +23,15 @@ namespace Events.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ICollection<Event>> GetAllEvents()
+        public async Task<IActionResult> GetEvents([FromQuery] GridifyQuery gridifyQuery)
         {
-            return await _eventsService.GetAllEvents();
+            var events = await _eventsService.GetEvents();
+            var result = events.AsQueryable()
+                          .ApplyFiltering(gridifyQuery)
+                          .ApplyOrdering(gridifyQuery)
+                          .ApplyPaging(gridifyQuery.Page, gridifyQuery.PageSize);
+
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
