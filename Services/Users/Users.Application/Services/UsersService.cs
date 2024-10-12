@@ -25,14 +25,7 @@ namespace Users.Application.Services
             return await _usersRepository.Get();
         }
 
-        public async Task<Guid> CreateUser(string firstName, string surname, DateTime birthDate, string email, string password, string role)
-        {
-            string passwordHash = _passwordHasher.Generate(password);
-            var user = User.Create(Guid.NewGuid(), firstName, surname, birthDate, email, passwordHash, role);
-            return await _usersRepository.Create(user);
-        }
-
-        public async Task<Guid> UpdateUser(Guid id, string firstName, string surname, DateTime birthDate, string email, string password, string role)
+        public async Task<Guid> UpdateUser(Guid id, string firstName, string surname, DateOnly? birthDate, string email, string password, string role)
         {
             return await _usersRepository.Update(id, firstName, surname, birthDate, email, _passwordHasher.Generate(password), role);
         }
@@ -42,7 +35,7 @@ namespace Users.Application.Services
             return await _usersRepository.Delete(id);
         }
 
-        public async Task Register(string firstName, string surname, DateTime birthDate, string email, string password)
+        public async Task Register(string firstName, string surname, DateOnly birthDate, string email, string password)
         {
             string passwordHash = _passwordHasher.Generate(password);
             var users = await _usersRepository.Get();

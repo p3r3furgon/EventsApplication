@@ -7,7 +7,8 @@ namespace Users.Domain.Interfaces.Repositories
         Task<ICollection<User>> Get();
         Task<Guid> Create(User user);
         Task<Guid> Delete(Guid id);
-        Task<Guid> Update(Guid id, string firstName, string surname, DateTime birthDate, string email, string passwordHash, string role);
+        Task<Guid> Update(Guid id, string firstName, string surname, DateOnly? birthDate, string email, string passwordHash, string role);
         Task<User> GetByEmail(string email);
+        Task<User> GetById(Guid id);
     }
 }

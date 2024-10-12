@@ -26,7 +26,6 @@ namespace Users.Persistance.Repositories
         public async Task<RefreshToken> Get(string refreshToken)
         {
             var refreshTokenEntity = await _context.RefreshTokens.SingleOrDefaultAsync(rt => rt.Token == refreshToken);
-            //var refreshToken1 = new RefreshToken(refreshTokenEntity.Id, refreshTokenEntity.Token, refreshTokenEntity.UserEmail, refreshTokenEntity.UserRole, refreshTokenEntity.ExpirationDate);
             return _mapper.Map<RefreshToken>(refreshTokenEntity);
         }
 

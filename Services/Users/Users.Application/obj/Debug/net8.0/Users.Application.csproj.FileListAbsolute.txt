@@ -15,3 +15,4 @@ D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users
 D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\refint\Users.Application.dll
 D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users.Application.pdb
 D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\ref\Users.Application.dll
+D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users.Application.sourcelink.json

@@ -9,9 +9,9 @@ namespace Events.Domain.Interfaces.Services
         Task<Guid> DeleteEvent(Guid id);
         Task<List<Event>> GetEvents();
         Task<Event> GetEventById(Guid id);
-        Task<string> RegisterUserOnEvent(Guid eventId, string firstName, string surname, string email, string userId);
-        Task<string> UnsubscribeFromEvent(Guid eventId, Guid userId);
-        Task<Guid> UpdateEvent(Guid id, string title, string description, DateTime dateTime, string category, string place, int maxParticipantsNumber, string image);
+        Task RegisterUserOnEvent(Guid eventId, string firstName, string surname, string email, string userId);
+        Task UnsubscribeFromEvent(Guid eventId, Guid userId);
+        Task<Guid> UpdateEvent(Guid id, string title, string description, DateTime? dateTime, string category, string place, int? maxParticipantsNumber, string image);
     }
 
 }

@@ -13,6 +13,6 @@ namespace Events.Persistance.Entities
         public string Category { get; set; } = string.Empty;
         public int MaxParticipantNumber { get; set; }
         public ICollection<ParticipantEntity> Participants { get; set; } = new List<ParticipantEntity>();
-        public string? Image { get; set; } = string.Empty;
+        public string Image { get; set; } = string.Empty;
     }
 }

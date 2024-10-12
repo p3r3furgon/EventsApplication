@@ -49,18 +49,18 @@ namespace Events.Persistance.Repositories
             return id;
         }
 
-        public async Task<Guid> Update(Guid id, string title, string description, DateTime dateTime, string category, string place, int maxParticipantsNumber, string image)
+        public async Task<Guid> Update(Guid id, string title, string description, DateTime? dateTime, string category, string place, int? maxParticipantsNumber, string image)
         {
-            await _context.Events
-                .Where(u => u.Id == id)
-                .ExecuteUpdateAsync(u => u
-                    .SetProperty(p => p.Title, p => title)
-                    .SetProperty(p => p.Description, p => description)
-                    .SetProperty(p => p.DateTime, p => dateTime)
-                    .SetProperty(p => p.Category, p => category)
-                    .SetProperty(p => p.Place, p => place)
-                    .SetProperty(p => p.Image, p => image)
-                    .SetProperty(p => p.MaxParticipantNumber, p => maxParticipantsNumber));
+            var eventEntity = await _context.Events.FindAsync(id);
+
+            if (eventEntity == null)
+                throw new Exception("There is no event with this id");
+            eventEntity.Title = (string.IsNullOrEmpty(title)) ? eventEntity.Title : title;
+            eventEntity.Description = (string.IsNullOrEmpty(description)) ? eventEntity.Description : description;
+            eventEntity.DateTime = dateTime ?? eventEntity.DateTime;
+            eventEntity.Category = (string.IsNullOrEmpty(category)) ? eventEntity.Category : category;
+            eventEntity.Place = (string.IsNullOrEmpty(place)) ? eventEntity.Place : place;
+            eventEntity.Image = (string.IsNullOrEmpty(image)) ? eventEntity.Image : image;
             return id;
         }
 

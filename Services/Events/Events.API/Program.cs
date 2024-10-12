@@ -11,6 +11,10 @@ using Events.API.Extensions;
 using Events.Infrastructure.Helper;
 using Microsoft.Extensions.FileProviders;
 using Events.Infrastructure.Services;
+using FluentValidation;
+using Events.API.Dtos;
+using Events.API.Validators;
+using Events.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +32,9 @@ builder.Services.AddApiAuthentification(builder.Configuration);
 
 builder.Services.AddScoped<IEventsService, EventsService>();
 builder.Services.AddScoped<IEventsRepository, EventsRepository>();
-builder.Services.AddTransient<IFileService, FileService>();
+builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IValidator<CreateEventRequest>, CreateEventRequestValidator>();
+builder.Services.AddScoped<IValidator<UpdateEventRequest>, UpdateEventRequestValidator>();
 
 builder.Services.AddCors(options =>
 {
@@ -91,6 +97,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.MapControllers();
 

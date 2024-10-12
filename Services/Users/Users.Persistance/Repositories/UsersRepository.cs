@@ -24,6 +24,15 @@ namespace Users.Persistance.Repositories
             return users;
         }
 
+        public async Task<User> GetById(Guid id)
+        {
+            var userEntity = await _context.Users.FindAsync(id);
+            if (userEntity == null)
+                throw new Exception("There is no user with this id");
+            var user = _mapper.Map<User>(userEntity);
+            return user;
+        }
+
         public async Task<Guid> Create(User user)
         {
             var userEntity = _mapper.Map<UserEntity>(user);
@@ -41,17 +50,18 @@ namespace Users.Persistance.Repositories
             return id;
         }
 
-        public async Task<Guid> Update(Guid id, string firstName, string surname, DateTime birthDate, string email, string passwordHash, string role)
+        public async Task<Guid> Update(Guid id, string firstName, string surname, DateOnly? birthDate, string email, string passwordHash, string role)
         {
-            await _context.Users
-                .Where(u => u.Id == id)
-                .ExecuteUpdateAsync(u => u
-                    .SetProperty(p => p.FirstName, p => firstName)
-                    .SetProperty(p => p.Surname, p => surname)
-                    .SetProperty(p => p.BirthDate, p => birthDate)
-                    .SetProperty(p => p.Email, p => email)
-                    .SetProperty(p => p.PasswordHash, p => passwordHash)
-                    .SetProperty(p => p.Role, p => role));
+            var userEntity = await _context.Users.FindAsync(id);
+            if (userEntity == null)
+                throw new Exception("There is no user with this id");
+
+            userEntity.FirstName = (string.IsNullOrEmpty(firstName)) ? userEntity.FirstName : firstName;
+            userEntity.Surname = (string.IsNullOrEmpty(surname)) ? userEntity.Surname : surname;
+            userEntity.BirthDate = birthDate ?? userEntity.BirthDate;
+            userEntity.Email = (string.IsNullOrEmpty(email)) ? userEntity.Email : email;
+            userEntity.PasswordHash = (string.IsNullOrEmpty(passwordHash)) ? userEntity.PasswordHash : passwordHash;
+            userEntity.Role = (string.IsNullOrEmpty(role)) ? userEntity.Role : role;
             await _context.SaveChangesAsync();
             return id;
         }
@@ -59,7 +69,7 @@ namespace Users.Persistance.Repositories
         public async Task<User> GetByEmail(string email)
         {
             var userEntity = await _context.Users
-                .FirstOrDefaultAsync(u => u.Email == email) ?? throw new Exception();
+                .FirstOrDefaultAsync(u => u.Email == email) ?? throw new Exception("There is no user with this email");
             return _mapper.Map<User>(userEntity);
         }
 

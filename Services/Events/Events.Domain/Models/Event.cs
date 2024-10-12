@@ -12,7 +12,7 @@ namespace Events.Domain.Models
         public string Category { get; } = string.Empty;
         public int MaxParticipantNumber { get; }
         public ICollection<Participant> Participants { get; set; } = new List<Participant>();
-        public string? Image { get; } = string.Empty;
+        public string Image { get; } = string.Empty;
     
 
         private Event(Guid id, string title, string description, DateTime dateTime,

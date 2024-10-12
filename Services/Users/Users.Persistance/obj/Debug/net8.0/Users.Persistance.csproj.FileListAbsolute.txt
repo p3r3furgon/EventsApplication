@@ -15,3 +15,4 @@ D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\refin
 D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Persistance.pdb
 D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Persistance.genruntimeconfig.cache
 D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\ref\Users.Persistance.dll
+D:\C#_projects\EventsApp\Services\Users\Users.Persistance\obj\Debug\net8.0\Users.Persistance.sourcelink.json

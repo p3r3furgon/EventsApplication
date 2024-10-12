@@ -20,8 +20,7 @@ namespace Events.Persistance.Configurations
                 .IsRequired();
 
             builder.Property(e => e.Description)
-                .HasMaxLength(1000)
-                .IsRequired();
+                .HasMaxLength(1000);
 
             builder.Property(e => e.Category)
                 .HasMaxLength(50);

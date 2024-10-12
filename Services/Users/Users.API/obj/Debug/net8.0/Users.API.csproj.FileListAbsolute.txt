@@ -127,3 +127,6 @@ D:\C#_projects\EventsApp\Services\Users\Users.API\bin\Debug\net8.0\Microsoft.Asp
 D:\C#_projects\EventsApp\Services\Users\Users.API\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\C#_projects\EventsApp\Services\Users\Users.API\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\C#_projects\EventsApp\Services\Users\Users.API\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\C#_projects\EventsApp\Services\Users\Users.API\bin\Debug\net8.0\FluentValidation.dll
+D:\C#_projects\EventsApp\Services\Users\Users.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\C#_projects\EventsApp\Services\Users\Users.API\obj\Debug\net8.0\Users.API.sourcelink.json

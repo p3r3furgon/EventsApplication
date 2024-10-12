@@ -4,8 +4,8 @@ using Microsoft.Extensions.Options;
 using System.Net;
 using System.Security.Claims;
 using Users.API.Dtos;
+using Users.API.Validators;
 using Users.Domain.Interfaces.Services;
-using Users.Domain.Models;
 using Users.Domain.Models.AuthModels;
 using Users.Infrastructure;
 
@@ -27,15 +27,30 @@ namespace Users.API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IResult> Register([FromBody] RegisterRequest registerRequest)
+        public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
         {
-            await _usersService.Register(registerRequest.FirstName, registerRequest.Surname, registerRequest.BirthDate, registerRequest.Email, registerRequest.Password);
-            return Results.Ok();
+            RegisterRequestValidator validator = new();
+            var results = validator.Validate(registerRequest);
+            if(!results.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, results.Errors);
+            }
+
+            await _usersService.Register(registerRequest.FirstName, registerRequest.Surname,
+                registerRequest.BirthDate, registerRequest.Email, registerRequest.Password);
+            return StatusCode(StatusCodes.Status200OK);
         }
 
         [HttpPost("login")]
-        public async Task<IResult> Login([FromBody] LoginRequest loginRequest)
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
+            LoginRequestValidator validator = new();
+            var results = validator.Validate(loginRequest);
+            if (!results.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, results.Errors);
+            }
+
             var tokens = await _usersService.Login(loginRequest.Email, loginRequest.Password);
             var accessToken = tokens.Item1;
             var refreshToken = tokens.Item2;
@@ -53,7 +68,7 @@ namespace Users.API.Controllers
             var responce = new Dictionary<string, string> { };
             responce["access_token"] = accessToken;
             responce["refresh_token"] = refreshToken;
-            return Results.Ok(responce);
+            return StatusCode(StatusCodes.Status200OK, responce);
         }
 
         [HttpPost("refresh")]
@@ -87,36 +102,39 @@ namespace Users.API.Controllers
             return Ok(new { AccessToken = newAccessToken, RefreshToken = newRefreshToken });
         }
 
-
         [HttpGet]
         [Authorize]
-        public async Task<ICollection<User>> GetUsers()
+        public async Task<IActionResult> GetUsers()
         {
-            return await _usersService.GetUsers(); 
-        }
-
-        [HttpPost]
-        [Authorize(Policy = "Admin")]
-        public async Task<Guid> CreateUser([FromBody] CreateUserRequest createUser)
-        {
-            return await _usersService.CreateUser(createUser.FirstName, createUser.Surname,
-                createUser.BirthDate, createUser.Email, createUser.Password, createUser.Role);
+            var users = await _usersService.GetUsers();
+            return StatusCode(StatusCodes.Status200OK, users);
         }
 
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<Guid> UpdateUser(Guid id, [FromBody] UpdateUserRequest updateUser)
+        public async Task<IActionResult> UpdateUser(Guid id, [FromBody] UpdateUserRequest updateUser)
         {
-            return await _usersService.UpdateUser(id, updateUser.FirstName, updateUser.Surname,
+            UpdateUserRequestValidator validator = new();
+            var results = validator.Validate(updateUser);
+            if (!results.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, results.Errors);
+            }
+
+            var userId = await _usersService.UpdateUser(id, updateUser.FirstName, updateUser.Surname,
                 updateUser.BirthDate, updateUser.Email, updateUser.Password, updateUser.Role);
+            return StatusCode(StatusCodes.Status200OK, userId);
         }
 
         [HttpDelete("{id}")]
         [Authorize]
-        public async Task<Guid> DeleteUser(Guid id)
+        public async Task<IActionResult> DeleteUser(Guid id)
         {
-            return await _usersService.DeleteUser(id);
+            var userId = await _usersService.DeleteUser(id);
+            return StatusCode(StatusCodes.Status200OK, userId);
         }
+
+        
 
     }
 }

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "neXIY0zeBpeHOJaHYTnDg3lN7luMnIZ3t3BL5EfqWswVSw4AwcY1d0WJGbht9tpIeP+ULXfSHOp1bYOxrlVhLw==",
+  "dgSpecHash": "+dAs5ju1EoVuBPei2Zmzel+JQodEjTXjZu2Sty6UrHPAgZ1pOibIQJB4gH0w0LVsYlo94l/CDspWbw+tYDd2Kw==",
   "success": true,
   "projectFilePath": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Application\\Events.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\p3r3furgon\\.nuget\\packages\\fluentvalidation\\11.10.0\\fluentvalidation.11.10.0.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\gridify\\2.14.2\\gridify.2.14.2.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.10\\microsoft.aspnetcore.jsonpatch.8.0.10.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\8.0.10\\microsoft.aspnetcore.mvc.newtonsoftjson.8.0.10.nupkg.sha512",

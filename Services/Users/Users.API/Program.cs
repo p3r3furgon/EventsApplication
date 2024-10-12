@@ -11,15 +11,15 @@ using Users.API.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Users.API.Authorization.RequirementsHandlers;
 using Microsoft.OpenApi.Models;
+using FluentValidation;
+using Users.API.Validators;
+using Users.API.Dtos;
+using Users.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
- 
 
 builder.Services.AddDbContext<UsersDbContext>(options =>
 {
@@ -36,6 +36,11 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
+
+builder.Services.AddScoped<IValidator<RegisterRequest>, RegisterRequestValidator>();
+builder.Services.AddScoped<IValidator<LoginRequest>, LoginRequestValidator>();
+builder.Services.AddScoped<IValidator<UpdateUserRequest>, UpdateUserRequestValidator>();
+
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddApiAuthentification(builder.Configuration);
@@ -72,8 +77,6 @@ builder.Services.AddSwaggerGen(options =>
 });
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -85,6 +88,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.MapControllers();
 
