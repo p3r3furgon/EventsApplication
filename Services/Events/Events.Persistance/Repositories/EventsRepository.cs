@@ -61,6 +61,7 @@ namespace Events.Persistance.Repositories
             eventEntity.Category = (string.IsNullOrEmpty(category)) ? eventEntity.Category : category;
             eventEntity.Place = (string.IsNullOrEmpty(place)) ? eventEntity.Place : place;
             eventEntity.Image = (string.IsNullOrEmpty(image)) ? eventEntity.Image : image;
+            await _context.SaveChangesAsync();
             return id;
         }
 

@@ -1,0 +1,5 @@
+D:\C#_projects\EventsApp\Notification.Infrastructure\obj\Debug\net8.0\Notification.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#_projects\EventsApp\Notification.Infrastructure\obj\Debug\net8.0\Notification.Infrastructure.AssemblyInfoInputs.cache
+D:\C#_projects\EventsApp\Notification.Infrastructure\obj\Debug\net8.0\Notification.Infrastructure.AssemblyInfo.cs
+D:\C#_projects\EventsApp\Notification.Infrastructure\obj\Debug\net8.0\Notification.Infrastructure.csproj.CoreCompileInputs.cache
+D:\C#_projects\EventsApp\Notification.Infrastructure\obj\Debug\net8.0\Notification.Infrastructure.sourcelink.json

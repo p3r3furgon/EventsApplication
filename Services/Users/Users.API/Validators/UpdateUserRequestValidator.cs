@@ -9,10 +9,12 @@ namespace Users.API.Validators
         {
             RuleFor(request => request.FirstName)
                  .Length(1, 100).WithMessage("First name length must be between 1 and 50")
+                 .Matches("^[a-zA-Z]*$").WithMessage("First name format is incorrect")
                  .When(request => !string.IsNullOrEmpty(request.FirstName));
 
             RuleFor(request => request.Surname)
                  .Length(1, 100).WithMessage("surname length must be between 1 and 50")
+                 .Matches("^[a-zA-Z]*$").WithMessage("Surname format is incorrect")
                  .When(request => !string.IsNullOrEmpty(request.Surname));
 
             RuleFor(request => request.Email)

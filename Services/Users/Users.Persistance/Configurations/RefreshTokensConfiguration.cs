@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Users.Persistance.Entities;
 
 namespace Users.Persistance.Configurations
 {
-    public  class RefreshTokensConfiguration
+    public  class RefreshTokensConfiguration: IEntityTypeConfiguration<RefreshTokenEntity>
     {
         public void Configure(EntityTypeBuilder<RefreshTokenEntity> builder)
         {

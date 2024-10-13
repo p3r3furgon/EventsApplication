@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Reflection.Metadata;
 using Users.Domain.Models;
-using Users.Domain.Models.AuthModels;
 using Users.Persistance.Entities;
 
 namespace Users.Persistance.Configurations

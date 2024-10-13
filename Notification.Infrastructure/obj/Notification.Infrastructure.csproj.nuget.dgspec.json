@@ -1,0 +1,205 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\C#_projects\\EventsApp\\Notification.Infrastructure\\Notification.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "D:\\C#_projects\\EventsApp\\Notification.Infrastructure\\Notification.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\C#_projects\\EventsApp\\Notification.Infrastructure\\Notification.Infrastructure.csproj",
+        "projectName": "Notification.Infrastructure",
+        "projectPath": "D:\\C#_projects\\EventsApp\\Notification.Infrastructure\\Notification.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\p3r3furgon\\.nuget\\packages\\",
+        "outputPath": "D:\\C#_projects\\EventsApp\\Notification.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\p3r3furgon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Domain\\Notification.Domain.csproj": {
+                "projectPath": "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Domain\\Notification.Domain.csproj"
+              },
+              "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Persistance\\Notification.Persistance.csproj": {
+                "projectPath": "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Persistance\\Notification.Persistance.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Domain\\Notification.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Domain\\Notification.Domain.csproj",
+        "projectName": "Notification.Domain",
+        "projectPath": "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Domain\\Notification.Domain.csproj",
+        "packagesPath": "C:\\Users\\p3r3furgon\\.nuget\\packages\\",
+        "outputPath": "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\p3r3furgon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Persistance\\Notification.Persistance.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Persistance\\Notification.Persistance.csproj",
+        "projectName": "Notification.Persistance",
+        "projectPath": "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Persistance\\Notification.Persistance.csproj",
+        "packagesPath": "C:\\Users\\p3r3furgon\\.nuget\\packages\\",
+        "outputPath": "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Persistance\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\p3r3furgon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Domain\\Notification.Domain.csproj": {
+                "projectPath": "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notification.Domain\\Notification.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -10,5 +10,7 @@ namespace Users.Domain.Interfaces.Services
         Task<RefreshToken> GetStoredRefreshToken(string refreshToken);
         Task SaveRefreshToken(RefreshToken refreshToken, string newRefreshToken, DateTime expirationDate);
         Task CreateRefreshToken(RefreshToken refreshToken);
+        Task Register(string firstName, string surname, DateOnly birthDate, string email, string password);
+        Task<(string, string)> Login(string email, string password);
     }
 }

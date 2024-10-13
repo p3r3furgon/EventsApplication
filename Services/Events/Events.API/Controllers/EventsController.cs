@@ -2,11 +2,14 @@ using Events.API.Dtos;
 using Events.API.Validators;
 using Events.Domain.Interfaces.Services;
 using Events.Domain.Models;
-using FluentValidation.Results;
+using EventUpdated;
 using Gridify;
+using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+
+using Event = Events.Domain.Models.Event;
 
 namespace Events.API.Controllers
 {
@@ -16,18 +19,32 @@ namespace Events.API.Controllers
     {
         private readonly IEventsService _eventsService;
         private readonly IFileService _fileService;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public EventsController(IEventsService eventsService, IFileService fileService)
+        public EventsController(IEventsService eventsService, IFileService fileService, IPublishEndpoint publishEndpoint)
         {
             _eventsService = eventsService;
             _fileService = fileService;
+            _publishEndpoint = publishEndpoint;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetEvents([FromQuery] GridifyQuery gridifyQuery)
         {
             var events = await _eventsService.GetEvents();
-            var result = events.AsQueryable()
+            var eventsDto = events
+                .Select(e => new EventResponceDto
+                {
+                    Id = e.Id,
+                    Title = e.Title,
+                    Description = e.Description,
+                    DateTime = e.DateTime,
+                    MaxParticipantNumber = e.MaxParticipantNumber,
+                    ParticipantsNumber = e.Participants.Count,
+                    Image = e.Image
+                }).ToList();
+
+            var result = eventsDto.AsQueryable()
                           .ApplyFiltering(gridifyQuery)
                           .ApplyOrdering(gridifyQuery)
                           .ApplyPaging(gridifyQuery.Page, gridifyQuery.PageSize);
@@ -48,7 +65,7 @@ namespace Events.API.Controllers
         public async Task<IActionResult> CreateEvent([FromForm] CreateEventRequest createEventRequest)
         {
             CreateEventRequestValidator validator = new ();
-            ValidationResult results = await validator.ValidateAsync(createEventRequest);
+            var results = await validator.ValidateAsync(createEventRequest);
 
             if (!results.IsValid)
             {
@@ -57,7 +74,7 @@ namespace Events.API.Controllers
 
             string[] allowedFileExtentions = [".jpg", ".jpeg", ".png"];
             string createdImageName = await _fileService.SaveFileAsync(createEventRequest.Image, allowedFileExtentions);
-            var @event = Event.Create(createEventRequest.Title, createEventRequest.Description, 
+            var @event = Event.Create(createEventRequest.Title, createEventRequest.Description,
                 createEventRequest.DateTime, createEventRequest.Place, createEventRequest.Category, createEventRequest.MaxparticipantNumber,
                 new List<Participant>(), createdImageName);
             var eventId = await _eventsService.CreateEvent(@event);
@@ -69,7 +86,7 @@ namespace Events.API.Controllers
         public async Task<IActionResult> UpdateEvent(Guid id, [FromForm] UpdateEventRequest updateEventRequest)
         {
             UpdateEventRequestValidator validator = new();
-            ValidationResult results = await validator.ValidateAsync(updateEventRequest);
+            var results = await validator.ValidateAsync(updateEventRequest);
 
             if (!results.IsValid)
             {
@@ -77,16 +94,29 @@ namespace Events.API.Controllers
             }
 
             var existingEvent = await _eventsService.GetEventById(id);
-            if(existingEvent == null)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest);
-            }
             string oldImage = existingEvent.Image;
             string[] allowedFileExtentions = [".jpg", ".jpeg", ".png"];
             string createdImageName = await _fileService.SaveFileAsync(updateEventRequest.Image, allowedFileExtentions);
-            var eventId= await _eventsService.UpdateEvent(id, updateEventRequest.Title, updateEventRequest.Description,
+            if(!string.IsNullOrEmpty(createdImageName))
+                _fileService.DeleteFile(oldImage);
+
+            var eventId = await _eventsService.UpdateEvent(id, updateEventRequest.Title, updateEventRequest.Description,
                 updateEventRequest.DateTime, updateEventRequest.Category, updateEventRequest.Place, updateEventRequest.MaxparticipantNumber, createdImageName);
-            _fileService.DeleteFile(oldImage);
+
+            if(!string.IsNullOrEmpty(updateEventRequest.MessageTitle) &&
+                !string.IsNullOrEmpty(updateEventRequest.MessageDescription))
+            {
+                List<Guid> usersId = existingEvent.Participants.Select(p => p.Id).ToList();
+                EventUpdated.EventUpdated eventUpdated = new EventUpdated.EventUpdated()
+                {
+                    Title = updateEventRequest.MessageTitle,
+                    Message = updateEventRequest.MessageDescription,
+                    DateTime = DateTime.Now,
+                    ParticipantsId = usersId
+                };
+                await _publishEndpoint.Publish<EventUpdated.EventUpdated>(eventUpdated);
+            }
+
             return StatusCode(StatusCodes.Status200OK, eventId);
         }
 
@@ -96,7 +126,10 @@ namespace Events.API.Controllers
         {
             var @event = await _eventsService.GetEventById(id);
             await _eventsService.DeleteEvent(id);
-            _fileService.DeleteFile(@event.Image);
+
+            if(!string.IsNullOrEmpty(@event.Image))
+                _fileService.DeleteFile(@event.Image);
+
             return StatusCode(StatusCodes.Status200OK, id);
         }
 

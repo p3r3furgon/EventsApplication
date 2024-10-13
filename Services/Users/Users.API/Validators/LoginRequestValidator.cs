@@ -7,7 +7,9 @@ namespace Users.API.Validators
     {
         public LoginRequestValidator()
         {
-            RuleFor(request => request.Email).NotEmpty().EmailAddress().WithMessage("Email format is incorrect");
+            RuleFor(request => request.Email)
+                .NotEmpty()
+                .EmailAddress().WithMessage("Email format is incorrect");
 
             RuleFor(request => request.Password)
                 .NotEmpty().WithMessage("Password is required")

@@ -1,0 +1,12 @@
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\bin\Debug\net8.0\Notifications.Domain.deps.json
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\bin\Debug\net8.0\Notifications.Domain.dll
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\bin\Debug\net8.0\Notifications.Domain.pdb
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\obj\Debug\net8.0\Notifications.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\obj\Debug\net8.0\Notifications.Domain.AssemblyInfoInputs.cache
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\obj\Debug\net8.0\Notifications.Domain.AssemblyInfo.cs
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\obj\Debug\net8.0\Notifications.Domain.csproj.CoreCompileInputs.cache
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\obj\Debug\net8.0\Notifications.Domain.sourcelink.json
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\obj\Debug\net8.0\Notifications.Domain.dll
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\obj\Debug\net8.0\refint\Notifications.Domain.dll
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\obj\Debug\net8.0\Notifications.Domain.pdb
+D:\C#_projects\EventsApp\Services\Notification\Notification.Domain\obj\Debug\net8.0\ref\Notifications.Domain.dll

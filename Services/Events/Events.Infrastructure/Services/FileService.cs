@@ -1,7 +1,6 @@
 ﻿using Events.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
 using System;
 
 namespace Events.Infrastructure.Services
@@ -28,7 +27,7 @@ namespace Events.Infrastructure.Services
         {
             if (imageFile == null)
             {
-                throw new ArgumentNullException(nameof(imageFile));
+                return "";
             }
 
             var contentPath = environment.ContentRootPath;

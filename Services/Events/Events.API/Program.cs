@@ -15,6 +15,7 @@ using FluentValidation;
 using Events.API.Dtos;
 using Events.API.Validators;
 using Events.API.Middleware;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,6 +76,11 @@ builder.Services.AddSwaggerGen(options =>
             new List<string>()
         }
     });
+});
+
+builder.Services.AddMassTransit(m =>
+{
+    m.UsingRabbitMq();
 });
 
 var app = builder.Build();

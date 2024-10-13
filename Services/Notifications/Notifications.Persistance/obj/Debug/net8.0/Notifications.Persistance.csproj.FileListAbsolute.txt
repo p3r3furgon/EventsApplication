@@ -1,0 +1,16 @@
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\bin\Debug\net8.0\Notifications.Persistance.deps.json
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\bin\Debug\net8.0\Notifications.Persistance.dll
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\bin\Debug\net8.0\Notifications.Persistance.pdb
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\bin\Debug\net8.0\Notifications.Domain.dll
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\bin\Debug\net8.0\Notifications.Domain.pdb
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\obj\Debug\net8.0\Notifications.Persistance.csproj.AssemblyReference.cache
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\obj\Debug\net8.0\Notifications.Persistance.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\obj\Debug\net8.0\Notifications.Persistance.AssemblyInfoInputs.cache
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\obj\Debug\net8.0\Notifications.Persistance.AssemblyInfo.cs
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\obj\Debug\net8.0\Notifications.Persistance.csproj.CoreCompileInputs.cache
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\obj\Debug\net8.0\Notifications.Persistance.sourcelink.json
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\obj\Debug\net8.0\Notifica.38D06FB5.Up2Date
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\obj\Debug\net8.0\Notifications.Persistance.dll
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\obj\Debug\net8.0\refint\Notifications.Persistance.dll
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\obj\Debug\net8.0\Notifications.Persistance.pdb
+D:\C#_projects\EventsApp\Services\Notifications\Notifications.Persistance\obj\Debug\net8.0\ref\Notifications.Persistance.dll

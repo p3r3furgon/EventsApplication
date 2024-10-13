@@ -135,3 +135,12 @@ D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\Gridify.dll
 D:\C#_projects\EventsApp\Services\Events\Events.API\obj\Debug\net8.0\Events.API.sourcelink.json
 D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\FluentValidation.dll
 D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\libman.json
+D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\MassTransit.dll
+D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\MassTransit.Abstractions.dll
+D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\MassTransit.AspNetCoreIntegration.dll
+D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\RabbitMQ.Client.dll
+D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\EventUpdated.dll
+D:\C#_projects\EventsApp\Services\Events\Events.API\bin\Debug\net8.0\EventUpdated.pdb
