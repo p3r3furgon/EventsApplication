@@ -75,7 +75,28 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
+
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var userDbContext = services.GetRequiredService<UsersDbContext>();
+        userDbContext.Database.Migrate();
+
+        var authDbContext = services.GetRequiredService<UsersDbContext>();
+        authDbContext.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred while migrating the database.");
+        throw;
+    }
+}
 
 if (app.Environment.IsDevelopment())
 {
@@ -83,7 +104,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();

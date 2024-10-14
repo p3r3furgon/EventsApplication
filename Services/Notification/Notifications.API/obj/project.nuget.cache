@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CpWVEWkTRhZ91IGutDl0/FU9hDLI7ZymmtgH/A3oVFBblR1RVXHh5sv0N6hnmFlxHTpP2Ul6a4y/eCwkuDiWYw==",
+  "dgSpecHash": "lrONLa8oZ+cEQSOme9TDk5sBoIOao5F/L0byFOU1f9jtIhxRHMVvNMbipysTtsgz0P1h0m+bRBqbYEKwJIfDzQ==",
   "success": true,
   "projectFilePath": "D:\\C#_projects\\EventsApp\\Services\\Notification\\Notifications.API\\Notifications.API.csproj",
   "expectedPackageFiles": [
@@ -48,6 +48,7 @@
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\7.1.2\\microsoft.identitymodel.protocols.openidconnect.7.1.2.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.1.2\\microsoft.identitymodel.tokens.7.1.2.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.6\\microsoft.visualstudio.azure.containers.tools.targets.1.19.6.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\npgsql\\8.0.3\\npgsql.8.0.3.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.4\\npgsql.entityframeworkcore.postgresql.8.0.4.nupkg.sha512",

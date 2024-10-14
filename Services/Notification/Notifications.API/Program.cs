@@ -9,6 +9,8 @@ using Notifications.Persistance.Repositories;
 using CommonFiles.Auth.Extensions;
 using Microsoft.OpenApi.Models;
 using Notifications.API.Middleware;
+using CommonFiles.Messaging;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,8 @@ builder.Services.AddDbContext<NotificationsDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(NotificationsDbContext)));
 });
+
+builder.Services.Configure<RabbitMqSettings>(builder.Configuration.GetSection("RabbitMQ"));
 
 builder.Services.AddScoped<INotificationsRepository, NotificationsRepository>();
 builder.Services.AddScoped<INotificationService, NotificationsService>();
@@ -62,10 +66,12 @@ builder.Services.AddMassTransit(m =>
 
     m.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host(new Uri("rabbitmq://localhost"), h =>
+        var rabbitMqSettings = context.GetRequiredService<IOptions<RabbitMqSettings>>().Value;
+        Console.WriteLine(rabbitMqSettings.Password);
+        cfg.Host(new Uri(rabbitMqSettings.Host), h =>
         {
-            h.Username("guest");
-            h.Password("guest");
+            h.Username(rabbitMqSettings.Username);
+            h.Password(rabbitMqSettings.Password);
         });
 
         cfg.ReceiveEndpoint("events", ep =>
@@ -79,13 +85,29 @@ builder.Services.AddMassTransit(m =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var userDbContext = services.GetRequiredService<NotificationsDbContext>();
+        userDbContext.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred while migrating the database.");
+        throw;
+    }
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
