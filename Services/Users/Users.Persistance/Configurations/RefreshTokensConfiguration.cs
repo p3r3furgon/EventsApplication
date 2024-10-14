@@ -12,7 +12,6 @@ namespace Users.Persistance.Configurations
             builder.Property(rf => rf.ExpirationDate).IsRequired();
             builder.Property(rf => rf.UserEmail).IsRequired();
             builder.Property(rf => rf.Token).IsRequired();
-            builder.Property(rf => rf.UserRole).IsRequired();
         }
     }
 }

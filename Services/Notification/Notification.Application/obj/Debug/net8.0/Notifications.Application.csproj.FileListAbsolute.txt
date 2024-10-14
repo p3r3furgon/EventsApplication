@@ -1,10 +1,14 @@
 D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\Notifications.Application.deps.json
 D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\Notifications.Application.dll
 D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\Notifications.Application.pdb
-D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\EventUpdated.dll
+D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\CommonFiles.Messaging.dll
 D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\Notifications.Domain.dll
-D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\EventUpdated.pdb
+D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\Notifications.Infrastructure.dll
+D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\Notifications.Persistance.dll
+D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\CommonFiles.Messaging.pdb
 D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\Notifications.Domain.pdb
+D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\Notifications.Infrastructure.pdb
+D:\C#_projects\EventsApp\Services\Notification\Notification.Application\bin\Debug\net8.0\Notifications.Persistance.pdb
 D:\C#_projects\EventsApp\Services\Notification\Notification.Application\obj\Debug\net8.0\Notifications.Application.csproj.AssemblyReference.cache
 D:\C#_projects\EventsApp\Services\Notification\Notification.Application\obj\Debug\net8.0\Notifications.Application.GeneratedMSBuildEditorConfig.editorconfig
 D:\C#_projects\EventsApp\Services\Notification\Notification.Application\obj\Debug\net8.0\Notifications.Application.AssemblyInfoInputs.cache

@@ -6,16 +6,16 @@ using Events.Persistance.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Events.API.Authorization.RequirementsHandlers;
-using Events.API.Extensions;
 using Events.Infrastructure.Helper;
 using Microsoft.Extensions.FileProviders;
 using Events.Infrastructure.Services;
 using FluentValidation;
 using Events.API.Dtos;
+using CommonFiles.Auth.Extensions;
 using Events.API.Validators;
 using Events.API.Middleware;
 using MassTransit;
+using CommonFiles.Auth.RequirementsHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,16 +51,15 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
-        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-        Description = "Enter foramt: Bearer ACCESS_TOKEN",
-        Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
         BearerFormat = "JWT",
         Scheme = "bearer"
     });
-    options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
             new OpenApiSecurityScheme

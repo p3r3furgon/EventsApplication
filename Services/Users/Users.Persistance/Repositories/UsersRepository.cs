@@ -50,7 +50,7 @@ namespace Users.Persistance.Repositories
             return id;
         }
 
-        public async Task<Guid> Update(Guid id, string firstName, string surname, DateOnly? birthDate, string email, string passwordHash, string role)
+        public async Task<Guid> Update(Guid id, string? firstName, string? surname, DateOnly? birthDate, string? email, string? passwordHash, string? role)
         {
             var userEntity = await _context.Users.FindAsync(id);
             if (userEntity == null)

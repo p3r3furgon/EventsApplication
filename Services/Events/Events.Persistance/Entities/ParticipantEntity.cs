@@ -7,6 +7,7 @@
         public string FirstName { get; set; } = string.Empty;
         public string Surname { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
-        public ICollection<EventEntity> Events { get; set; } = new List<EventEntity>();
+        public DateTime RegistrationDateTime { get; set; } 
+        public EventEntity? Event { get; set; }
     }
 }

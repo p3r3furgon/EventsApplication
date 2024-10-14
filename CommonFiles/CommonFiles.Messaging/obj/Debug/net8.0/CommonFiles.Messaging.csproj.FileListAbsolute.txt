@@ -1,0 +1,12 @@
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\bin\Debug\net8.0\CommonFiles.Messaging.deps.json
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\bin\Debug\net8.0\CommonFiles.Messaging.dll
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\bin\Debug\net8.0\CommonFiles.Messaging.pdb
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\obj\Debug\net8.0\CommonFiles.Messaging.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\obj\Debug\net8.0\CommonFiles.Messaging.AssemblyInfoInputs.cache
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\obj\Debug\net8.0\CommonFiles.Messaging.AssemblyInfo.cs
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\obj\Debug\net8.0\CommonFiles.Messaging.csproj.CoreCompileInputs.cache
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\obj\Debug\net8.0\CommonFiles.Messaging.sourcelink.json
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\obj\Debug\net8.0\CommonFiles.Messaging.dll
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\obj\Debug\net8.0\refint\CommonFiles.Messaging.dll
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\obj\Debug\net8.0\CommonFiles.Messaging.pdb
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Messaging\obj\Debug\net8.0\ref\CommonFiles.Messaging.dll

@@ -28,7 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MessagingFiles\EventUpdated\EventUpdated.csproj" />
+    <ProjectReference Include="..\..\..\CommonFiles\CommonFiles.Auth\CommonFiles.Auth.csproj" />
+    <ProjectReference Include="..\..\..\CommonFiles\CommonFiles.Messaging\CommonFiles.Messaging.csproj" />
     <ProjectReference Include="..\..\Users\Users.Infrastructure\Users.Infrastructure.csproj" />
     <ProjectReference Include="..\Events.Application\Events.Application.csproj" />
     <ProjectReference Include="..\Events.Infrastructure\Events.Infrastructure.csproj" />

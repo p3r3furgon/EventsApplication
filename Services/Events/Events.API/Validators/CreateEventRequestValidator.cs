@@ -19,6 +19,7 @@ namespace Events.API.Validators
                 .InclusiveBetween(1, 1000000).WithMessage("Event maxParticipants number must be between 1 and 1000000");
 
             RuleFor(request => request.DateTime)
+                .NotEmpty().WithMessage("Event date and time must be mentioned")
                 .GreaterThan(DateTime.Now).WithMessage("Event date and time must be set correctly");
 
             RuleFor(request => request.Category).Length(3, 100).

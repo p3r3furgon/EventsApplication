@@ -39,10 +39,6 @@ namespace Users.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("UserRole")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
                     b.ToTable("RefreshTokens");
@@ -80,6 +76,18 @@ namespace Users.Persistance.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("b0f6021f-6f9e-4f6f-a7d1-234fa2ef1342"),
+                            BirthDate = new DateOnly(2003, 11, 10),
+                            Email = "admin@gmail.com",
+                            FirstName = "admin",
+                            PasswordHash = "$2a$11$Xv32BiMyYMrwRoI/cV59GeCbQDkLD.P7ilftAV.Izj1w1hVWxhfgS",
+                            Role = "SuperAdmin",
+                            Surname = "admin"
+                        });
                 });
 #pragma warning restore 612, 618
         }

@@ -1,8 +1,8 @@
+﻿using CommonFiles.Messaging;
 using Events.API.Dtos;
 using Events.API.Validators;
 using Events.Domain.Interfaces.Services;
 using Events.Domain.Models;
-using EventUpdated;
 using Gridify;
 using MassTransit;
 using Microsoft.AspNetCore.Authorization;
@@ -60,8 +60,27 @@ namespace Events.API.Controllers
                 @event);
         }
 
-        [HttpPost]
+        [HttpGet("{id}/paricipants")]
         [Authorize]
+        public async Task<IActionResult> GetEventParticipants(Guid id)
+        {
+            var @event = await _eventsService.GetEventById(id);
+            var participantsDto = @event.Participants
+                .Select(e => new ParticipantResponceDto
+                {
+                    FirstName = e.FirstName,
+                    Surname = e.Surname,
+                    Email = e.Email,
+                    RegistrationDateTime = e.RegistrationDateTime
+                }).ToList();
+
+            return StatusCode(StatusCodes.Status200OK, participantsDto);
+        }
+
+        /// <summary> Формат ввода даты и времени: "yyyy-MM-ddThh:mm:ssZ" </summary>
+        [HttpPost]
+        [Authorize(Policy = "Admin")]
+        [Authorize(Policy = "SuperAdmin")]
         public async Task<IActionResult> CreateEvent([FromForm] CreateEventRequest createEventRequest)
         {
             CreateEventRequestValidator validator = new ();
@@ -83,6 +102,7 @@ namespace Events.API.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Policy = "Admin")]
+        [Authorize(Policy = "SuperAdmin")]
         public async Task<IActionResult> UpdateEvent(Guid id, [FromForm] UpdateEventRequest updateEventRequest)
         {
             UpdateEventRequestValidator validator = new();
@@ -94,7 +114,10 @@ namespace Events.API.Controllers
             }
 
             var existingEvent = await _eventsService.GetEventById(id);
-            string oldImage = existingEvent.Image;
+            if(existingEvent.Participants.Count > updateEventRequest.MaxparticipantNumber)
+                 return StatusCode(StatusCodes.Status400BadRequest, results.Errors);
+
+            string? oldImage = existingEvent.Image;
             string[] allowedFileExtentions = [".jpg", ".jpeg", ".png"];
             string createdImageName = await _fileService.SaveFileAsync(updateEventRequest.Image, allowedFileExtentions);
             if(!string.IsNullOrEmpty(createdImageName))
@@ -106,22 +129,23 @@ namespace Events.API.Controllers
             if(!string.IsNullOrEmpty(updateEventRequest.MessageTitle) &&
                 !string.IsNullOrEmpty(updateEventRequest.MessageDescription))
             {
-                List<Guid> usersId = existingEvent.Participants.Select(p => p.Id).ToList();
-                EventUpdated.EventUpdated eventUpdated = new EventUpdated.EventUpdated()
+                List<Guid> usersId = existingEvent.Participants.Select(p => p.UserId).ToList();
+                EventUpdated eventUpdated = new()
                 {
                     Title = updateEventRequest.MessageTitle,
                     Message = updateEventRequest.MessageDescription,
-                    DateTime = DateTime.Now,
+                    DateTime = DateTime.UtcNow,
                     ParticipantsId = usersId
                 };
-                await _publishEndpoint.Publish<EventUpdated.EventUpdated>(eventUpdated);
+                await _publishEndpoint.Publish<EventUpdated>(eventUpdated);
             }
 
             return StatusCode(StatusCodes.Status200OK, eventId);
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Policy ="Admin")]
+        [Authorize(Policy = "Admin")]
+        [Authorize(Policy = "SuperAdmin")]
         public async Task<IActionResult> DeleteEvent(Guid id)
         {
             var @event = await _eventsService.GetEventById(id);
@@ -155,5 +179,7 @@ namespace Events.API.Controllers
             await _eventsService.UnsubscribeFromEvent(eventId, Guid.Parse(userId));
             return StatusCode(StatusCodes.Status200OK, "You unsubscribed from event");
         }
+
+
     }
 }

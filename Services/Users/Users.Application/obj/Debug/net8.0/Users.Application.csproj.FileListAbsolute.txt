@@ -10,9 +10,9 @@ D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users
 D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users.Application.AssemblyInfoInputs.cache
 D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users.Application.AssemblyInfo.cs
 D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users.Application.csproj.CoreCompileInputs.cache
+D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users.Application.sourcelink.json
 D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users.Ap.B414D118.Up2Date
 D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users.Application.dll
 D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\refint\Users.Application.dll
 D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users.Application.pdb
 D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\ref\Users.Application.dll
-D:\C#_projects\EventsApp\Services\Users\Users.Application\obj\Debug\net8.0\Users.Application.sourcelink.json

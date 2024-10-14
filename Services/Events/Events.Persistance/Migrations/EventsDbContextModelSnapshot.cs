@@ -22,21 +22,6 @@ namespace Events.Persistance.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("EventEntityParticipantEntity", b =>
-                {
-                    b.Property<Guid>("EventsId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("ParticipantsId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("EventsId", "ParticipantsId");
-
-                    b.HasIndex("ParticipantsId");
-
-                    b.ToTable("EventEntityParticipantEntity");
-                });
-
             modelBuilder.Entity("Events.Persistance.Entities.EventEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -44,18 +29,15 @@ namespace Events.Persistance.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Category")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("MaxParticipantNumber")
@@ -84,9 +66,15 @@ namespace Events.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<Guid>("EventId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<DateTime>("RegistrationDateTime")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Surname")
                         .IsRequired()
@@ -97,22 +85,25 @@ namespace Events.Persistance.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EventId");
+
                     b.ToTable("Participants");
                 });
 
-            modelBuilder.Entity("EventEntityParticipantEntity", b =>
+            modelBuilder.Entity("Events.Persistance.Entities.ParticipantEntity", b =>
                 {
-                    b.HasOne("Events.Persistance.Entities.EventEntity", null)
-                        .WithMany()
-                        .HasForeignKey("EventsId")
+                    b.HasOne("Events.Persistance.Entities.EventEntity", "Event")
+                        .WithMany("Participants")
+                        .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Events.Persistance.Entities.ParticipantEntity", null)
-                        .WithMany()
-                        .HasForeignKey("ParticipantsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("Events.Persistance.Entities.EventEntity", b =>
+                {
+                    b.Navigation("Participants");
                 });
 #pragma warning restore 612, 618
         }

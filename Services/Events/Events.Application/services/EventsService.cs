@@ -30,8 +30,8 @@ namespace Events.Application.services
         {
             return await _eventsRepository.Delete(id);
         }
-        public async Task<Guid> UpdateEvent(Guid id, string title, string description, DateTime? dateTime, 
-            string category, string place, int? maxParticipantsNumber, string image)
+        public async Task<Guid> UpdateEvent(Guid id, string? title, string? description, DateTime? dateTime, 
+            string? category, string? place, int? maxParticipantsNumber, string? image)
         {
             return await _eventsRepository.Update(id, title, description, dateTime, category, place, maxParticipantsNumber, image);
         }
@@ -39,12 +39,14 @@ namespace Events.Application.services
         public async Task RegisterUserOnEvent(Guid eventId, string firstName, string surname, string email, string userId)
         {
             var @event = await _eventsRepository.GetById(eventId);
+
             if (@event.Participants.Count >= @event.MaxParticipantNumber)
                 throw new Exception("There are no free spots in this event");
-            var participant = Participant.Create(Guid.Parse(userId), firstName, surname, email);
-            if (@event.Participants.Where(p => p.UserId == participant.UserId).FirstOrDefault() != null)
+            if (@event.Participants.Where(p => p.UserId == Guid.Parse(userId)).FirstOrDefault() != null)
                 throw new Exception("You are already registered on this event");
-            @event.Participants.Add(participant);
+
+            var participant = Participant.Create(Guid.Parse(userId), firstName, surname, email, DateTime.UtcNow);
+
             await _eventsRepository.AddParticipant(eventId, participant);
         }
 
@@ -57,6 +59,7 @@ namespace Events.Application.services
             var participant = @event.Participants.Where(p => p.UserId == userId).FirstOrDefault();
             if (participant == null)
                 throw new Exception("You are not subscribed on this event");
+
             await _eventsRepository.RemoveParticipant(eventId, userId);
         }
 

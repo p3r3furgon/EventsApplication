@@ -1,10 +1,10 @@
+using CommonFiles.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Users.API.Dtos;
 using Users.API.Validators;
 using Users.Domain.Interfaces.Services;
-using Users.Infrastructure;
 
 namespace Users.API.Controllers
 {
@@ -28,6 +28,14 @@ namespace Users.API.Controllers
             return StatusCode(StatusCodes.Status200OK, users);
         }
 
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<IActionResult> GetUserById(Guid id)
+        {
+            var user = await _usersService.GetUserById(id);
+            return StatusCode(StatusCodes.Status200OK, user);
+        }
+
         [HttpPut("{id}")]
         [Authorize]
         public async Task<IActionResult> UpdateUser(Guid id, [FromBody] UpdateUserRequest updateUser)
@@ -40,7 +48,7 @@ namespace Users.API.Controllers
             }
 
             var userId = await _usersService.UpdateUser(id, updateUser.FirstName, updateUser.Surname,
-                updateUser.BirthDate, updateUser.Email, updateUser.Password, updateUser.Role);
+                DateOnly.Parse(updateUser.BirthDate), updateUser.Email, updateUser.Password, "");
             return StatusCode(StatusCodes.Status200OK, userId);
         }
 
@@ -52,7 +60,53 @@ namespace Users.API.Controllers
             return StatusCode(StatusCodes.Status200OK, userId);
         }
 
-        
+        [HttpPut("{id}/assign-admin")]
+        [Authorize(Policy = "SuperAdmin")]
+        public async Task<IActionResult> GrantAdminRole(Guid id)
+        {
+            var user = await _usersService.GetUserById(id);
+            
+            if(user.Role == "Admin")
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "User is already admin");
+            }
+
+            await _usersService.UpdateUser(
+                id: id,
+                firstName: "",
+                surname: "",
+                birthDate: null,
+                email: "",
+                password: "",
+                role: "Admin"
+                );
+
+            return StatusCode(StatusCodes.Status200OK, id);
+        }
+
+        [HttpDelete("{id}/remove-admin")]
+        [Authorize(Policy = "SuperAdmin")]
+        public async Task<IActionResult> RevokeAdminRole(Guid id)
+        {
+            var user = await _usersService.GetUserById(id);
+
+            if (user.Role != "Admin")
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "User isnt admin");
+            }
+
+            await _usersService.UpdateUser(
+                id: id,
+                firstName: "",
+                surname: "",
+                birthDate: null,
+                email: "",
+                password: "",
+                role: "User"
+                );
+
+            return StatusCode(StatusCodes.Status200OK, id);
+        }
 
     }
 }

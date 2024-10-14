@@ -32,12 +32,9 @@ namespace Events.Persistance.Configurations
 
             builder
                 .HasMany(e => e.Participants)
-                .WithMany(e => e.Events)
-                .UsingEntity(
-                    "EventParticipant",
-                    l => l.HasOne(typeof(ParticipantEntity)).WithMany().HasForeignKey("ParticipantId").HasPrincipalKey(nameof(ParticipantEntity.Id)),
-                    r => r.HasOne(typeof(EventEntity)).WithMany().HasForeignKey("EventId").HasPrincipalKey(nameof(EventEntity.Id)),
-                    j => j.HasKey("EventId", "ParticipantId"));
+                .WithOne(e => e.Event)
+                .HasForeignKey("EventId")
+                .IsRequired(false);
         }
     }
 }

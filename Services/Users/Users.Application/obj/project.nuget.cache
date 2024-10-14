@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "uE0wf84GNqDh+hn3I04aD0eYw2p+IR0pZVbk64M4gpeEHwEHp6RXFECWDnxLwbr9FZYc9tCE1EmFeoOhMyfF5A==",
+  "dgSpecHash": "dE7+VflrZeLinhlaf/inieAAf684mhMxIeEWf12eyM1GCWrT2hnJOm9UQOGowTWqESfKwpa2bYS6JcANjBo9zA==",
   "success": true,
   "projectFilePath": "D:\\C#_projects\\EventsApp\\Services\\Users\\Users.Application\\Users.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\p3r3furgon\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\mediatr\\12.4.1\\mediatr.12.4.1.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\p3r3furgon\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.10\\microsoft.aspnetcore.jsonpatch.8.0.10.nupkg.sha512",

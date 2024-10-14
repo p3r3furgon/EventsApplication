@@ -27,7 +27,7 @@ namespace Events.Persistance.Repositories
 
         public async Task<List<Event>> Get()
         {
-            var eventsEntities = await _context.Events.ToListAsync();
+            var eventsEntities = await _context.Events.Include(e => e.Participants).ToListAsync();
             var events = _mapper.Map<List<EventEntity>, List<Event>>(eventsEntities);
             return events;
         }
@@ -49,7 +49,7 @@ namespace Events.Persistance.Repositories
             return id;
         }
 
-        public async Task<Guid> Update(Guid id, string title, string description, DateTime? dateTime, string category, string place, int? maxParticipantsNumber, string image)
+        public async Task<Guid> Update(Guid id, string? title, string? description, DateTime? dateTime, string? category, string? place, int? maxParticipantsNumber, string? image)
         {
             var eventEntity = await _context.Events.FindAsync(id);
 
@@ -70,11 +70,14 @@ namespace Events.Persistance.Repositories
             var eventsEntities = await _context.Events.ToListAsync();
             var eventEntity = eventsEntities.Where(e => e.Id == id).FirstOrDefault();
             if (eventEntity == null)
-                throw new Exception("Event is not found");
+                throw new Exception("Event not found");
+
             var participantEntity = _mapper.Map<ParticipantEntity>(participant);
+
             await _context.Participants.AddAsync(participantEntity);
             eventEntity.Participants.Add(participantEntity);
             await _context.SaveChangesAsync();
+
             return eventEntity.Id;
 
         }
@@ -84,7 +87,7 @@ namespace Events.Persistance.Repositories
             var eventsEntities = await _context.Events.Include(e => e.Participants).ToListAsync();
             var eventEntity = eventsEntities.Where(e => e.Id == eventId).FirstOrDefault();
             if (eventEntity == null)
-                throw new Exception("Event is not found");
+                throw new Exception("Event not found");
             _context.RemoveRange(eventEntity.Participants.Where(p => p.UserId == userId));
             await _context.SaveChangesAsync();
         }

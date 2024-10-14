@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Users.API.Dtos;
+using Users.API.Validators.Checks;
 
 namespace Users.API.Validators
 {
@@ -26,6 +27,14 @@ namespace Users.API.Validators
                 .Length(4, 32).WithMessage("Password must containes from 4 to 32 symbols")
                 .Matches("^[a-zA-Z0-9]*$").WithMessage("Password must contain only letters and numbers")
                 .When(request => !string.IsNullOrEmpty(request.Password));
+
+            RuleFor(request => request.BirthDate)
+                .NotEmpty().WithMessage("Birth date is required")
+                .Matches(@"^\d{4}-\d{2}-\d{2}$").WithMessage("Birth date must be in format yyyy-MM-dd")
+                .Must(SharedCheck.BeAValidPastDate).WithMessage("Birth date must be a valid date in the past")
+                .Must(SharedCheck.BeValidYear).WithMessage("Year must be between 1900 and the current year");
+
+
         }
     }
 }

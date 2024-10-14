@@ -20,7 +20,7 @@ namespace Users.Application.Services
             return await _usersRepository.Get();
         }
 
-        public async Task<Guid> UpdateUser(Guid id, string firstName, string surname, DateOnly? birthDate, string email, string password, string role)
+        public async Task<Guid> UpdateUser(Guid id, string? firstName, string? surname, DateOnly? birthDate, string? email, string? password, string? role)
         {
             var passwordHash = string.IsNullOrEmpty(password) ? "" : _passwordHasher.Generate(password);
             return await _usersRepository.Update(id, firstName, surname, birthDate, email, passwordHash, role);
@@ -29,6 +29,15 @@ namespace Users.Application.Services
         public async Task<Guid> DeleteUser(Guid id)
         {
             return await _usersRepository.Delete(id);
+        }
+
+        public async Task<User> GetUserById(Guid id)
+        {
+            return await _usersRepository.GetById(id);
+        }
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await _usersRepository.GetByEmail(email);
         }
     }
 }

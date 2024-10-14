@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CommonFiles.Auth;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Net;
 using System.Security.Claims;
@@ -6,7 +7,6 @@ using Users.API.Dtos;
 using Users.API.Validators;
 using Users.Domain.Interfaces.Services;
 using Users.Domain.Models.AuthModels;
-using Users.Infrastructure;
 
 namespace Users.API.Controllers
 {
@@ -15,11 +15,13 @@ namespace Users.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+        private readonly IUsersService _usersService;
         private readonly JwtOptions _options;
 
-        public AuthController(IAuthService authService, IOptions<JwtOptions> options)
+        public AuthController(IAuthService authService, IOptions<JwtOptions> options, IUsersService usersService)
         {
             _authService = authService;
+            _usersService = usersService;
             _options = options.Value;
         }
 
@@ -34,7 +36,7 @@ namespace Users.API.Controllers
             }
 
             await _authService.Register(registerRequest.FirstName, registerRequest.Surname,
-                registerRequest.BirthDate, registerRequest.Email, registerRequest.Password);
+                DateOnly.Parse(registerRequest.BirthDate), registerRequest.Email, registerRequest.Password);
             return StatusCode(StatusCodes.Status200OK);
         }
 
@@ -52,8 +54,7 @@ namespace Users.API.Controllers
             var accessToken = tokens.Item1;
             var refreshToken = tokens.Item2;
 
-            await _authService.CreateRefreshToken(new RefreshToken(Guid.NewGuid(), refreshToken, loginRequest.Email,
-                "User", DateTime.UtcNow.AddDays(_options.RefreshTokenExpirationDays)));
+            await _authService.CreateRefreshToken(new RefreshToken(Guid.NewGuid(), refreshToken, loginRequest.Email, DateTime.UtcNow.AddDays(_options.RefreshTokenExpirationDays)));
 
             Response.Cookies.Append("refreshToken", refreshToken, new CookieOptions
             {
@@ -75,10 +76,13 @@ namespace Users.API.Controllers
 
             if (storedRefreshToken == null || storedRefreshToken.ExpirationDate < DateTime.UtcNow)
             {
-                return Unauthorized("Invalid or expired refresh token.");
+                return StatusCode(StatusCodes.Status401Unauthorized, "Invalid or expired refresh token.");
             }
 
-            Claim[] claims = [new("userEmail", storedRefreshToken.UserEmail.ToString()), new(ClaimTypes.Role, storedRefreshToken.UserRole)];
+            var user = await _usersService.GetUserByEmail(storedRefreshToken.UserEmail.ToString());
+
+            Claim[] claims = [ new(ClaimTypes.PrimarySid, user.Id.ToString()), new(ClaimTypes.Role, user.Role),
+                new(ClaimTypes.Name, user.FirstName), new(ClaimTypes.Surname, user.Surname), new(ClaimTypes.Email, user.Email)];
 
             var newAccessToken = _authService.GenerateJwtToken(claims);
             var newRefreshToken = _authService.GenerateRefreshToken();

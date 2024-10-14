@@ -7,14 +7,15 @@ using Users.Infrastructure;
 using Users.Persistance;
 using Users.Persistance.Repositories;
 using Users.Infrastructure.Helper;
-using Users.API.Extensions;
+using CommonFiles.Auth.Extensions;
 using Microsoft.AspNetCore.Authorization;
-using Users.API.Authorization.RequirementsHandlers;
 using Microsoft.OpenApi.Models;
 using FluentValidation;
 using Users.API.Validators;
 using Users.API.Dtos;
 using Users.API.Middleware;
+using CommonFiles.Auth;
+using CommonFiles.Auth.RequirementsHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,16 +50,15 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
 {
-    options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
-        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-        Description = "Enter foramt: Bearer ACCESS_TOKEN",
-        Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
         BearerFormat = "JWT",
         Scheme = "bearer"
     });
-    options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
             new OpenApiSecurityScheme

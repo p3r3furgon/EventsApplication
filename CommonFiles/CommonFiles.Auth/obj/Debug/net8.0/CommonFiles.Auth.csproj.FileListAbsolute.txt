@@ -1,0 +1,13 @@
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\bin\Debug\net8.0\CommonFiles.Auth.deps.json
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\bin\Debug\net8.0\CommonFiles.Auth.dll
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\bin\Debug\net8.0\CommonFiles.Auth.pdb
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\obj\Debug\net8.0\CommonFiles.Auth.csproj.AssemblyReference.cache
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\obj\Debug\net8.0\CommonFiles.Auth.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\obj\Debug\net8.0\CommonFiles.Auth.AssemblyInfoInputs.cache
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\obj\Debug\net8.0\CommonFiles.Auth.AssemblyInfo.cs
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\obj\Debug\net8.0\CommonFiles.Auth.csproj.CoreCompileInputs.cache
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\obj\Debug\net8.0\CommonFiles.Auth.sourcelink.json
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\obj\Debug\net8.0\CommonFiles.Auth.dll
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\obj\Debug\net8.0\refint\CommonFiles.Auth.dll
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\obj\Debug\net8.0\CommonFiles.Auth.pdb
+D:\C#_projects\EventsApp\CommonFiles\CommonFiles.Auth\obj\Debug\net8.0\ref\CommonFiles.Auth.dll
