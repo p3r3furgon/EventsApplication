@@ -2,9 +2,7 @@
 using Events.Domain.Interfaces.Repositories;
 using Events.Domain.Models;
 using Events.Persistance.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace Events.Persistance.Repositories
 {
@@ -43,9 +41,15 @@ namespace Events.Persistance.Repositories
 
         public async Task<Guid> Delete(Guid id)
         {
-            await _context.Events
-                .Where(e => e.Id == id)
-                .ExecuteDeleteAsync();
+            var eventEntity = await _context.Events.FindAsync(id);
+            if (eventEntity == null)
+            {
+                throw new Exception("Event not found"); 
+            }
+
+            _context.Events.Remove(eventEntity);
+            await _context.SaveChangesAsync(); 
+
             return id;
         }
 
@@ -73,9 +77,8 @@ namespace Events.Persistance.Repositories
                 throw new Exception("Event not found");
 
             var participantEntity = _mapper.Map<ParticipantEntity>(participant);
-
+            participantEntity.Event = eventEntity;
             await _context.Participants.AddAsync(participantEntity);
-            eventEntity.Participants.Add(participantEntity);
             await _context.SaveChangesAsync();
 
             return eventEntity.Id;

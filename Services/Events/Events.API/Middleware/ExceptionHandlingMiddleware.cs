@@ -29,7 +29,8 @@ namespace Events.API.Middleware
                 var problemDetails = new ProblemDetails
                 {
                     Status = StatusCodes.Status500InternalServerError,
-                    Title = "Server Error"
+                    Title = "Server Error",
+                    Detail = exception.Message
                 };
 
                 context.Response.StatusCode =
