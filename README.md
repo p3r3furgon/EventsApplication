@@ -16,3 +16,8 @@ docker-compose up -d
 
 DateTime: "2024-10-15T10:00:00Z"
 DateOnly: "2024-10-15"
+
+## СуперАдмин
+
+почта: admin@gmail.com
+пароль: admin
