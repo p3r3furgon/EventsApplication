@@ -170,7 +170,7 @@ namespace Events.API.Controllers
             return StatusCode(StatusCodes.Status200OK, "You have subscribed on event");
         }
 
-        [HttpPost("unsubscribe")]
+        [HttpDelete("unsubscribe")]
         [Authorize]
         public async Task<IActionResult> UnsubscribeFromEvent(Guid eventId)
         {

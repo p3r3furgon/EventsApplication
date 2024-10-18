@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\C#_projects\\EventsApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.persistance\\repositories\\eventsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{142099FA-0011-415B-B923-75DBB9E9B977}|Services\\Events\\Events.Persistance\\Events.Persistance.csproj|solutionrelative:services\\events\\events.persistance\\repositories\\eventsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.domain\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D90AC0E-EFA1-42C1-BDEC-D820FC23CFC8}|Services\\Events\\Events.Domain\\Events.Domain.csproj|solutionrelative:services\\events\\events.domain\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|d:\\c#_projects\\eventsapp\\services\\events\\events.api\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{735D5A36-F392-4FE3-8116-978B5E073FE6}|Services\\Events\\Events.API\\Events.API.csproj|solutionrelative:services\\events\\events.api\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C7B0B51-0EE7-41F7-B475-31FE2114870E}|Services\\Notification\\Notifications.API\\Notifications.API.csproj|d:\\c#_projects\\eventsapp\\services\\notification\\notifications.api\\middleware\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "EventsRepository.cs",
               "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Persistance\\Repositories\\EventsRepository.cs",
               "RelativeDocumentMoniker": "Services\\Events\\Events.Persistance\\Repositories\\EventsRepository.cs",
@@ -55,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CreateEventRequest.cs",
               "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Dtos\\CreateEventRequest.cs",
               "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Dtos\\CreateEventRequest.cs",
@@ -67,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Event.cs",
               "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.Domain\\Models\\Event.cs",
               "RelativeDocumentMoniker": "Services\\Events\\Events.Domain\\Models\\Event.cs",
@@ -79,15 +79,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "EventsController.cs",
               "DocumentMoniker": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Controllers\\EventsController.cs",
               "RelativeDocumentMoniker": "Services\\Events\\Events.API\\Controllers\\EventsController.cs",
               "ToolTip": "D:\\C#_projects\\EventsApp\\Services\\Events\\Events.API\\Controllers\\EventsController.cs",
               "RelativeToolTip": "Services\\Events\\Events.API\\Controllers\\EventsController.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAUwDUAAAAAAAAA",
+              "ViewState": "AQIAAJkAAAAAAAAAAAAiwK8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T03:29:45.431Z"
+              "WhenOpened": "2024-10-15T03:29:45.431Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
