@@ -77,7 +77,6 @@ namespace Events.API.Controllers
             return StatusCode(StatusCodes.Status200OK, participantsDto);
         }
 
-        /// <summary> Формат ввода даты и времени: "yyyy-MM-ddThh:mm:ssZ" </summary>
         [HttpPost]
         [Authorize(Policy = "Admin")]
         [Authorize(Policy = "SuperAdmin")]
@@ -91,8 +90,7 @@ namespace Events.API.Controllers
                 return StatusCode(StatusCodes.Status400BadRequest, results.Errors);
             }
 
-            string[] allowedFileExtentions = [".jpg", ".jpeg", ".png"];
-            string createdImageName = await _fileService.SaveFileAsync(createEventRequest.Image, allowedFileExtentions);
+            string createdImageName = await _fileService.SaveFileAsync(createEventRequest.Image, [".jpg", ".jpeg", ".png"]);
             var @event = Event.Create(createEventRequest.Title, createEventRequest.Description,
                 createEventRequest.DateTime, createEventRequest.Place, createEventRequest.Category, createEventRequest.MaxparticipantNumber,
                 new List<Participant>(), createdImageName);
@@ -118,8 +116,8 @@ namespace Events.API.Controllers
                  return StatusCode(StatusCodes.Status400BadRequest, results.Errors);
 
             string? oldImage = existingEvent.Image;
-            string[] allowedFileExtentions = [".jpg", ".jpeg", ".png"];
-            string createdImageName = await _fileService.SaveFileAsync(updateEventRequest.Image, allowedFileExtentions);
+
+            string createdImageName = await _fileService.SaveFileAsync(updateEventRequest.Image, [".jpg", ".jpeg", ".png"]);
             if(!string.IsNullOrEmpty(createdImageName))
                 _fileService.DeleteFile(oldImage);
 
