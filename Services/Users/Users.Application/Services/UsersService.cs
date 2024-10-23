@@ -15,10 +15,7 @@ namespace Users.Application.Services
             _passwordHasher = passwordHasher;
         }
 
-        public async Task<ICollection<User>> GetUsers()
-        {
-            return await _usersRepository.Get();
-        }
+        public async Task<ICollection<User>> GetUsers() => await _usersRepository.Get();
 
         public async Task<Guid> UpdateUser(Guid id, string? firstName, string? surname, DateOnly? birthDate, string? email, string? password, string? role)
         {
@@ -26,18 +23,9 @@ namespace Users.Application.Services
             return await _usersRepository.Update(id, firstName, surname, birthDate, email, passwordHash, role);
         }
 
-        public async Task<Guid> DeleteUser(Guid id)
-        {
-            return await _usersRepository.Delete(id);
-        }
+        public async Task<Guid> DeleteUser(Guid id) => await _usersRepository.Delete(id);
 
-        public async Task<User> GetUserById(Guid id)
-        {
-            return await _usersRepository.GetById(id);
-        }
-        public async Task<User> GetUserByEmail(string email)
-        {
-            return await _usersRepository.GetByEmail(email);
-        }
+        public async Task<User> GetUserById(Guid id) => await _usersRepository.GetById(id);
+        public async Task<User> GetUserByEmail(string email) => await _usersRepository.GetByEmail(email);
     }
 }

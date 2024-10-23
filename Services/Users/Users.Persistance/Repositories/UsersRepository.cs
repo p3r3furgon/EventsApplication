@@ -27,8 +27,6 @@ namespace Users.Persistance.Repositories
         public async Task<User> GetById(Guid id)
         {
             var userEntity = await _context.Users.FindAsync(id);
-            if (userEntity == null)
-                throw new Exception("There is no user with this id");
             var user = _mapper.Map<User>(userEntity);
             return user;
         }
@@ -53,8 +51,6 @@ namespace Users.Persistance.Repositories
         public async Task<Guid> Update(Guid id, string? firstName, string? surname, DateOnly? birthDate, string? email, string? passwordHash, string? role)
         {
             var userEntity = await _context.Users.FindAsync(id);
-            if (userEntity == null)
-                throw new Exception("There is no user with this id");
 
             userEntity.FirstName = (string.IsNullOrEmpty(firstName)) ? userEntity.FirstName : firstName;
             userEntity.Surname = (string.IsNullOrEmpty(surname)) ? userEntity.Surname : surname;

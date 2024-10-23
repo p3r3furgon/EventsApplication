@@ -51,5 +51,22 @@ namespace Notifications.API.Controllers
             return StatusCode(StatusCodes.Status200OK, notificationId);
         }
 
+
+        [HttpDelete("all")]
+        [Authorize(Policy = "SuperAdmin")]
+        public async Task<IActionResult> DeleteAllNotifications()
+        {
+            await _notificationService.DeleteAllNotifications();
+            return StatusCode(StatusCodes.Status200OK);
+        }
+
+        [HttpGet("all")]
+        [Authorize(Policy = "SuperAdmin")]
+        public async Task<IActionResult> GetAllNotifications()
+        {
+            var notifications = await _notificationService.GetAllNotifications();
+            return StatusCode(StatusCodes.Status200OK, notifications);
+        }
+
     }
 }

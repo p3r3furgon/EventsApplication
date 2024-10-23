@@ -54,28 +54,13 @@ namespace Users.Application.Services
 
         }
 
-        public async Task<RefreshToken> GetStoredRefreshToken(string refreshToken)
-        {
-            return await _refreshTokensRepository.Get(refreshToken);
-        }
+        public async Task<RefreshToken> GetStoredRefreshToken(string refreshToken) => await _refreshTokensRepository.Get(refreshToken);
 
-        public async Task CreateRefreshToken(RefreshToken refreshToken)
-        {
-            await _refreshTokensRepository.Create(refreshToken);
-        }
-        public async Task SaveRefreshToken(RefreshToken refreshToken, string newRefreshToken, DateTime expirationDate)
-        {
-            await _refreshTokensRepository.Save(refreshToken, newRefreshToken, expirationDate);
-        }
+        public async Task CreateRefreshToken(RefreshToken refreshToken) => await _refreshTokensRepository.Create(refreshToken);
+        public async Task SaveRefreshToken(RefreshToken refreshToken, string newRefreshToken, DateTime expirationDate) => await _refreshTokensRepository.Save(refreshToken, newRefreshToken, expirationDate);
 
-        public string GenerateJwtToken(Claim[] claims)
-        {
-            return _jwtProvider.GenerateJwtToken(claims);
-        }
+        public string GenerateJwtToken(Claim[] claims) => _jwtProvider.GenerateJwtToken(claims);
 
-        public string GenerateRefreshToken()
-        {
-            return _jwtProvider.GenerateRefreshToken();
-        }
+        public string GenerateRefreshToken() => _jwtProvider.GenerateRefreshToken();
     }
 }

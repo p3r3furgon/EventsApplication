@@ -31,6 +31,22 @@ namespace Notifications.Persistance.Repositories
             return id;
         }
 
+        public async Task DeleteAll()
+        { 
+            var notificationsEntities = _context.Notifications;
+            foreach (var notification in notificationsEntities)
+            {
+                _context.Notifications.Remove(notification);
+            }
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<Notification>> GetAll()
+        {
+            var notificationsEntities = await _context.Notifications.ToListAsync();
+            return _mapper.Map <List<Notification>>(notificationsEntities);
+        }
+
         public async Task<List<Notification>> GetByUserId(Guid userId)
         {
             var notificationsEntities = await _context.Notifications.Where(n => n.UserId == userId).ToListAsync();

@@ -9,32 +9,20 @@ namespace Events.Application.services
     public class EventsService : IEventsService
     {
         private readonly IEventsRepository _eventsRepository;
-        private readonly IFileService _fileService;
-        public EventsService(IEventsRepository eventsRepository, IFileService fileService)
+        public EventsService(IEventsRepository eventsRepository)
         {
             _eventsRepository = eventsRepository;
-            _fileService = fileService;
         }
 
-        public async Task<List<Event>> GetEvents()
-        {
-            return await _eventsRepository.Get();
-        }
-        public async Task<Guid> CreateEvent(Event @event)
-        {
+        public async Task<List<Event>> GetEvents() => await _eventsRepository.Get();
+        public async Task<Guid> CreateEvent(Event @event) => await _eventsRepository.Create(@event);
 
-            return await _eventsRepository.Create(@event);
-        }
+        public async Task<Guid> DeleteEvent(Guid id) => await _eventsRepository.Delete(id);
+        public Task<Event> GetEventById(Guid id) => _eventsRepository.GetById(id);
 
-        public async Task<Guid> DeleteEvent(Guid id)
-        {
-            return await _eventsRepository.Delete(id);
-        }
-        public async Task<Guid> UpdateEvent(Guid id, string? title, string? description, DateTime? dateTime, 
-            string? category, string? place, int? maxParticipantsNumber, string? image)
-        {
-            return await _eventsRepository.Update(id, title, description, dateTime, category, place, maxParticipantsNumber, image);
-        }
+        public async Task<Guid> UpdateEvent(Guid id, string? title, string? description, DateTime? dateTime,
+            string? category, string? place, int? maxParticipantsNumber, string? image) =>
+            await _eventsRepository.Update(id, title, description, dateTime, category, place, maxParticipantsNumber, image);
 
         public async Task RegisterUserOnEvent(Guid eventId, string firstName, string surname, string email, string userId)
         {
@@ -62,11 +50,5 @@ namespace Events.Application.services
 
             await _eventsRepository.RemoveParticipant(eventId, userId);
         }
-
-        public Task<Event> GetEventById(Guid id)
-        {
-            return _eventsRepository.GetById(id);
-        }
-
     }
 }

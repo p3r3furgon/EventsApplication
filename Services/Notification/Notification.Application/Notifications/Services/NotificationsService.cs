@@ -23,10 +23,7 @@ namespace Notifications.Application.Notifications.Services
             return await _notificationRepository.Delete(notificationId);
         }
 
-        public async Task<List<Notification>> GetNotificationByUserId(Guid userId)
-        {
-            return await _notificationRepository.GetByUserId(userId);
-        }
+        public async Task<List<Notification>> GetNotificationByUserId(Guid userId) => await _notificationRepository.GetByUserId(userId);
 
         public async Task<Notification> GetUserNotificationById(Guid notificationId, Guid userId)
         {
@@ -38,5 +35,9 @@ namespace Notifications.Application.Notifications.Services
 
             return userNotification;
         }
+
+        public async Task DeleteAllNotifications() => await _notificationRepository.DeleteAll();
+
+        public async Task<List<Notification>> GetAllNotifications() => await _notificationRepository.GetAll();
     }
 }

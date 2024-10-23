@@ -42,14 +42,8 @@ namespace Events.Persistance.Repositories
         public async Task<Guid> Delete(Guid id)
         {
             var eventEntity = await _context.Events.FindAsync(id);
-            if (eventEntity == null)
-            {
-                throw new Exception("Event not found"); 
-            }
-
             _context.Events.Remove(eventEntity);
-            await _context.SaveChangesAsync(); 
-
+            await _context.SaveChangesAsync();
             return id;
         }
 

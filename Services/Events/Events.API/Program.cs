@@ -13,9 +13,9 @@ using FluentValidation;
 using Events.API.Dtos;
 using CommonFiles.Auth.Extensions;
 using Events.API.Validators;
-using Events.API.Middleware;
 using MassTransit;
 using CommonFiles.Auth.RequirementsHandlers;
+using CommonFiles.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
