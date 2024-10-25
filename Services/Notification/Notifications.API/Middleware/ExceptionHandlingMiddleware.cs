@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Notifications.Application.Exceptions;
+using System;
 
 namespace Notifications.API.Middleware
 {
@@ -21,15 +23,27 @@ namespace Notifications.API.Middleware
             {
                 await _next(context);
             }
-            catch (Exception exception)
+            catch(NotificationNotFoundException ex)
             {
-                _logger.LogError(
-                    exception, "Exception occurred: {Message}", exception.Message);
+                var problemDetails = new ProblemDetails
+                {
+                    Status = StatusCodes.Status404NotFound,
+                    Title = ex.Message
+                };
+
+                context.Response.StatusCode =
+                    StatusCodes.Status404NotFound;
+
+                await context.Response.WriteAsJsonAsync(problemDetails);
+            }
+            catch (Exception ex)
+            {
 
                 var problemDetails = new ProblemDetails
                 {
                     Status = StatusCodes.Status500InternalServerError,
-                    Title = "Server Error"
+                    Title = "Server Error",
+                    Detail = ex.Message
                 };
 
                 context.Response.StatusCode =

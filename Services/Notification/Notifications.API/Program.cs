@@ -1,9 +1,7 @@
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Notifications.Application.Notifications.Consumers;
-using Notifications.Application.Notifications.Services;
 using Notifications.Domain.Interfaces;
-using Notifications.Infrastructure.Helper;
 using Notifications.Persistance;
 using Notifications.Persistance.Repositories;
 using CommonFiles.Auth.Extensions;
@@ -13,6 +11,7 @@ using CommonFiles.Messaging;
 using Microsoft.Extensions.Options;
 using CommonFiles.Auth.RequirementsHandlers;
 using Microsoft.AspNetCore.Authorization;
+using Notifications.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,9 +28,9 @@ builder.Services.Configure<RabbitMqSettings>(builder.Configuration.GetSection("R
 builder.Services.AddScoped<IAuthorizationHandler, RoleRequirementHandler>();
 
 builder.Services.AddScoped<INotificationsRepository, NotificationsRepository>();
-builder.Services.AddScoped<INotificationService, NotificationsService>();
 
 builder.Services.AddApiAuthentification(builder.Configuration);
+builder.Services.AddMediatRServices();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -62,7 +61,6 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddMassTransit(m =>
 {

@@ -9,9 +9,9 @@
             UserEmail = userEmail;
             ExpirationDate = expirationDate;
         }
-        public Guid Id { get; }
-        public string Token { get; } = string.Empty;
-        public string UserEmail { get; } = string.Empty;
-        public DateTime ExpirationDate { get; }
+        public Guid Id { get; set; }
+        public string Token { get; set; } = string.Empty;
+        public string UserEmail { get; set; } = string.Empty;
+        public DateTime ExpirationDate { get; set; }
     }
 }

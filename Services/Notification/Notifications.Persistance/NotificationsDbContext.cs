@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Notifications.Persistance.Entities;
+using Notifications.Domain.Models;
 
 namespace Notifications.Persistance
 {
@@ -9,7 +9,7 @@ namespace Notifications.Persistance
             : base(options)
         {
         }
-        public DbSet<NotificationEntity> Notifications { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
     }
 }
 

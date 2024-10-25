@@ -1,4 +1,3 @@
-using Events.Application.services;
 using Events.Domain.Interfaces.Repositories;
 using Events.Domain.Interfaces.Services;
 using Events.Persistance;
@@ -6,16 +5,14 @@ using Events.Persistance.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Events.Infrastructure.Helper;
 using Microsoft.Extensions.FileProviders;
 using Events.Infrastructure.Services;
-using FluentValidation;
-using Events.API.Dtos;
 using CommonFiles.Auth.Extensions;
-using Events.API.Validators;
 using MassTransit;
 using CommonFiles.Auth.RequirementsHandlers;
-using CommonFiles.Middleware;
+using Events.API.Extensions;
+using Events.Application.UseCases.Queries.GetEvents;
+using Events.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,11 +28,10 @@ builder.Services.AddDbContext<EventsDbContext>(options =>
 builder.Services.AddScoped<IAuthorizationHandler, RoleRequirementHandler>();
 builder.Services.AddApiAuthentification(builder.Configuration);
 
-builder.Services.AddScoped<IEventsService, EventsService>();
 builder.Services.AddScoped<IEventsRepository, EventsRepository>();
 builder.Services.AddScoped<IFileService, FileService>();
-builder.Services.AddScoped<IValidator<CreateEventRequest>, CreateEventRequestValidator>();
-builder.Services.AddScoped<IValidator<UpdateEventRequest>, UpdateEventRequestValidator>();
+
+builder.Services.AddMediatRServices();
 
 builder.Services.AddCors(options =>
 {
@@ -46,7 +42,8 @@ builder.Services.AddCors(options =>
         });
 });
 
-builder.Services.AddAutoMapper(typeof(MappingProfile));
+//builder.Services.AddAutoMapper(typeof(UpdateEventMapper));
+builder.Services.AddAutoMapper(typeof(GetEventsQueryMapper));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -114,7 +111,7 @@ app.UseStaticFiles(new StaticFileOptions
 });
 app.UseCors();
 
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();

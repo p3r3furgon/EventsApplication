@@ -1,12 +1,10 @@
 ﻿using CommonFiles.Auth;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using System.Net;
-using System.Security.Claims;
-using Users.API.Dtos;
-using Users.API.Validators;
-using Users.Domain.Interfaces.Services;
-using Users.Domain.Models.AuthModels;
+using Users.Application.UseCases.AuthUseCases.Commands.UpdateRefreshToken;
+using Users.Application.UseCases.AuthUseCases.Commands.UserLogin;
+using Users.Application.UseCases.AuthUseCases.Commands.UserRegister;
 
 namespace Users.API.Controllers
 {
@@ -14,93 +12,50 @@ namespace Users.API.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthService _authService;
-        private readonly IUsersService _usersService;
+        private readonly IMediator _mediator;
         private readonly JwtOptions _options;
 
-        public AuthController(IAuthService authService, IOptions<JwtOptions> options, IUsersService usersService)
+        public AuthController(IMediator mediator, IOptions<JwtOptions> options)
         {
-            _authService = authService;
-            _usersService = usersService;
+            _mediator = mediator;
             _options = options.Value;
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
+        public async Task<IActionResult> Register([FromBody] UserRegisterCommand userRegisterCommand)
         {
-            RegisterRequestValidator validator = new();
-            var results = validator.Validate(registerRequest);
-            if (!results.IsValid)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest, results.Errors);
-            }
-
-            await _authService.Register(registerRequest.FirstName, registerRequest.Surname,
-                DateOnly.Parse(registerRequest.BirthDate), registerRequest.Email, registerRequest.Password);
-            return StatusCode(StatusCodes.Status200OK);
+            var response = await _mediator.Send(userRegisterCommand);
+            return StatusCode(StatusCodes.Status201Created, response);
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
+        public async Task<IActionResult> Login([FromBody] UserLoginCommand userLoginCommand)
         {
-            LoginRequestValidator validator = new();
-            var results = validator.Validate(loginRequest);
-            if (!results.IsValid)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest, results.Errors);
-            }
+            var response = await _mediator.Send(userLoginCommand);
 
-            var tokens = await _authService.Login(loginRequest.Email, loginRequest.Password);
-            var accessToken = tokens.Item1;
-            var refreshToken = tokens.Item2;
-
-            await _authService.CreateRefreshToken(new RefreshToken(Guid.NewGuid(), refreshToken, loginRequest.Email, DateTime.UtcNow.AddDays(_options.RefreshTokenExpirationDays)));
-
-            Response.Cookies.Append("refreshToken", refreshToken, new CookieOptions
+            Response.Cookies.Append("refreshToken", response.RefreshToken, new CookieOptions
             {
                 HttpOnly = true,
                 Secure = true,
                 Expires = DateTime.UtcNow.AddDays(_options.RefreshTokenExpirationDays)
             });
 
-            var responce = new Dictionary<string, string> { };
-            responce["access_token"] = accessToken;
-            responce["refresh_token"] = refreshToken;
-            return StatusCode(StatusCodes.Status200OK, responce);
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
         [HttpPost("refresh")]
-        public async Task<IActionResult> Refresh([FromBody] TokenRequest request)
+        public async Task<IActionResult> Refresh([FromBody] UpdateRefreshTokenCommand updateRefreshTokenCommand)
         {
-            var storedRefreshToken = await _authService.GetStoredRefreshToken(WebUtility.UrlDecode(request.RefreshToken));
+            var response = await _mediator.Send(updateRefreshTokenCommand);
 
-            if (storedRefreshToken == null || storedRefreshToken.ExpirationDate < DateTime.UtcNow)
-            {
-                return StatusCode(StatusCodes.Status401Unauthorized, "Invalid or expired refresh token.");
-            }
-
-            var user = await _usersService.GetUserByEmail(storedRefreshToken.UserEmail.ToString());
-
-            Claim[] claims = [ new(ClaimTypes.PrimarySid, user.Id.ToString()), new(ClaimTypes.Role, user.Role),
-                new(ClaimTypes.Name, user.FirstName), new(ClaimTypes.Surname, user.Surname), new(ClaimTypes.Email, user.Email)];
-
-            var newAccessToken = _authService.GenerateJwtToken(claims);
-            var newRefreshToken = _authService.GenerateRefreshToken();
-
-            await _authService.SaveRefreshToken(storedRefreshToken, newRefreshToken, DateTime.UtcNow.AddDays(_options.RefreshTokenExpirationDays));
-
-            Response.Cookies.Append("refreshToken", newRefreshToken, new CookieOptions
+            Response.Cookies.Append("refreshToken", response.NewRefreshToken, new CookieOptions
             {
                 HttpOnly = true,
                 Secure = true,
                 Expires = DateTime.UtcNow.AddDays(_options.RefreshTokenExpirationDays)
             });
 
-            var responce = new Dictionary<string, string> { };
-            responce["access_token"] = newAccessToken;
-            responce["refresh_token"] = newRefreshToken;
-
-            return Ok(new { AccessToken = newAccessToken, RefreshToken = newRefreshToken });
+            return StatusCode(StatusCodes.Status200OK, response);
         }
     }
 }

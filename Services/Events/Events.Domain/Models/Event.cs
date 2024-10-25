@@ -1,22 +1,21 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace Events.Domain.Models
+﻿namespace Events.Domain.Models
 {
     public class Event
     {
-        public Guid Id { get; }
-        public string Title { get; } = string.Empty;
-        public string? Description { get; } = string.Empty;
-        public DateTime DateTime { get; }
-        public string Place { get; } = string.Empty;
-        public string? Category { get; } = string.Empty;
-        public int MaxParticipantNumber { get; }
-        public ICollection<Participant> Participants { get; set; } = new List<Participant>();
-        public string? Image { get; } = string.Empty;
+        public Guid Id { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string? Description { get; set; } = string.Empty;
+        public DateTime DateTime { get; set; }
+        public string Place { get; set; } = string.Empty;
+        public string? Category { get; set; } = string.Empty;
+        public int MaxParticipantNumber { get; set; }
+        public List<Participant> Participants { get; set; } = new List<Participant>();
+        public string? Image { get; set; } = string.Empty;
     
+        public Event() { }
 
         private Event(Guid id, string title, string? description, DateTime dateTime,
-            string place, string? category, int maxParticipantNumber, List<Participant> participants, string? image)
+            string place, string? category, int maxParticipantNumber, string? image)
         {
             Id = id;
             Title = title;
@@ -25,17 +24,16 @@ namespace Events.Domain.Models
             Place = place;
             Category = category;
             MaxParticipantNumber = maxParticipantNumber;
-            Participants = participants;
             Image = image;
         }
 
         public static Event Create(string title, string? description, DateTime dateTime,
-            string place, string? category, int maxParticipantNumber, List<Participant> participants, string? image)
+            string place, string? category, int maxParticipantNumber, string? image)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(title);
             ArgumentException.ThrowIfNullOrWhiteSpace(place);
 
-            return new Event(Guid.NewGuid(), title, description, dateTime, place, category, maxParticipantNumber, participants, image);
+            return new Event(Guid.NewGuid(), title, description, dateTime, place, category, maxParticipantNumber, image);
         }
 
     }

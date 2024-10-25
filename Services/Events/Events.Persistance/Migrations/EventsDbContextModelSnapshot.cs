@@ -22,7 +22,7 @@ namespace Events.Persistance.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Events.Persistance.Entities.EventEntity", b =>
+            modelBuilder.Entity("Events.Domain.Models.Event", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -56,7 +56,7 @@ namespace Events.Persistance.Migrations
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("Events.Persistance.Entities.ParticipantEntity", b =>
+            modelBuilder.Entity("Events.Domain.Models.Participant", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -66,7 +66,7 @@ namespace Events.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("EventId")
+                    b.Property<Guid?>("EventId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("FirstName")
@@ -90,18 +90,16 @@ namespace Events.Persistance.Migrations
                     b.ToTable("Participants");
                 });
 
-            modelBuilder.Entity("Events.Persistance.Entities.ParticipantEntity", b =>
+            modelBuilder.Entity("Events.Domain.Models.Participant", b =>
                 {
-                    b.HasOne("Events.Persistance.Entities.EventEntity", "Event")
+                    b.HasOne("Events.Domain.Models.Event", "Event")
                         .WithMany("Participants")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EventId");
 
                     b.Navigation("Event");
                 });
 
-            modelBuilder.Entity("Events.Persistance.Entities.EventEntity", b =>
+            modelBuilder.Entity("Events.Domain.Models.Event", b =>
                 {
                     b.Navigation("Participants");
                 });

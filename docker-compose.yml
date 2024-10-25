@@ -3,7 +3,7 @@ version: "3.8"
 services:
   usersdb:
     container_name: usersdb
-    image: postgres
+    image: postgres:16
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -18,7 +18,7 @@ services:
   
   eventsdb:
     container_name: eventsdb
-    image: postgres
+    image: postgres:16
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -34,7 +34,7 @@ services:
 
   notificationsdb:
     container_name: notificationsdb
-    image: postgres
+    image: postgres:16
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres

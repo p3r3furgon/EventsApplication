@@ -2,11 +2,11 @@
 {
     public class Notification
     {
-        public Guid Id { get; }
-        public string Title { get; } = string.Empty;
-        public string Message { get; } = string.Empty;
-        public DateTime DateTime { get; }
-        public Guid UserId { get; }
+        public Guid Id { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Message { get; set; } = string.Empty;
+        public DateTime DateTime { get; set; }
+        public Guid UserId { get; set; }
     
 
         private Notification(Guid id, string title, string message, DateTime dateTime, Guid userId)

@@ -10,12 +10,12 @@
     <PackageReference Include="MassTransit" Version="8.2.5" />
     <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
     <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.5" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\CommonFiles\CommonFiles.Messaging\CommonFiles.Messaging.csproj" />
     <ProjectReference Include="..\Notification.Domain\Notifications.Domain.csproj" />
-    <ProjectReference Include="..\Notification.Infrastructure\Notifications.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,13 +2,13 @@
 {
     public class Participant
     {
-        public Guid Id { get; }
+        public Guid Id { get; set; }
         public Guid UserId { get; set; }
-        public string FirstName { get; } = string.Empty;
-        public string Surname { get; } = string.Empty;
-        public string Email { get; } = string.Empty;
-        public DateTime RegistrationDateTime { get; }
-        public Event? Events { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string Surname { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public DateTime RegistrationDateTime { get; set; }
+        public Event? Event { get; set; }
 
         private Participant(Guid id, Guid userId, string firstName, string surname, string email, DateTime registrationDateTime)
         {

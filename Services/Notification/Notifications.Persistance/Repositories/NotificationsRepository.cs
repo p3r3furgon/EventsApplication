@@ -1,7 +1,5 @@
 ﻿using Notifications.Domain.Interfaces;
 using Notifications.Domain.Models;
-using AutoMapper;
-using Notifications.Persistance.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Notifications.Persistance.Repositories
@@ -9,16 +7,13 @@ namespace Notifications.Persistance.Repositories
     public class NotificationsRepository : INotificationsRepository
     {
         private readonly NotificationsDbContext _context;
-        private readonly IMapper _mapper;
-        public NotificationsRepository(NotificationsDbContext context, IMapper mapper)
+        public NotificationsRepository(NotificationsDbContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
         public async Task<Guid> Create(Notification notification)
         {
-            var notificationEntity = _mapper.Map<NotificationEntity>(notification);
-            await _context.Notifications.AddAsync(notificationEntity);
+            await _context.Notifications.AddAsync(notification);
             await _context.SaveChangesAsync();
             return notification.Id;
         }
@@ -41,17 +36,10 @@ namespace Notifications.Persistance.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Notification>> GetAll()
-        {
-            var notificationsEntities = await _context.Notifications.ToListAsync();
-            return _mapper.Map <List<Notification>>(notificationsEntities);
-        }
+        public async Task<List<Notification>> GetAll() => 
+            await _context.Notifications.ToListAsync();
 
-        public async Task<List<Notification>> GetByUserId(Guid userId)
-        {
-            var notificationsEntities = await _context.Notifications.Where(n => n.UserId == userId).ToListAsync();
-            var notifications = _mapper.Map<List<Notification>>(notificationsEntities);
-            return notifications;
-        }
+        public async Task<List<Notification>> GetByUserId(Guid userId) => 
+            await _context.Notifications.Where(n => n.UserId == userId).ToListAsync();
     }
 }

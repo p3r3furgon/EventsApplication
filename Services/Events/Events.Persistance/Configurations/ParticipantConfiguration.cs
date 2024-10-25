@@ -1,12 +1,12 @@
-﻿using Events.Persistance.Entities;
+﻿using Events.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Events.Persistance.Configurations
 {
-    public class ParticipantConfiguration: IEntityTypeConfiguration<ParticipantEntity>
+    public class ParticipantConfiguration: IEntityTypeConfiguration<Participant>
     {
-        public void Configure(EntityTypeBuilder<ParticipantEntity> builder)
+        public void Configure(EntityTypeBuilder<Participant> builder)
         {
 
             builder.HasKey(e => e.Id);

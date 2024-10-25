@@ -1,4 +1,4 @@
-﻿using Events.Persistance.Entities;
+﻿using Events.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Events.Persistance
@@ -9,7 +9,7 @@ namespace Events.Persistance
             : base(options)
         {
         }
-        public DbSet<EventEntity> Events { get; set; }
-        public DbSet<ParticipantEntity> Participants { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Participant> Participants { get; set; }
     }
 }

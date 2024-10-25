@@ -4,6 +4,7 @@ namespace Users.Domain.Models
 {
     public class User
     {
+        private User() { }
         private User(Guid id, string firstName, string surname,
             DateOnly birthDate, string email, string passwordHash, string role)
         {
@@ -16,13 +17,13 @@ namespace Users.Domain.Models
             Role = role;
         }
         public const int NAMES_MAX_LENGTH = 40;
-        public Guid Id { get; }
-        public string FirstName { get; } = string.Empty;
-        public string Surname { get; } = string.Empty;
-        public DateOnly BirthDate { get; }
-        public string Email { get; } = string.Empty;
-        public string PasswordHash { get; } = string.Empty;
-        public string Role { get; } = string.Empty;
+        public Guid Id { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string Surname { get; set; } = string.Empty;
+        public DateOnly BirthDate { get; set; }
+        public string Email { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
+        public string Role { get; set; } = string.Empty;
 
         public static User Create(Guid id, string firstName, string surname,
             DateOnly birthDate, string email, string passwordHash, string role)

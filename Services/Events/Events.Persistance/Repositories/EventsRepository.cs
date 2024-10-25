@@ -1,7 +1,5 @@
-﻿using AutoMapper;
-using Events.Domain.Interfaces.Repositories;
+﻿using Events.Domain.Interfaces.Repositories;
 using Events.Domain.Models;
-using Events.Persistance.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Events.Persistance.Repositories
@@ -9,83 +7,48 @@ namespace Events.Persistance.Repositories
     public class EventsRepository : IEventsRepository
     {
         private readonly EventsDbContext _context;
-        private readonly IMapper _mapper;
-        public EventsRepository(EventsDbContext context, IMapper mapper)
+        public EventsRepository(EventsDbContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
-        public async Task<Guid> Create(Event @event)
+        public async Task Create(Event @event)
         {
-            var eventEntity = _mapper.Map<Event, EventEntity>(@event);
-            await _context.Events.AddAsync(eventEntity);
+            await _context.Events.AddAsync(@event);
             await _context.SaveChangesAsync();
-            return @event.Id;
         }
 
-        public async Task<List<Event>> Get()
-        {
-            var eventsEntities = await _context.Events.Include(e => e.Participants).ToListAsync();
-            var events = _mapper.Map<List<EventEntity>, List<Event>>(eventsEntities);
-            return events;
-        }
+        public async Task<List<Event>> Get() =>
+            await _context.Events.Include(e => e.Participants).ToListAsync();
 
-        public async Task<Event> GetById(Guid id)
-        {
-            var eventEntity = await _context.Events.Include(e => e.Participants).Where(e => e.Id == id).FirstOrDefaultAsync();
-            if (eventEntity == null)
-                throw new Exception("Event is not found");
-            var @event = _mapper.Map<EventEntity, Event>(eventEntity);
-            return @event;
-        }
+        public async Task<Event> GetById(Guid id) => 
+            await _context.Events.Include(e => e.Participants).Where(e => e.Id == id).FirstOrDefaultAsync();
 
-        public async Task<Guid> Delete(Guid id)
+        public async Task Delete(Guid id)
         {
-            var eventEntity = await _context.Events.FindAsync(id);
-            _context.Events.Remove(eventEntity);
+            var @vent = await _context.Events.FindAsync(id);
+            _context.Events.Remove(@vent);
             await _context.SaveChangesAsync();
-            return id;
         }
 
-        public async Task<Guid> Update(Guid id, string? title, string? description, DateTime? dateTime, string? category, string? place, int? maxParticipantsNumber, string? image)
+        public async Task Update(Event @event)
         {
-            var eventEntity = await _context.Events.FindAsync(id);
 
-            if (eventEntity == null)
-                throw new Exception("There is no event with this id");
-            eventEntity.Title = (string.IsNullOrEmpty(title)) ? eventEntity.Title : title;
-            eventEntity.Description = (string.IsNullOrEmpty(description)) ? eventEntity.Description : description;
-            eventEntity.DateTime = dateTime ?? eventEntity.DateTime;
-            eventEntity.Category = (string.IsNullOrEmpty(category)) ? eventEntity.Category : category;
-            eventEntity.Place = (string.IsNullOrEmpty(place)) ? eventEntity.Place : place;
-            eventEntity.Image = (string.IsNullOrEmpty(image)) ? eventEntity.Image : image;
+            _context.Events.Update(@event);
             await _context.SaveChangesAsync();
-            return id;
         }
 
-        public async Task<Guid> AddParticipant(Guid id, Participant participant)
+        public async Task AddParticipant(Event @event, Participant participant)
         {
-            var eventsEntities = await _context.Events.ToListAsync();
-            var eventEntity = eventsEntities.Where(e => e.Id == id).FirstOrDefault();
-            if (eventEntity == null)
-                throw new Exception("Event not found");
-
-            var participantEntity = _mapper.Map<ParticipantEntity>(participant);
-            participantEntity.Event = eventEntity;
-            await _context.Participants.AddAsync(participantEntity);
+            participant.Event = @event;
+            await _context.Participants.AddAsync(participant);
             await _context.SaveChangesAsync();
-
-            return eventEntity.Id;
-
         }
 
         public async Task RemoveParticipant(Guid eventId, Guid userId)
         {
-            var eventsEntities = await _context.Events.Include(e => e.Participants).ToListAsync();
-            var eventEntity = eventsEntities.Where(e => e.Id == eventId).FirstOrDefault();
-            if (eventEntity == null)
-                throw new Exception("Event not found");
-            _context.RemoveRange(eventEntity.Participants.Where(p => p.UserId == userId));
+            var events = await _context.Events.Include(e => e.Participants).ToListAsync();
+            var @event = events.Where(e => e.Id == eventId).FirstOrDefault();
+            _context.RemoveRange(@event.Participants.Where(p => p.UserId == userId));
             await _context.SaveChangesAsync();
         }
     }

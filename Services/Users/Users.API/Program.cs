@@ -1,21 +1,17 @@
 using Microsoft.EntityFrameworkCore;
-using Users.Application.Services;
 using Users.Domain.Interfaces.Authentification;
 using Users.Domain.Interfaces.Repositories;
-using Users.Domain.Interfaces.Services;
 using Users.Infrastructure;
 using Users.Persistance;
 using Users.Persistance.Repositories;
-using Users.Infrastructure.Helper;
 using CommonFiles.Auth.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
-using FluentValidation;
-using Users.API.Validators;
-using Users.API.Dtos;
 using Users.API.Middleware;
 using CommonFiles.Auth;
 using CommonFiles.Auth.RequirementsHandlers;
+using user.API.Extensions;
+using Users.Application.UseCases.AuthUseCases.Commands.UserRegister;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,19 +28,13 @@ builder.Services.AddScoped<IAuthorizationHandler, RoleRequirementHandler>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<IRefreshTokensRepository, RefreshTokenRepository>();
 
-builder.Services.AddScoped<IUsersService, UsersService>();
-builder.Services.AddScoped<IAuthService, AuthService>();
-
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 
-builder.Services.AddScoped<IValidator<RegisterRequest>, RegisterRequestValidator>();
-builder.Services.AddScoped<IValidator<LoginRequest>, LoginRequestValidator>();
-builder.Services.AddScoped<IValidator<UpdateUserRequest>, UpdateUserRequestValidator>();
-
-builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddAutoMapper(typeof(UserRegisterMapper));
 
 builder.Services.AddApiAuthentification(builder.Configuration);
+builder.Services.AddMediatRServices();
 
 builder.Services.AddEndpointsApiExplorer();
 

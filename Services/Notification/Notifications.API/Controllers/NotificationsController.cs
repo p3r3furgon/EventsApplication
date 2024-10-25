@@ -1,7 +1,12 @@
 using Gridify;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Notifications.Domain.Interfaces;
+using Notifications.Application.Notifications.UseCases.Commands.DeleteAllNotifications;
+using Notifications.Application.Notifications.UseCases.Commands.DeleteNotification;
+using Notifications.Application.Notifications.UseCases.Queries.GetAllNotifications;
+using Notifications.Application.Notifications.UseCases.Queries.GetUserNotificationById;
+using Notifications.Application.Notifications.UseCases.Queries.GetUserNotifications;
 using System.Security.Claims;
 
 namespace Notifications.API.Controllers
@@ -10,11 +15,11 @@ namespace Notifications.API.Controllers
     [Route("[controller]")]
     public class NotificationsController : ControllerBase
     {
-        private readonly INotificationService _notificationService;
+        private readonly IMediator _mediator;
 
-        public NotificationsController(INotificationService notificationService)
+        public NotificationsController(IMediator mediator)
         {
-            _notificationService = notificationService;
+            _mediator = mediator;
         }
 
         [HttpGet]
@@ -22,9 +27,9 @@ namespace Notifications.API.Controllers
         public async Task<IActionResult> GetUserNotifications([FromQuery] GridifyQuery gridifyQuery)
         {
             var userId = User.FindFirstValue(ClaimTypes.PrimarySid);
-            var notifications = await _notificationService.GetNotificationByUserId(Guid.Parse(userId));
-
-            var result = notifications.AsQueryable()
+            var response = await _mediator.Send(new GetUserNotificationsQuery(Guid.Parse(userId)));
+           
+            var result = response.Notifications.AsQueryable()
                           .ApplyFiltering(gridifyQuery)
                           .ApplyOrdering(gridifyQuery)
                           .ApplyPaging(gridifyQuery.Page, gridifyQuery.PageSize);
@@ -37,8 +42,8 @@ namespace Notifications.API.Controllers
         public async Task<IActionResult> GetUserNotificationById(Guid notificationId)
         {
             var userId = User.FindFirstValue(ClaimTypes.PrimarySid);
-            var notification = await _notificationService.GetUserNotificationById(notificationId, Guid.Parse(userId));
-            return StatusCode(StatusCodes.Status200OK, notification);
+            var response = await _mediator.Send(new GetUserNotificationByIdQuery(Guid.Parse(userId), notificationId));
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
         [HttpDelete("{notificationId}")]
@@ -46,9 +51,9 @@ namespace Notifications.API.Controllers
         public async Task<IActionResult> DeleteUserNotification(Guid notificationId)
         {
             var userId = User.FindFirstValue(ClaimTypes.PrimarySid);
-            await _notificationService.DeleteNotification(notificationId, Guid.Parse(userId));
+            var response = await _mediator.Send(new DeleteNotificationCommand(Guid.Parse(userId), notificationId));
 
-            return StatusCode(StatusCodes.Status200OK, notificationId);
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
 
@@ -56,16 +61,16 @@ namespace Notifications.API.Controllers
         [Authorize(Policy = "SuperAdmin")]
         public async Task<IActionResult> DeleteAllNotifications()
         {
-            await _notificationService.DeleteAllNotifications();
-            return StatusCode(StatusCodes.Status200OK);
+            var response = await _mediator.Send(new DeleteNotificationsCommand());
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
         [HttpGet("all")]
         [Authorize(Policy = "SuperAdmin")]
         public async Task<IActionResult> GetAllNotifications()
         {
-            var notifications = await _notificationService.GetAllNotifications();
-            return StatusCode(StatusCodes.Status200OK, notifications);
+            var response = await _mediator.Send(new GetAllNotificationsQuery());
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
     }

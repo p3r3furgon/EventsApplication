@@ -1,17 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Users.Persistance.Entities;
+using Users.Domain.Models;
+using Users.Domain.Models.AuthModels;
 
 namespace Users.Persistance.Configurations
 {
-    public  class RefreshTokensConfiguration: IEntityTypeConfiguration<RefreshTokenEntity>
+    public  class RefreshTokensConfiguration: IEntityTypeConfiguration<RefreshToken>
     {
-        public void Configure(EntityTypeBuilder<RefreshTokenEntity> builder)
+        public void Configure(EntityTypeBuilder<RefreshToken> builder)
         {
-            builder.HasKey(rf => rf.Id);
-            builder.Property(rf => rf.ExpirationDate).IsRequired();
-            builder.Property(rf => rf.UserEmail).IsRequired();
-            builder.Property(rf => rf.Token).IsRequired();
+            builder.HasOne<User>()
+                .WithMany()
+                .HasForeignKey(e => e.UserEmail)
+                .IsRequired();
         }
+        
     }
 }

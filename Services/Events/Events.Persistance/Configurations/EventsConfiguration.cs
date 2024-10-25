@@ -1,12 +1,12 @@
-﻿using Events.Persistance.Entities;
+﻿using Events.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Events.Persistance.Configurations
 {
-    public class EventsConfiguration : IEntityTypeConfiguration<EventEntity>
+    public class EventsConfiguration : IEntityTypeConfiguration<Event>
     {
-        public void Configure(EntityTypeBuilder<EventEntity> builder)
+        public void Configure(EntityTypeBuilder<Event> builder)
         {
 
             builder.HasKey(e => e.Id);
@@ -27,7 +27,6 @@ namespace Events.Persistance.Configurations
 
 
             builder.Property(e => e.DateTime).IsRequired();
-            builder.Property(e => e.Participants).IsRequired();
             builder.Property(e => e.MaxParticipantNumber).IsRequired();
 
             builder

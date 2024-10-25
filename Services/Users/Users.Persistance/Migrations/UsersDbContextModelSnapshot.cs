@@ -22,7 +22,7 @@ namespace Users.Persistance.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Users.Persistance.Entities.RefreshTokenEntity", b =>
+            modelBuilder.Entity("Users.Domain.Models.AuthModels.RefreshToken", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -44,7 +44,7 @@ namespace Users.Persistance.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
-            modelBuilder.Entity("Users.Persistance.Entities.UserEntity", b =>
+            modelBuilder.Entity("Users.Domain.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,7 +59,8 @@ namespace Users.Persistance.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(40)
+                        .HasColumnType("character varying(40)");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
@@ -71,9 +72,13 @@ namespace Users.Persistance.Migrations
 
                     b.Property<string>("Surname")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(40)
+                        .HasColumnType("character varying(40)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Users");
 
@@ -84,7 +89,7 @@ namespace Users.Persistance.Migrations
                             BirthDate = new DateOnly(2003, 11, 10),
                             Email = "admin@gmail.com",
                             FirstName = "admin",
-                            PasswordHash = "$2a$11$Xv32BiMyYMrwRoI/cV59GeCbQDkLD.P7ilftAV.Izj1w1hVWxhfgS",
+                            PasswordHash = "$2a$11$G/vj9l.oVHKBMkU1ky4s/u4l3OG5i4dMDvermOa6eNyiqQKf/6VOW",
                             Role = "SuperAdmin",
                             Surname = "admin"
                         });

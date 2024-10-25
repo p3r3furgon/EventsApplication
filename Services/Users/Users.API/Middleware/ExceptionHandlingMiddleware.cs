@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Users.Application.Exceptions;
 
 namespace Users.API.Middleware
 {
@@ -21,11 +22,48 @@ namespace Users.API.Middleware
             {
                 await _next(context);
             }
+            catch (BadRequestException ex)
+            {
+                var problemDetails = new ProblemDetails
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                    Title = ex.Message,
+                    Detail = ex.ToString()
+                };
+
+                context.Response.StatusCode =
+                    StatusCodes.Status400BadRequest;
+
+                await context.Response.WriteAsJsonAsync(problemDetails);
+            }
+            catch (UserNotFoundException ex)
+            {
+                var problemDetails = new ProblemDetails
+                {
+                    Status = StatusCodes.Status404NotFound,
+                    Title = ex.Message,
+                };
+
+                context.Response.StatusCode =
+                    StatusCodes.Status404NotFound;
+
+                await context.Response.WriteAsJsonAsync(problemDetails);
+            }
+            catch (RoleAssignmentException ex)
+            {
+                var problemDetails = new ProblemDetails
+                {
+                    Status = StatusCodes.Status409Conflict,
+                    Title = ex.Message,
+                };
+
+                context.Response.StatusCode =
+                    StatusCodes.Status409Conflict;
+
+                await context.Response.WriteAsJsonAsync(problemDetails);
+            }
             catch (Exception exception)
             {
-                _logger.LogError(
-                    exception, "Exception occurred: {Message}", exception.Message);
-
                 var problemDetails = new ProblemDetails
                 {
                     Status = StatusCodes.Status500InternalServerError,

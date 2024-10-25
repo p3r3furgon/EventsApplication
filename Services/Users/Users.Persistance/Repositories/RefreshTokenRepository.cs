@@ -1,32 +1,28 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Users.Domain.Interfaces.Repositories;
 using Users.Domain.Models.AuthModels;
-using Users.Persistance.Entities;
 
 namespace Users.Persistance.Repositories
 {
     public class RefreshTokenRepository : IRefreshTokensRepository
     {
         private readonly UsersDbContext _context;
-        private readonly IMapper _mapper;
-        public RefreshTokenRepository(UsersDbContext context, IMapper mapper)
+
+        public RefreshTokenRepository(UsersDbContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
 
         public async Task Create(RefreshToken refreshToken)
         {
-            var refreshTokenEntity = _mapper.Map<RefreshTokenEntity>(refreshToken);
-            await _context.RefreshTokens.AddAsync(refreshTokenEntity);
+            await _context.RefreshTokens.AddAsync(refreshToken);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<RefreshToken> Get(string refreshToken)
+        public async Task<RefreshToken> Get(string token)
         {
-            var refreshTokenEntity = await _context.RefreshTokens.SingleOrDefaultAsync(rt => rt.Token == refreshToken);
-            return _mapper.Map<RefreshToken>(refreshTokenEntity);
+            var refreshToken = await _context.RefreshTokens.FirstOrDefaultAsync(rt => rt.Token == token);
+            return refreshToken;
         }
 
         public async Task Save(RefreshToken refreshToken, string newRefreshToken, DateTime expirationDate)

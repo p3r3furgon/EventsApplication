@@ -4,10 +4,10 @@ namespace Users.Domain.Interfaces.Repositories
 {
     public interface IUsersRepository
     {
-        Task<ICollection<User>> Get();
-        Task<Guid> Create(User user);
-        Task<Guid> Delete(Guid id);
-        Task<Guid> Update(Guid id, string? firstName, string? surname, DateOnly? birthDate, string? email, string? passwordHash, string? role);
+        Task<List<User>> Get();
+        Task Create(User user);
+        Task Delete(Guid id);
+        Task Update(User user);
         Task<User> GetByEmail(string email);
         Task<User> GetById(Guid id);
     }

@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Notifications.Persistance.Entities;
+using Notifications.Domain.Models;
 
 namespace Notifications.Persistance.Configurations
 {
-    public class NotificationsConfiguration : IEntityTypeConfiguration<NotificationEntity>
+    public class NotificationsConfiguration : IEntityTypeConfiguration<Notification>
     {
-        public void Configure(EntityTypeBuilder<NotificationEntity> builder)
+        public void Configure(EntityTypeBuilder<Notification> builder)
         {
             builder.HasKey(n => n.Id);
             builder.Property(n => n.Title)

@@ -22,7 +22,7 @@ namespace Notifications.Persistance.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Notifications.Persistance.Entities.NotificationEntity", b =>
+            modelBuilder.Entity("Notifications.Domain.Models.Notification", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

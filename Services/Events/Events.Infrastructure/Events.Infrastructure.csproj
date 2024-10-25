@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Events.Persistance\Events.Persistance.csproj" />
+    <ProjectReference Include="..\Events.Domain\Events.Domain.csproj" />
   </ItemGroup>
 
 </Project>

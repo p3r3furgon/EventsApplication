@@ -1,15 +1,17 @@
-﻿using CommonFiles.Messaging;
-using Events.API.Dtos;
-using Events.API.Validators;
-using Events.Domain.Interfaces.Services;
-using Events.Domain.Models;
+﻿using Events.Application.UseCases.Commands.CreateEvent;
+using Events.Application.UseCases.Commands.DeleteEvent;
+using Events.Application.UseCases.Commands.SubscribeOnEvent;
+using Events.Application.UseCases.Commands.UnsubscribeFromEvent;
+using Events.Application.UseCases.Commands.UpdateEvent;
+using Events.Application.UseCases.Queries.GetEventById;
+using Events.Application.UseCases.Queries.GetEventParticipants;
+using Events.Application.UseCases.Queries.GetEvents;
 using Gridify;
-using MassTransit;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-using Event = Events.Domain.Models.Event;
 
 namespace Events.API.Controllers
 {
@@ -17,34 +19,20 @@ namespace Events.API.Controllers
     [Route("[controller]")]
     public class EventsController : ControllerBase
     {
-        private readonly IEventsService _eventsService;
-        private readonly IFileService _fileService;
-        private readonly IPublishEndpoint _publishEndpoint;
+        private readonly IMediator _mediator;
 
-        public EventsController(IEventsService eventsService, IFileService fileService, IPublishEndpoint publishEndpoint)
+        public EventsController(IMediator mediator)
         {
-            _eventsService = eventsService;
-            _fileService = fileService;
-            _publishEndpoint = publishEndpoint;
+            _mediator = mediator;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetEvents([FromQuery] GridifyQuery gridifyQuery)
         {
-            var events = await _eventsService.GetEvents();
-            var eventsDto = events
-                .Select(e => new EventResponceDto
-                {
-                    Id = e.Id,
-                    Title = e.Title,
-                    Description = e.Description,
-                    DateTime = e.DateTime,
-                    MaxParticipantNumber = e.MaxParticipantNumber,
-                    ParticipantsNumber = e.Participants.Count,
-                    Image = e.Image
-                }).ToList();
 
-            var result = eventsDto.AsQueryable()
+            var response = await _mediator.Send(new GetEventsQuery());
+
+            var result = response.AsQueryable()
                           .ApplyFiltering(gridifyQuery)
                           .ApplyOrdering(gridifyQuery)
                           .ApplyPaging(gridifyQuery.Page, gridifyQuery.PageSize);
@@ -55,104 +43,45 @@ namespace Events.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetEventById(Guid id)
         {
-            var @event = await _eventsService.GetEventById(id);
-            return StatusCode(StatusCodes.Status200OK,
-                @event);
+            var response = await _mediator.Send(new GetEventByIdQuery(id));
+            return StatusCode(StatusCodes.Status200OK, response.Event);
         }
 
         [HttpGet("{id}/paricipants")]
         [Authorize]
         public async Task<IActionResult> GetEventParticipants(Guid id)
         {
-            var @event = await _eventsService.GetEventById(id);
-            var participantsDto = @event.Participants
-                .Select(e => new ParticipantResponceDto
-                {
-                    FirstName = e.FirstName,
-                    Surname = e.Surname,
-                    Email = e.Email,
-                    RegistrationDateTime = e.RegistrationDateTime
-                }).ToList();
 
-            return StatusCode(StatusCodes.Status200OK, participantsDto);
+            var response = await _mediator.Send(new GetEventParticipantsQuery(id));
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
         [HttpPost]
         [Authorize(Policy = "Admin")]
         [Authorize(Policy = "SuperAdmin")]
-        public async Task<IActionResult> CreateEvent([FromForm] CreateEventRequest createEventRequest)
+        public async Task<IActionResult> CreateEvent([FromForm] CreateEventCommand createEventCommand)
         {
-            CreateEventRequestValidator validator = new ();
-            var results = await validator.ValidateAsync(createEventRequest);
-
-            if (!results.IsValid)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest, results.Errors);
-            }
-
-            string createdImageName = await _fileService.SaveFileAsync(createEventRequest.Image, [".jpg", ".jpeg", ".png"]);
-            var @event = Event.Create(createEventRequest.Title, createEventRequest.Description,
-                createEventRequest.DateTime, createEventRequest.Place, createEventRequest.Category, createEventRequest.MaxparticipantNumber,
-                new List<Participant>(), createdImageName);
-            var eventId = await _eventsService.CreateEvent(@event);
-            return StatusCode(StatusCodes.Status201Created, eventId);
+            var response = await _mediator.Send(createEventCommand);
+            return StatusCode(StatusCodes.Status201Created, response);
         }
 
-        [HttpPut("{id}")]
+
+        [HttpPut]
         [Authorize(Policy = "Admin")]
         [Authorize(Policy = "SuperAdmin")]
-        public async Task<IActionResult> UpdateEvent(Guid id, [FromForm] UpdateEventRequest updateEventRequest)
+        public async Task<IActionResult> UpdateEvent([FromForm] UpdateEventCommand updateEventCommand)
         {
-            UpdateEventRequestValidator validator = new();
-            var results = await validator.ValidateAsync(updateEventRequest);
-
-            if (!results.IsValid)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest, results.Errors);
-            }
-
-            var existingEvent = await _eventsService.GetEventById(id);
-            if(existingEvent.Participants.Count > updateEventRequest.MaxparticipantNumber)
-                 return StatusCode(StatusCodes.Status400BadRequest, results.Errors);
-
-            string? oldImage = existingEvent.Image;
-
-            string createdImageName = await _fileService.SaveFileAsync(updateEventRequest.Image, [".jpg", ".jpeg", ".png"]);
-            if(!string.IsNullOrEmpty(createdImageName))
-                _fileService.DeleteFile(oldImage);
-
-            var eventId = await _eventsService.UpdateEvent(id, updateEventRequest.Title, updateEventRequest.Description,
-                updateEventRequest.DateTime, updateEventRequest.Category, updateEventRequest.Place, updateEventRequest.MaxparticipantNumber, createdImageName);
-
-            if(!string.IsNullOrEmpty(updateEventRequest.MessageTitle) &&
-                !string.IsNullOrEmpty(updateEventRequest.MessageDescription))
-            {
-                List<Guid> usersId = existingEvent.Participants.Select(p => p.UserId).ToList();
-                EventUpdated eventUpdated = new()
-                {
-                    Title = updateEventRequest.MessageTitle,
-                    Message = updateEventRequest.MessageDescription,
-                    DateTime = DateTime.UtcNow,
-                    ParticipantsId = usersId
-                };
-                await _publishEndpoint.Publish<EventUpdated>(eventUpdated);
-            }
-
-            return StatusCode(StatusCodes.Status200OK, eventId);
+            var response = await _mediator.Send(updateEventCommand);
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         [Authorize(Policy = "Admin")]
         [Authorize(Policy = "SuperAdmin")]
-        public async Task<IActionResult> DeleteEvent(Guid id)
+        public async Task<IActionResult> DeleteEvent(DeleteEventCommand deleteEventCommand)
         {
-            var @event = await _eventsService.GetEventById(id);
-            await _eventsService.DeleteEvent(id);
-
-            if(!string.IsNullOrEmpty(@event.Image))
-                _fileService.DeleteFile(@event.Image);
-
-            return StatusCode(StatusCodes.Status200OK, id);
+            var response = await _mediator.Send(deleteEventCommand);
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
         [HttpPost("subscribe")]
@@ -164,8 +93,8 @@ namespace Events.API.Controllers
             var email = User?.FindFirstValue(ClaimTypes.Email);
             var userId = User?.FindFirstValue(ClaimTypes.PrimarySid);
 
-            await _eventsService.RegisterUserOnEvent(eventId, firstName, surname, email, userId);
-            return StatusCode(StatusCodes.Status200OK, "You have subscribed on event");
+            var response = await _mediator.Send(new SubscribeOnEventCommand(eventId, firstName, surname, email, Guid.Parse(userId)));
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
         [HttpDelete("unsubscribe")]
@@ -174,8 +103,8 @@ namespace Events.API.Controllers
         {
             var userId = User?.FindFirstValue(ClaimTypes.PrimarySid);
 
-            await _eventsService.UnsubscribeFromEvent(eventId, Guid.Parse(userId));
-            return StatusCode(StatusCodes.Status200OK, "You unsubscribed from event");
+            var response = await _mediator.Send(new UnsubscribeFromEventCommand(eventId, Guid.Parse(userId)));
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
 
