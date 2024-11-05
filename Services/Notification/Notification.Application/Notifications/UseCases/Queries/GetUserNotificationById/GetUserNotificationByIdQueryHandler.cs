@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using Notifications.Application.Dtos;
 using Notifications.Application.Exceptions;
 using Notifications.Domain.Interfaces;
 
@@ -7,8 +9,9 @@ namespace Notifications.Application.Notifications.UseCases.Queries.GetUserNotifi
     public class GetUserNotificationByIdQueryHandler : IRequestHandler<GetUserNotificationByIdQuery, GetUserNotificationByIdResponse>
     {
         private readonly INotificationsRepository _notificationsRepository;
+        private readonly IMapper _mapper;
 
-        public GetUserNotificationByIdQueryHandler(INotificationsRepository notificationsRepository)
+        public GetUserNotificationByIdQueryHandler(INotificationsRepository notificationsRepository, IMapper mapper)
         {
             _notificationsRepository = notificationsRepository;
         }
@@ -20,7 +23,8 @@ namespace Notifications.Application.Notifications.UseCases.Queries.GetUserNotifi
             if (notification == null)
                 throw new NotificationNotFoundException(request.NotificationId);
 
-            return new GetUserNotificationByIdResponse(notification);
+            var notificationDto = _mapper.Map<NotificationResponseDto>(notification);
+            return new GetUserNotificationByIdResponse(notificationDto);
         }
     }
 }

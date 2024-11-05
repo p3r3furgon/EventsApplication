@@ -4,6 +4,6 @@ namespace Notifications.Application.Notifications.UseCases.Commands.DeleteNotifi
 {
     public record DeleteNotificationCommand(Guid UserId, Guid NotificationId) 
         : IRequest<DeleteNotificationResponse>;
-    public record DeleteNotificationResponse(Guid Id);
+    public record DeleteNotificationResponse(Guid NotificationId);
 
 }

@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 using Notifications.Persistance.Repositories.UnitOfWork;
 using CommonFiles.Interfaces;
 using Notifications.Application.Notifications.UseCases.Commands.DeleteNotification;
+using Notifications.Application.Notifications.UseCases.Queries.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +36,7 @@ builder.Services.AddScoped<INotificationsRepository, NotificationsRepository>();
 
 builder.Services.AddApiAuthentification(builder.Configuration);
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<DeleteNotificationCommand>());
+builder.Services.AddAutoMapper(typeof(NotificationsMapper));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -73,7 +75,6 @@ builder.Services.AddMassTransit(m =>
     m.UsingRabbitMq((context, cfg) =>
     {
         var rabbitMqSettings = context.GetRequiredService<IOptions<RabbitMqSettings>>().Value;
-        Console.WriteLine(rabbitMqSettings.Password);
         cfg.Host(new Uri(rabbitMqSettings.Host), h =>
         {
             h.Username(rabbitMqSettings.Username);
