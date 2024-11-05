@@ -4,7 +4,7 @@ namespace Users.Application.Exceptions
 {
     public class BadRequestException : Exception
     {
-        public List<ValidationFailure> Errors { get; }
+        public List<ValidationFailure> Errors { get; } = new List<ValidationFailure>();
 
         public BadRequestException(List<ValidationFailure> failures)
             : base("Validation failed")
@@ -13,10 +13,7 @@ namespace Users.Application.Exceptions
         }
 
         public BadRequestException(string message)
-            : base(message)
-        {
-            Errors = new List<ValidationFailure>();
-        }
+            : base(message){}
 
         public override string ToString()
         {

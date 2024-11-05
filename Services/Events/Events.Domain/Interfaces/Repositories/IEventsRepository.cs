@@ -1,4 +1,5 @@
 ﻿using Events.Domain.Models;
+using Gridify;
 
 namespace Events.Domain.Interfaces.Repositories
 {
@@ -6,9 +7,9 @@ namespace Events.Domain.Interfaces.Repositories
     {
         Task Create(Event @event);
         Task Delete(Guid id);
-        Task<List<Event>> Get();
-        Task Update(Event @event);
-        Task<Event> GetById(Guid id);
+        Task<List<Event>> Get(int pageNumber, int pageSize, string? filter);
+        void Update(Event @event);
+        Task<Event?> GetById(Guid id);
         Task AddParticipant(Event @event, Participant participant);
         Task RemoveParticipant(Guid eventId, Guid userId);
     }

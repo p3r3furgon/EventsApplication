@@ -1,5 +1,7 @@
-﻿using MediatR;
+﻿using CommonFiles.Pagination;
+using MediatR;
 using Notifications.Domain.Interfaces;
+using Notifications.Domain.Models;
 
 namespace Notifications.Application.Notifications.UseCases.Queries.GetAllNotifications
 {
@@ -14,8 +16,12 @@ namespace Notifications.Application.Notifications.UseCases.Queries.GetAllNotific
 
         public async Task<GetAllNotificationsResponse> Handle(GetAllNotificationsQuery request, CancellationToken cancellationToken)
         {
-            var notifications = await _notificationsRepository.GetAll();
-            return new GetAllNotificationsResponse(notifications);
+            var notifications = await _notificationsRepository
+                .GetAll(request.PaginationParams.PageNumber, request.PaginationParams.PageSize);
+
+            var pagedResponse = new PagedResponse<Notification>(notifications, request.PaginationParams.PageNumber,
+                request.PaginationParams.PageSize);
+            return new GetAllNotificationsResponse(pagedResponse);
         }
     }
 }

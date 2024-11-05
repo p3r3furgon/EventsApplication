@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Events.Application.Dtos;
 using Events.Domain.Models;
 
 namespace Events.Application.UseCases.Queries.GetEventParticipants
@@ -7,7 +8,7 @@ namespace Events.Application.UseCases.Queries.GetEventParticipants
     {
         public GetEventParticipantsQueryMapper()
         {
-                CreateMap<Participant, GetEventParticipantsQueryResponse>();
+            CreateMap<Participant, ParticipantResponseDto>();
         }
     }
 }

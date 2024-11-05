@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CommonFiles.Interfaces;
 using MediatR;
 using Users.Application.Exceptions;
 using Users.Domain.Interfaces.Authentification;
@@ -13,12 +14,15 @@ namespace Users.Application.UseCases.AuthUseCases.Commands.UserRegister
         private readonly IUsersRepository _usersRepository;
         private readonly IPasswordHasher _passwordHasher;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UserRegisterCommandHandler(IUsersRepository usersRepository, IPasswordHasher passwordHasher, IMapper mapper)
+        public UserRegisterCommandHandler(IUsersRepository usersRepository, IPasswordHasher passwordHasher,
+            IMapper mapper, IUnitOfWork unitOfWork)
         {
             _usersRepository = usersRepository;
             _passwordHasher = passwordHasher;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
         public async Task<UserRegisterResponse> Handle(UserRegisterCommand request, CancellationToken cancellationToken)
         {
@@ -39,6 +43,9 @@ namespace Users.Application.UseCases.AuthUseCases.Commands.UserRegister
             user.PasswordHash = passwordHash;
 
             await _usersRepository.Create(user);
+
+            await _unitOfWork.Save(cancellationToken);
+
             return new UserRegisterResponse(user.Id);
         }
     }

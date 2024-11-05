@@ -5,6 +5,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using Users.Domain.Models;
 
 namespace Users.Infrastructure
 {
@@ -15,12 +16,15 @@ namespace Users.Infrastructure
         {
             _options = options.Value;
         }
-        public string GenerateJwtToken(Claim[] claims)
+        public string GenerateJwtToken(User user)
         {
 
             var signingCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey)),
                 SecurityAlgorithms.HmacSha256);
+
+            Claim[] claims = [ new(ClaimTypes.PrimarySid, user.Id.ToString()), new(ClaimTypes.Role, user.Role),
+                new(ClaimTypes.Name, user.FirstName), new(ClaimTypes.Surname, user.Surname), new(ClaimTypes.Email, user.Email)];
 
             var token = new JwtSecurityToken(
                 signingCredentials: signingCredentials,

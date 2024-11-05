@@ -28,7 +28,7 @@ namespace Users.API.Middleware
                 {
                     Status = StatusCodes.Status400BadRequest,
                     Title = ex.Message,
-                    Detail = ex.ToString()
+                    Detail = ex.Errors.Count > 0 ? ex.ToString() : ""
                 };
 
                 context.Response.StatusCode =
@@ -46,19 +46,6 @@ namespace Users.API.Middleware
 
                 context.Response.StatusCode =
                     StatusCodes.Status404NotFound;
-
-                await context.Response.WriteAsJsonAsync(problemDetails);
-            }
-            catch (RoleAssignmentException ex)
-            {
-                var problemDetails = new ProblemDetails
-                {
-                    Status = StatusCodes.Status409Conflict,
-                    Title = ex.Message,
-                };
-
-                context.Response.StatusCode =
-                    StatusCodes.Status409Conflict;
 
                 await context.Response.WriteAsJsonAsync(problemDetails);
             }

@@ -4,7 +4,10 @@ namespace Events.Application.Exceptions
 {
     public class BadRequestException : Exception
     {
-        public List<ValidationFailure> Errors { get; }
+        public List<ValidationFailure> Errors { get; } = new List<ValidationFailure>();
+
+        public BadRequestException(string message) 
+            : base(message){}
 
         public BadRequestException(List<ValidationFailure> failures)
             : base("Validation failed")

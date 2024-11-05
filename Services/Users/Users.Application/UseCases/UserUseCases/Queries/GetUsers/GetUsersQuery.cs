@@ -1,8 +1,9 @@
-﻿using MediatR;
-using Users.Domain.Models;
+﻿using CommonFiles.Pagination;
+using MediatR;
+using Users.Application.Dtos;
 
 namespace Users.Application.UseCases.UserUseCases.Queries.GetUsers
 {
-    public record GetUsersQuery(): IRequest<GetUsersResponse>;
-    public record GetUsersResponse(List<User> Users);
+    public record GetUsersQuery(PaginationParams PaginationParams): IRequest<GetUsersResponse>;
+    public record GetUsersResponse(PagedResponse<UserResponseDto> Users);
 }

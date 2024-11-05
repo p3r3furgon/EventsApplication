@@ -4,7 +4,8 @@ using Users.Application.CommonValidation;
 
 namespace Users.Application.UseCases.UserUseCases.Commands.UpdateUser
 {
-    public record UpdateUserCommand(Guid Id, string? FirstName, string? Surname, string? BirthDate, string? Email, string? Password) : IRequest<UpdateUserResponse>;
+    public record UpdateUserCommand(Guid Id, string? FirstName, string? Surname, string? BirthDate, string? Email, string? Password) 
+        : IRequest<UpdateUserResponse>;
     
     public record UpdateUserResponse(Guid Id);
 

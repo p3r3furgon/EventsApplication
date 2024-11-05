@@ -10,32 +10,31 @@ using Microsoft.OpenApi.Models;
 using Users.API.Middleware;
 using CommonFiles.Auth;
 using CommonFiles.Auth.RequirementsHandlers;
-using user.API.Extensions;
 using Users.Application.UseCases.AuthUseCases.Commands.UserRegister;
+using Users.Application.UseCases.AuthUseCases.Commands.UserLogin;
+using Users.Persistance.Repositories.UnitOfWork;
+using CommonFiles.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
 
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
-builder.Services.AddControllers();
 
 builder.Services.AddDbContext<UsersDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(UsersDbContext)));
 });
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IAuthorizationHandler, RoleRequirementHandler>();
-
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<IRefreshTokensRepository, RefreshTokenRepository>();
-
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<UserLoginCommand>());
 builder.Services.AddAutoMapper(typeof(UserRegisterMapper));
-
 builder.Services.AddApiAuthentification(builder.Configuration);
-builder.Services.AddMediatRServices();
-
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
@@ -66,7 +65,6 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -76,9 +74,7 @@ using (var scope = app.Services.CreateScope())
     {
         var userDbContext = services.GetRequiredService<UsersDbContext>();
         userDbContext.Database.Migrate();
-
-        var authDbContext = services.GetRequiredService<UsersDbContext>();
-        authDbContext.Database.Migrate();
+        userDbContext.EnsureSuperAdmin();
     }
     catch (Exception ex)
     {

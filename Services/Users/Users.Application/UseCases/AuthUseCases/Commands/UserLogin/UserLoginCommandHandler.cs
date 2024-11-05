@@ -1,7 +1,7 @@
 ﻿using CommonFiles.Auth;
+using CommonFiles.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Options;
-using System.Security.Claims;
 using Users.Application.Exceptions;
 using Users.Domain.Interfaces.Authentification;
 using Users.Domain.Interfaces.Repositories;
@@ -17,15 +17,17 @@ namespace Users.Application.UseCases.AuthUseCases.Commands.UserLogin
         private readonly IPasswordHasher _passwordHasher;
         private readonly IJwtProvider _jwtProvider;
         private readonly JwtOptions _options;
+        private readonly IUnitOfWork _unitOfWork;
 
         public UserLoginCommandHandler(IUsersRepository usersRepository, IPasswordHasher passwordHasher, 
-            IRefreshTokensRepository refreshTokensRepository, IJwtProvider jwtProvider, IOptions<JwtOptions> options)
+            IRefreshTokensRepository refreshTokensRepository, IJwtProvider jwtProvider, IOptions<JwtOptions> options, IUnitOfWork unitOfWork)
         {
             _usersRepository = usersRepository;
             _passwordHasher = passwordHasher;
             _refreshTokensRepository = refreshTokensRepository;
             _jwtProvider = jwtProvider;
             _options = options.Value;
+            _unitOfWork = unitOfWork;
         }
         public async Task<UserLoginResponse> Handle(UserLoginCommand request, CancellationToken cancellationToken)
         {
@@ -48,13 +50,12 @@ namespace Users.Application.UseCases.AuthUseCases.Commands.UserLogin
                 throw new BadRequestException("Failed to login");
             }
 
-            Claim[] claims = [ new(ClaimTypes.PrimarySid, user.Id.ToString()), new(ClaimTypes.Role, user.Role),
-                new(ClaimTypes.Name, user.FirstName), new(ClaimTypes.Surname, user.Surname), new(ClaimTypes.Email, user.Email)];
-
-            var accessToken = _jwtProvider.GenerateJwtToken(claims);
+            var accessToken = _jwtProvider.GenerateJwtToken(user);
             var refreshToken = _jwtProvider.GenerateRefreshToken();
 
             await _refreshTokensRepository.Create(new RefreshToken(Guid.NewGuid(), refreshToken, request.Email, DateTime.UtcNow.AddDays(_options.RefreshTokenExpirationDays)));
+
+            await _unitOfWork.Save(cancellationToken);
 
             return new UserLoginResponse(accessToken, refreshToken);
         }

@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Users.Application.UseCases.AuthUseCases.Commands.UpdateRefreshToken;
+using Users.Application.UseCases.AuthUseCases.Commands.UpdateAccessToken;
 using Users.Application.UseCases.AuthUseCases.Commands.UserLogin;
 using Users.Application.UseCases.AuthUseCases.Commands.UserRegister;
 
@@ -44,16 +44,9 @@ namespace Users.API.Controllers
         }
 
         [HttpPost("refresh")]
-        public async Task<IActionResult> Refresh([FromBody] UpdateRefreshTokenCommand updateRefreshTokenCommand)
+        public async Task<IActionResult> Refresh([FromBody] UpdateAccessTokenCommand updateRefreshTokenCommand)
         {
             var response = await _mediator.Send(updateRefreshTokenCommand);
-
-            Response.Cookies.Append("refreshToken", response.NewRefreshToken, new CookieOptions
-            {
-                HttpOnly = true,
-                Secure = true,
-                Expires = DateTime.UtcNow.AddDays(_options.RefreshTokenExpirationDays)
-            });
 
             return StatusCode(StatusCodes.Status200OK, response);
         }

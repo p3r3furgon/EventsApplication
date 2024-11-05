@@ -15,8 +15,7 @@ namespace Notifications.Application.Notifications.UseCases.Queries.GetUserNotifi
 
         public async Task<GetUserNotificationByIdResponse> Handle(GetUserNotificationByIdQuery request, CancellationToken cancellationToken)
         {
-            var userNotifications = await _notificationsRepository.GetByUserId(request.UserId);
-            var notification = userNotifications.Where(n => n.Id == request.NotificationId).FirstOrDefault();
+            var notification = await _notificationsRepository.GetUserNotification(request.UserId, request.NotificationId);
 
             if (notification == null)
                 throw new NotificationNotFoundException(request.NotificationId);

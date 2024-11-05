@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using CommonFiles.Interfaces;
+using MediatR;
 using Users.Application.Exceptions;
 using Users.Domain.Interfaces.Authentification;
 using Users.Domain.Interfaces.Repositories;
@@ -9,11 +11,16 @@ namespace Users.Application.UseCases.UserUseCases.Commands.UpdateUser
     {
         private readonly IUsersRepository _userRepository;
         private readonly IPasswordHasher _passwordHasher;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public UpdateUserCommandHandler(IUsersRepository usersRepository, IPasswordHasher passwordHasher)
+        public UpdateUserCommandHandler(IUsersRepository usersRepository, IPasswordHasher passwordHasher,
+            IUnitOfWork unitOfWork, IMapper mapper)
         {
             _userRepository = usersRepository;
             _passwordHasher = passwordHasher;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<UpdateUserResponse> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
@@ -32,17 +39,13 @@ namespace Users.Application.UseCases.UserUseCases.Commands.UpdateUser
             if (user == null)
                 throw new UserNotFoundException(request.Id);
 
-            var passwordHash = string.IsNullOrEmpty(request.Password) ? "" : _passwordHasher.Generate(request.Password);
-            DateOnly? birthDate = string.IsNullOrEmpty(request.BirthDate) ? null : DateOnly.Parse(request.BirthDate);
+            user = _mapper.Map(request, user);
 
-            user.FirstName = (string.IsNullOrEmpty(request.FirstName)) ? user.FirstName : request.FirstName;
-            user.Surname = (string.IsNullOrEmpty(request.Surname)) ? user.Surname : request.Surname;
-            user.BirthDate = birthDate ?? user.BirthDate;
-            user.Email = (string.IsNullOrEmpty(request.Email)) ? user.Email : request.Email;
-            user.PasswordHash = (string.IsNullOrEmpty(passwordHash)) ? user.PasswordHash : user.PasswordHash;
+            var passwordHash = _passwordHasher.Generate(request.Password);
+            user.PasswordHash = string.IsNullOrEmpty(passwordHash) ? user.PasswordHash : passwordHash;
 
-            await _userRepository.Update(user);
-
+            _userRepository.Update(user);
+            await _unitOfWork.Save(cancellationToken);
             return new UpdateUserResponse(request.Id);
         }
     }

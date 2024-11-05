@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Events.Application.Dtos;
 using Events.Domain.Models;
 
 namespace Events.Application.UseCases.Commands.CreateEvent
@@ -7,7 +8,7 @@ namespace Events.Application.UseCases.Commands.CreateEvent
     {
         public CreateEventMapper()
         {
-            CreateMap<CreateEventCommand, Event>()
+            CreateMap <CreateEventCommand, Event>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()))
                 .ForMember(dest => dest.Image, opt => opt.Ignore());
             CreateMap<Event, CreateEventResponse>();

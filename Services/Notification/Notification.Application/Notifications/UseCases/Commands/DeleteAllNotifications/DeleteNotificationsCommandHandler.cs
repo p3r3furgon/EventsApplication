@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Notifications.Application.Exceptions;
+﻿using CommonFiles.Interfaces;
+using MediatR;
 using Notifications.Domain.Interfaces;
 
 namespace Notifications.Application.Notifications.UseCases.Commands.DeleteAllNotifications
@@ -7,17 +7,17 @@ namespace Notifications.Application.Notifications.UseCases.Commands.DeleteAllNot
     public class DeleteNotificationsCommandHandler : IRequestHandler<DeleteNotificationsCommand, DeleteNotificationsResponse>
     {
         private readonly INotificationsRepository _notificationsRepository;
-        public DeleteNotificationsCommandHandler(INotificationsRepository notificationsRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public DeleteNotificationsCommandHandler(INotificationsRepository notificationsRepository, IUnitOfWork unitOfWork)
         {
             _notificationsRepository = notificationsRepository;
+            _unitOfWork = unitOfWork;
         }
         public async Task<DeleteNotificationsResponse> Handle(DeleteNotificationsCommand request, CancellationToken cancellationToken)
         {
-            var notifications = await _notificationsRepository.GetAll();
-            if (notifications.Count == 0)
-                throw new NotificationNotFoundException("There are no any notifications");
 
-            await _notificationsRepository.DeleteAll();
+            _notificationsRepository.DeleteAll();
+            await _unitOfWork.Save(cancellationToken);
 
             return new DeleteNotificationsResponse("Success");
         }

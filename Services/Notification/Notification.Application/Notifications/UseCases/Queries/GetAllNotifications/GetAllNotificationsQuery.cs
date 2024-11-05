@@ -1,9 +1,10 @@
-﻿using MediatR;
+﻿using CommonFiles.Pagination;
+using MediatR;
 using Notifications.Domain.Models;
 
 namespace Notifications.Application.Notifications.UseCases.Queries.GetAllNotifications
 {
-    public record GetAllNotificationsQuery() : IRequest<GetAllNotificationsResponse>;
+    public record GetAllNotificationsQuery(PaginationParams PaginationParams) : IRequest<GetAllNotificationsResponse>;
 
-    public record GetAllNotificationsResponse(List<Notification> Notifications);
+    public record GetAllNotificationsResponse(PagedResponse<Notification> Notifications);
 }

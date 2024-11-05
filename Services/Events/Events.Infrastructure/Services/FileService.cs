@@ -22,11 +22,11 @@ namespace Events.Infrastructure.Services
             File.Delete(path);
         }
 
-        public async Task<string> SaveFileAsync(IFormFile? imageFile, string[] allowedFileExtensions)
+        public async Task<string?> SaveFileAsync(IFormFile? imageFile, string[] allowedFileExtensions)
         {
             if (imageFile == null)
             {
-                return string.Empty;
+                return null;
             }
 
             var contentPath = environment.ContentRootPath;

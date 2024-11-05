@@ -10,9 +10,11 @@ using Events.Infrastructure.Services;
 using CommonFiles.Auth.Extensions;
 using MassTransit;
 using CommonFiles.Auth.RequirementsHandlers;
-using Events.API.Extensions;
 using Events.Application.UseCases.Queries.GetEvents;
 using Events.API.Middleware;
+using Events.Application.UseCases.Commands.UpdateEvent;
+using Events.Persistance.Repositories.UnitOfWork;
+using CommonFiles.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,9 +31,10 @@ builder.Services.AddScoped<IAuthorizationHandler, RoleRequirementHandler>();
 builder.Services.AddApiAuthentification(builder.Configuration);
 
 builder.Services.AddScoped<IEventsRepository, EventsRepository>();
+builder.Services.AddScoped<IParticipantsRepository, ParticipantsRepository>();
 builder.Services.AddScoped<IFileService, FileService>();
 
-builder.Services.AddMediatRServices();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddCors(options =>
 {
@@ -39,10 +42,10 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy.WithOrigins("*").AllowAnyMethod().AllowAnyHeader(); ;
-        });
+        }); 
 });
 
-//builder.Services.AddAutoMapper(typeof(UpdateEventMapper));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<UpdateEventCommand>());
 builder.Services.AddAutoMapper(typeof(GetEventsQueryMapper));
 
 builder.Services.AddEndpointsApiExplorer();

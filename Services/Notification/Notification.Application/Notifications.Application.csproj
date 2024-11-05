@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\CommonFiles\CommonFiles\CommonFiles.csproj" />
     <ProjectReference Include="..\..\..\CommonFiles\CommonFiles.Messaging\CommonFiles.Messaging.csproj" />
     <ProjectReference Include="..\Notification.Domain\Notifications.Domain.csproj" />
   </ItemGroup>

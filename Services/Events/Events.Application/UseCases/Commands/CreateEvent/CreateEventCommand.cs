@@ -1,11 +1,12 @@
-﻿using FluentValidation;
+﻿using Events.Application.Dtos;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 
 namespace Events.Application.UseCases.Commands.CreateEvent
 {
-    public record CreateEventCommand(string Title, string? Description, DateTime DateTime, 
-        string Place, string? Category, int MaxParticipantNumber, IFormFile? Image) 
+    public record CreateEventCommand(string Title, string? Description, string Place, 
+        DateTime DateTime, string? Category, int MaxParticipantNumber, IFormFile? Image) 
         : IRequest<CreateEventResponse>;
     public record CreateEventResponse(Guid Id);
 
@@ -28,11 +29,13 @@ namespace Events.Application.UseCases.Commands.CreateEvent
                 .NotEmpty().WithMessage("Event date and time must be mentioned")
                 .GreaterThan(DateTime.Now).WithMessage("Event date and time must be set correctly");
 
-            RuleFor(request => request.Category).Length(3, 100).
-                When(request => !string.IsNullOrEmpty(request.Category)).WithMessage("Event category name length must be between 3 and 100");
+            RuleFor(request => request.Category).Length(3, 100)
+                .When(request => !string.IsNullOrEmpty(request.Category))
+                .WithMessage("Event category name length must be between 3 and 100");
 
-            RuleFor(request => request.Description).Length(1, 1000).
-                When(request => !string.IsNullOrEmpty(request.Description)).WithMessage("Event description length must be between 1 and 1000");
+            RuleFor(request => request.Description).Length(1, 1000)
+                .When(request => !string.IsNullOrEmpty(request.Category))
+                .WithMessage("Event description length must be between 1 and 1000");
         }
     }
 

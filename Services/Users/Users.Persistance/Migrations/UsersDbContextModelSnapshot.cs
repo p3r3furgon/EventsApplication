@@ -89,7 +89,7 @@ namespace Users.Persistance.Migrations
                             BirthDate = new DateOnly(2003, 11, 10),
                             Email = "admin@gmail.com",
                             FirstName = "admin",
-                            PasswordHash = "$2a$11$G/vj9l.oVHKBMkU1ky4s/u4l3OG5i4dMDvermOa6eNyiqQKf/6VOW",
+                            PasswordHash = "$2a$11$01hYmBuqwuFjb.lFWSnlZebI4HOotkdunos3giu2csqgvSnNf6jtm",
                             Role = "SuperAdmin",
                             Surname = "admin"
                         });

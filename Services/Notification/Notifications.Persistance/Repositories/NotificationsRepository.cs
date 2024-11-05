@@ -14,32 +14,44 @@ namespace Notifications.Persistance.Repositories
         public async Task<Guid> Create(Notification notification)
         {
             await _context.Notifications.AddAsync(notification);
-            await _context.SaveChangesAsync();
             return notification.Id;
         }
 
         public async Task<Guid> Delete(Guid id)
         {
-            await _context.Notifications
-                .Where(n => n.Id == id)
-                .ExecuteDeleteAsync();
+            var notification = await _context.Notifications
+                .FindAsync(id);
+
+            _context.Remove(notification);
             return id;
         }
 
-        public async Task DeleteAll()
+        public void DeleteAll()
         { 
             var notificationsEntities = _context.Notifications;
             foreach (var notification in notificationsEntities)
             {
                 _context.Notifications.Remove(notification);
             }
-            await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Notification>> GetAll() => 
-            await _context.Notifications.ToListAsync();
+        public async Task<List<Notification>> GetAll(int page, int pageSize) => 
+            await _context.Notifications
+            .OrderBy(n => n.DateTime)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
 
-        public async Task<List<Notification>> GetByUserId(Guid userId) => 
-            await _context.Notifications.Where(n => n.UserId == userId).ToListAsync();
+        public async Task<List<Notification>> GetByUserId(Guid userId, int page, int pageSize) => 
+            await _context.Notifications
+            .Where(n => n.UserId == userId)
+            .OrderBy(n => n.DateTime)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        public async Task<Notification?> GetUserNotification(Guid userId, Guid notificationId) =>
+            await  _context.Notifications
+                .FirstOrDefaultAsync(n => n.Id == notificationId && n.UserId == userId);
     }
 }

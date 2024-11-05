@@ -1,9 +1,10 @@
-﻿using Events.Domain.Models;
+﻿using Events.Application.Dtos;
+using Events.Domain.Models;
 using MediatR;
 
 namespace Events.Application.UseCases.Queries.GetEventById
 {
-    public record GetEventByIdQuery(Guid Id): IRequest<GetEventByIdQueryResponse>;
+    public record GetEventByIdQuery(Guid Id): IRequest<GetEventByIdResponse>;
 
-    public record GetEventByIdQueryResponse(Event Event);
+    public record GetEventByIdResponse(EventResponseDto Event);
 }

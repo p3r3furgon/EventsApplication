@@ -1,9 +1,11 @@
-﻿using MediatR;
+﻿using CommonFiles.Pagination;
+using Events.Application.Dtos;
+using MediatR;
 
 namespace Events.Application.UseCases.Queries.GetEvents
 {
-    public record GetEventsQuery(): IRequest<List<GetEventsQueryResponse>>;
+    public record GetEventsQuery(PaginationParams PaginationParams, string? Filter)
+        : IRequest<GetEventsResponse>;
 
-    public record GetEventsQueryResponse(Guid Id, string Title, string? Description, DateTime? DateTime, 
-        int MaxParticipantNumber, int? ParticipantsNumber, string? Image);
+    public record GetEventsResponse(PagedResponse<EventResponseDto> Events);
 }

@@ -1,3 +1,4 @@
+using CommonFiles.Pagination;
 using Gridify;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -24,17 +25,12 @@ namespace Notifications.API.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetUserNotifications([FromQuery] GridifyQuery gridifyQuery)
+        public async Task<IActionResult> GetUserNotifications([FromQuery] PaginationParams paginationParams)
         {
             var userId = User.FindFirstValue(ClaimTypes.PrimarySid);
-            var response = await _mediator.Send(new GetUserNotificationsQuery(Guid.Parse(userId)));
-           
-            var result = response.Notifications.AsQueryable()
-                          .ApplyFiltering(gridifyQuery)
-                          .ApplyOrdering(gridifyQuery)
-                          .ApplyPaging(gridifyQuery.Page, gridifyQuery.PageSize);
+            var response = await _mediator.Send(new GetUserNotificationsQuery(Guid.Parse(userId), paginationParams));
 
-            return StatusCode(StatusCodes.Status200OK, result);
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
         [HttpGet("{notificationId}")]
@@ -67,9 +63,9 @@ namespace Notifications.API.Controllers
 
         [HttpGet("all")]
         [Authorize(Policy = "SuperAdmin")]
-        public async Task<IActionResult> GetAllNotifications()
+        public async Task<IActionResult> GetAllNotifications([FromQuery] PaginationParams paginationParams)
         {
-            var response = await _mediator.Send(new GetAllNotificationsQuery());
+            var response = await _mediator.Send(new GetAllNotificationsQuery(paginationParams));
             return StatusCode(StatusCodes.Status200OK, response);
         }
 

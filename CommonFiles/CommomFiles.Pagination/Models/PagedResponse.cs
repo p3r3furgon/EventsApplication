@@ -1,0 +1,4 @@
+﻿namespace CommomFiles.Pagination.Models
+{
+
+}

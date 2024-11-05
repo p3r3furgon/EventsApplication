@@ -1,8 +1,10 @@
-﻿using MediatR;
+﻿using CommonFiles.Pagination;
+using Events.Application.Dtos;
+using MediatR;
 
 namespace Events.Application.UseCases.Queries.GetEventParticipants
 {
-    public record GetEventParticipantsQuery(Guid Id): IRequest<List<GetEventParticipantsQueryResponse>>;
+    public record GetEventParticipantsQuery(Guid EventId, PaginationParams PaginationParams): IRequest<GetEventParticipantsResponse>;
 
-    public record GetEventParticipantsQueryResponse(string FirstName, string Surname, string Email, DateTime? RegistrationDateTime);
+    public record GetEventParticipantsResponse(PagedResponse<ParticipantResponseDto> Participants);
 }

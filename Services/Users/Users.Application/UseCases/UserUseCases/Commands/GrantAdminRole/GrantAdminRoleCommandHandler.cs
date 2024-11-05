@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using CommonFiles.Interfaces;
+using MediatR;
 using Users.Application.Exceptions;
 using Users.Domain.Interfaces.Repositories;
 
@@ -7,10 +8,12 @@ namespace Users.Application.UseCases.UserUseCases.Commands.GrantAdminRole
     public class GrantAdminRoleCommandHandler : IRequestHandler<GrantAdminRoleCommand, GrantAdminRoleResponse>
     {
         private readonly IUsersRepository _userRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public GrantAdminRoleCommandHandler(IUsersRepository usersRepository)
+        public GrantAdminRoleCommandHandler(IUsersRepository usersRepository, IUnitOfWork unitOfWork)
         {
             _userRepository = usersRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<GrantAdminRoleResponse> Handle(GrantAdminRoleCommand request, CancellationToken cancellationToken)
@@ -19,9 +22,10 @@ namespace Users.Application.UseCases.UserUseCases.Commands.GrantAdminRole
             if (user == null)
                 throw new UserNotFoundException(request.Id);
             if (user.Role == "Admin")
-                throw new RoleAssignmentException("User is already an admin");
+                throw new BadRequestException("User is already an admin");
             user.Role = "Admin";
-            await _userRepository.Update(user);
+            _userRepository.Update(user);
+            await _unitOfWork.Save(cancellationToken);
             return new GrantAdminRoleResponse(request.Id);
         }
     }

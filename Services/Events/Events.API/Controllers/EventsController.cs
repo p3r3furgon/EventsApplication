@@ -1,4 +1,5 @@
-﻿using Events.Application.UseCases.Commands.CreateEvent;
+﻿using CommonFiles.Pagination;
+using Events.Application.UseCases.Commands.CreateEvent;
 using Events.Application.UseCases.Commands.DeleteEvent;
 using Events.Application.UseCases.Commands.SubscribeOnEvent;
 using Events.Application.UseCases.Commands.UnsubscribeFromEvent;
@@ -6,12 +7,10 @@ using Events.Application.UseCases.Commands.UpdateEvent;
 using Events.Application.UseCases.Queries.GetEventById;
 using Events.Application.UseCases.Queries.GetEventParticipants;
 using Events.Application.UseCases.Queries.GetEvents;
-using Gridify;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-
 
 namespace Events.API.Controllers
 {
@@ -27,17 +26,12 @@ namespace Events.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetEvents([FromQuery] GridifyQuery gridifyQuery)
+        public async Task<IActionResult> GetEvents([FromQuery] PaginationParams paginationParams, string? filter)
         {
 
-            var response = await _mediator.Send(new GetEventsQuery());
+            var response = await _mediator.Send(new GetEventsQuery(paginationParams, filter));
 
-            var result = response.AsQueryable()
-                          .ApplyFiltering(gridifyQuery)
-                          .ApplyOrdering(gridifyQuery)
-                          .ApplyPaging(gridifyQuery.Page, gridifyQuery.PageSize);
-
-            return StatusCode(StatusCodes.Status200OK, result);
+            return StatusCode(StatusCodes.Status200OK, response);
         }
 
         [HttpGet("{id}")]
@@ -49,10 +43,10 @@ namespace Events.API.Controllers
 
         [HttpGet("{id}/paricipants")]
         [Authorize]
-        public async Task<IActionResult> GetEventParticipants(Guid id)
+        public async Task<IActionResult> GetEventParticipants(Guid id, [FromQuery] PaginationParams paginationParams)
         {
 
-            var response = await _mediator.Send(new GetEventParticipantsQuery(id));
+            var response = await _mediator.Send(new GetEventParticipantsQuery(id, paginationParams));
             return StatusCode(StatusCodes.Status200OK, response);
         }
 

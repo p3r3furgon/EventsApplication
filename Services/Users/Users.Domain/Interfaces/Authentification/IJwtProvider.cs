@@ -5,7 +5,7 @@ namespace Users.Infrastructure
 {
     public interface IJwtProvider
     {
-        string GenerateJwtToken(Claim[] claims);
+        string GenerateJwtToken(User user);
         string GenerateRefreshToken();
     }
 }

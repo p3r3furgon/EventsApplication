@@ -11,7 +11,9 @@ using CommonFiles.Messaging;
 using Microsoft.Extensions.Options;
 using CommonFiles.Auth.RequirementsHandlers;
 using Microsoft.AspNetCore.Authorization;
-using Notifications.API.Extensions;
+using Notifications.Persistance.Repositories.UnitOfWork;
+using CommonFiles.Interfaces;
+using Notifications.Application.Notifications.UseCases.Commands.DeleteNotification;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,10 +29,12 @@ builder.Services.Configure<RabbitMqSettings>(builder.Configuration.GetSection("R
 
 builder.Services.AddScoped<IAuthorizationHandler, RoleRequirementHandler>();
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddScoped<INotificationsRepository, NotificationsRepository>();
 
 builder.Services.AddApiAuthentification(builder.Configuration);
-builder.Services.AddMediatRServices();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<DeleteNotificationCommand>());
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

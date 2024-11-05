@@ -1,9 +1,10 @@
+using CommonFiles.Pagination;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Users.Application.UseCases.UserUseCases.Commands.DeleteUser;
 using Users.Application.UseCases.UserUseCases.Commands.GrantAdminRole;
-using Users.Application.UseCases.UserUseCases.Commands.RevokeAdminRole.Users.Application.UseCases.UserUseCases.Commands.GrantAdminRole;
+using Users.Application.UseCases.UserUseCases.Commands.RevokeAdminRole;
 using Users.Application.UseCases.UserUseCases.Commands.UpdateUser;
 using Users.Application.UseCases.UserUseCases.Queries.GetUserById;
 using Users.Application.UseCases.UserUseCases.Queries.GetUsers;
@@ -24,9 +25,9 @@ namespace Users.API.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetUsers()
+        public async Task<IActionResult> GetUsers([FromQuery] PaginationParams paginationParams)
         {
-            var response = await _mediator.Send(new GetUsersQuery());
+            var response = await _mediator.Send(new GetUsersQuery(paginationParams));
             return StatusCode(StatusCodes.Status200OK, response);
         }
 
@@ -40,7 +41,7 @@ namespace Users.API.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand updateUserCommand)
+        public async Task<IActionResult> UpdateUser([FromForm] UpdateUserCommand updateUserCommand)
         {
             var response = await _mediator.Send(updateUserCommand);
             return StatusCode(StatusCodes.Status200OK, response);

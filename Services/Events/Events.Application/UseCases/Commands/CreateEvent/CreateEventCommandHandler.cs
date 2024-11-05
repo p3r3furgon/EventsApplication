@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CommonFiles.Interfaces;
 using Events.Application.Exceptions;
 using Events.Domain.Interfaces.Repositories;
 using Events.Domain.Interfaces.Services;
@@ -12,12 +13,15 @@ namespace Events.Application.UseCases.Commands.CreateEvent
         private readonly IEventsRepository _eventsRepository;
         private readonly IFileService _fileService;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateEventCommandHandler(IEventsRepository eventsRepository, IFileService fileService, IMapper mapper)
+        public CreateEventCommandHandler(IEventsRepository eventsRepository, IFileService fileService,
+            IMapper mapper, IUnitOfWork unitOfWork)
         {
             _eventsRepository = eventsRepository;
             _fileService = fileService;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<CreateEventResponse> Handle(CreateEventCommand request, CancellationToken cancellationToken)
@@ -35,6 +39,8 @@ namespace Events.Application.UseCases.Commands.CreateEvent
             @event.Image = createdImageName;
 
             await _eventsRepository.Create(@event);
+            await _unitOfWork.Save(cancellationToken);
+
             return _mapper.Map<CreateEventResponse>(@event);
         }
     }

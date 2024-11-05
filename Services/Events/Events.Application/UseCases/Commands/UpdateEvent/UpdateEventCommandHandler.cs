@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using CommonFiles.Interfaces;
 using CommonFiles.Messaging;
 using Events.Application.Exceptions;
 using Events.Domain.Interfaces.Repositories;
 using Events.Domain.Interfaces.Services;
 using MassTransit;
 using MediatR;
+using Event = Events.Domain.Models.Event;
 
 namespace Events.Application.UseCases.Commands.UpdateEvent
 {
@@ -14,14 +16,16 @@ namespace Events.Application.UseCases.Commands.UpdateEvent
         private readonly IFileService _fileService;
         private readonly IMapper _mapper;
         private readonly IPublishEndpoint _publishEndpoint;
+        private readonly IUnitOfWork _unitOfWork;
 
         public UpdateEventCommandHandler(IEventsRepository eventsRepository, IFileService fileService, 
-            IMapper mapper, IPublishEndpoint publishEndpoint)
+            IMapper mapper, IPublishEndpoint publishEndpoint, IUnitOfWork unitOfWork)
         {
             _eventsRepository = eventsRepository;
             _fileService = fileService;
             _mapper = mapper;
             _publishEndpoint = publishEndpoint;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<UpdateEventResponse> Handle(UpdateEventCommand request, CancellationToken cancellationToken)
@@ -38,24 +42,19 @@ namespace Events.Application.UseCases.Commands.UpdateEvent
             if (existingEvent.Participants.Count > request.MaxParticipantNumber)
                 throw new EventCapacityException(existingEvent.Participants.Count, request.MaxParticipantNumber); 
 
-            string? oldImage = existingEvent.Image;
+            string? oldImageName = existingEvent.Image;
 
-            string createdImageName = await _fileService.SaveFileAsync(request.Image, [".jpg", ".jpeg", ".png"]);
+            string? createdImageName = await _fileService.SaveFileAsync(request.Image, [".jpg", ".jpeg", ".png"]);
             if (!string.IsNullOrEmpty(createdImageName))
-                _fileService.DeleteFile(oldImage);
+                _fileService.DeleteFile(oldImageName);
 
-            existingEvent.Title = (string.IsNullOrEmpty(request.Title)) ? existingEvent.Title : request.Title;
-            existingEvent.Description = (string.IsNullOrEmpty(request.Description)) ? existingEvent.Description : request.Description;
-            existingEvent.DateTime = request.DateTime ?? existingEvent.DateTime;
-            existingEvent.Category = (string.IsNullOrEmpty(request.Category)) ? existingEvent.Category : request.Category;
-            existingEvent.Place = (string.IsNullOrEmpty(request.Place)) ? existingEvent.Place : request.Place;
-            existingEvent.MaxParticipantNumber = request.MaxParticipantNumber ?? existingEvent.MaxParticipantNumber;
-            existingEvent.Image = (string.IsNullOrEmpty(createdImageName)) ? existingEvent.Image : createdImageName;
+            existingEvent = _mapper.Map(request, existingEvent);
 
-            await _eventsRepository.Update(existingEvent);
+            _eventsRepository.Update(existingEvent);
+            await _unitOfWork.Save(cancellationToken);
 
             if (!string.IsNullOrEmpty(request.MessageTitle) &&
-                    !string.IsNullOrEmpty(request.MessageDescription))
+                    !string.IsNullOrEmpty(request.MessageContent))
             {
                 List<Guid> usersId = existingEvent.Participants.Select(p => p.UserId).ToList();
                 var eventUpdated = _mapper.Map<EventUpdated>(request);
