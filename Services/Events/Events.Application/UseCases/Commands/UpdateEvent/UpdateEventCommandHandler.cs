@@ -46,7 +46,10 @@ namespace Events.Application.UseCases.Commands.UpdateEvent
 
             string? createdImageName = await _fileService.SaveFileAsync(request.Image, [".jpg", ".jpeg", ".png"]);
             if (!string.IsNullOrEmpty(createdImageName))
+            {
+                existingEvent.Image = createdImageName;
                 _fileService.DeleteFile(oldImageName);
+            }
 
             existingEvent = _mapper.Map(request, existingEvent);
 
@@ -55,14 +58,17 @@ namespace Events.Application.UseCases.Commands.UpdateEvent
 
             if (!string.IsNullOrEmpty(request.MessageTitle) &&
                     !string.IsNullOrEmpty(request.MessageContent))
-            {
-                List<Guid> usersId = existingEvent.Participants.Select(p => p.UserId).ToList();
-                var eventUpdated = _mapper.Map<EventUpdated>(request);
-                eventUpdated.ParticipantsId = usersId;
-                await _publishEndpoint.Publish(eventUpdated);
-            }
+                await SendMessages(request, existingEvent);
 
             return _mapper.Map<UpdateEventResponse>(existingEvent);
+        }
+
+        private async Task SendMessages(UpdateEventCommand request, Event @event)
+        {
+            List<Guid> usersId = @event.Participants.Select(p => p.UserId).ToList();
+            var eventUpdated = _mapper.Map<EventUpdated>(request);
+            eventUpdated.ParticipantsId = usersId;
+            await _publishEndpoint.Publish(eventUpdated);
         }
     }
 

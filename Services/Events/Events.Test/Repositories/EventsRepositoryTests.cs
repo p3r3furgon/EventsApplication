@@ -22,7 +22,9 @@ public class EventsRepositoryTests
     [Fact]
     public async Task Create_ShouldAddEventToDatabase()
     {
+        var eventId = Guid.NewGuid();
         var @event = Event.Create(
+            id: eventId,
             title: "TestEvent",
             description: "TestDescr",
             dateTime: DateTime.Now.AddDays(1),
@@ -41,7 +43,9 @@ public class EventsRepositoryTests
     [Fact]
     public async Task GetById_ShouldReturnEventWithParticipants()
     {
+        var eventId = Guid.NewGuid();
         var @event = Event.Create(
+            id: eventId,
             title: "TestEvent",
             description: "TestDescr",
             dateTime: DateTime.Now.AddDays(1),
@@ -60,6 +64,8 @@ public class EventsRepositoryTests
         @event.Participants.Add(participant);
         await _repository.Create(@event);
 
+        await _context.SaveChangesAsync();
+
         var result = await _repository.GetById(@event.Id);
 
         result.Should().NotBeNull();
@@ -70,7 +76,9 @@ public class EventsRepositoryTests
     [Fact]
     public async Task Delete_ShouldRemoveEventFromDatabase()
     {
+        var eventId = Guid.NewGuid();
         var @event = Event.Create(
+            id: eventId,
             title: "TestEvent",
             description: "TestDescr",
             dateTime: DateTime.Now.AddDays(1),
