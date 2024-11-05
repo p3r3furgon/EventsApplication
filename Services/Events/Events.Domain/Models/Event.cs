@@ -27,13 +27,13 @@
             Image = image;
         }
 
-        public static Event Create(string title, string? description, DateTime dateTime,
+        public static Event Create(Guid id, string title, string? description, DateTime dateTime,
             string place, string? category, int maxParticipantNumber, string? image)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(title);
             ArgumentException.ThrowIfNullOrWhiteSpace(place);
 
-            return new Event(Guid.NewGuid(), title, description, dateTime, place, category, maxParticipantNumber, image);
+            return new Event(id, title, description, dateTime, place, category, maxParticipantNumber, image);
         }
 
     }
