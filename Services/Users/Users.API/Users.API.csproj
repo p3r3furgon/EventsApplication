@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\CommonFiles\CommonFiles.Auth\CommonFiles.Auth.csproj" />
+    <ProjectReference Include="..\..\..\CommonFiles\CommonFiles\CommonFiles.csproj" />
     <ProjectReference Include="..\Users.Application\Users.Application.csproj" />
     <ProjectReference Include="..\Users.Infrastructure\Users.Infrastructure.csproj" />
     <ProjectReference Include="..\Users.Persistance\Users.Persistance.csproj" />

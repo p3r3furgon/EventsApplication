@@ -21,6 +21,7 @@
   <ItemGroup>
 	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
 	  <ProjectReference Include="..\..\..\..\CommonFiles\CommonFiles\CommonFiles.csproj" />
+	  <ProjectReference Include="..\..\..\CommonFiles\CommonFiles\CommonFiles.csproj" />
     <ProjectReference Include="..\Events.Domain\Events.Domain.csproj" />
   </ItemGroup>
 

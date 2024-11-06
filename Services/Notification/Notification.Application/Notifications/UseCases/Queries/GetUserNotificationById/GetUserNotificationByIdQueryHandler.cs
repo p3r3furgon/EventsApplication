@@ -14,6 +14,7 @@ namespace Notifications.Application.Notifications.UseCases.Queries.GetUserNotifi
         public GetUserNotificationByIdQueryHandler(INotificationsRepository notificationsRepository, IMapper mapper)
         {
             _notificationsRepository = notificationsRepository;
+            _mapper = mapper;
         }
 
         public async Task<GetUserNotificationByIdResponse> Handle(GetUserNotificationByIdQuery request, CancellationToken cancellationToken)

@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\CommonFiles\CommonFiles.Auth\CommonFiles.Auth.csproj" />
+    <ProjectReference Include="..\..\..\CommonFiles\CommonFiles\CommonFiles.csproj" />
     <ProjectReference Include="..\..\Notification\Notification.Application\Notifications.Application.csproj" />
     <ProjectReference Include="..\Notifications.Persistance\Notifications.Persistance.csproj" />
   </ItemGroup>

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\CommonFiles\CommonFiles\CommonFiles.csproj" />
+    <ProjectReference Include="..\..\..\CommonFiles\CommonFiles\CommonFiles.csproj" />
     <ProjectReference Include="..\..\Notification\Notification.Domain\Notifications.Domain.csproj" />
   </ItemGroup>
 

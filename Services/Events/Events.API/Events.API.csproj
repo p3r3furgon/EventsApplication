@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\CommonFiles\CommonFiles.Auth\CommonFiles.Auth.csproj" />
+    <ProjectReference Include="..\..\..\CommonFiles\CommonFiles\CommonFiles.csproj" />
     <ProjectReference Include="..\Events.Application\Events.Application.csproj" />
     <ProjectReference Include="..\Events.Infrastructure\Events.Infrastructure.csproj" />
     <ProjectReference Include="..\Events.Persistance\Events.Persistance.csproj" />
