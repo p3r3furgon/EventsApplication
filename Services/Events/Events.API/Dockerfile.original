@@ -11,7 +11,6 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Services/Events/Events.API/Events.API.csproj", "Services/Events/Events.API/"]
 COPY ["CommonFiles/CommonFiles.Auth/CommonFiles.Auth.csproj", "CommonFiles/CommonFiles.Auth/"]
-COPY ["CommonFiles/CommonFiles/CommonFiles.csproj", "CommonFiles/CommonFiles/"]
 COPY ["Services/Events/Events.Application/Events.Application.csproj", "Services/Events/Events.Application/"]
 COPY ["CommonFiles/CommonFiles.Messaging/CommonFiles.Messaging.csproj", "CommonFiles/CommonFiles.Messaging/"]
 COPY ["Services/Events/Events.Domain/Events.Domain.csproj", "Services/Events/Events.Domain/"]

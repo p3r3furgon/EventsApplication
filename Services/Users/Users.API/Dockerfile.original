@@ -11,7 +11,6 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Services/Users/Users.API/Users.API.csproj", "Services/Users/Users.API/"]
 COPY ["CommonFiles/CommonFiles.Auth/CommonFiles.Auth.csproj", "CommonFiles/CommonFiles.Auth/"]
-COPY ["CommonFiles/CommonFiles/CommonFiles.csproj", "CommonFiles/CommonFiles/"]
 COPY ["Services/Users/Users.Application/Users.Application.csproj", "Services/Users/Users.Application/"]
 COPY ["Services/Users/Users.Domain/Users.Domain.csproj", "Services/Users/Users.Domain/"]
 COPY ["Services/Users/Users.Infrastructure/Users.Infrastructure.csproj", "Services/Users/Users.Infrastructure/"]
