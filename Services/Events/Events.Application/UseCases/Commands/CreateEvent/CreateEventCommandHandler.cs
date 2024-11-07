@@ -34,7 +34,7 @@ namespace Events.Application.UseCases.Commands.CreateEvent
                 throw new BadRequestException(results.Errors);
             }
 
-            string createdImageName = await _fileService.SaveFileAsync(request.Image, [".jpg", ".jpeg", ".png"]);
+            string createdImageName = await _fileService.SaveFileAsync(request.EventDto.Image, [".jpg", ".jpeg", ".png"]);
             var @event = _mapper.Map<Event>(request);
             @event.Image = createdImageName;
 

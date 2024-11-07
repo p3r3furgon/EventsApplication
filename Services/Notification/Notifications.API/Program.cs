@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 using Notifications.Persistance.Repositories.UnitOfWork;
 using CommonFiles.Interfaces;
 using Notifications.Application.Notifications.UseCases.Commands.DeleteNotification;
-using Notifications.Application.Notifications.UseCases.Queries.Mapper;
+using Notifications.Application.Notifications.UseCases.CommonMappers;
 
 var builder = WebApplication.CreateBuilder(args);
 

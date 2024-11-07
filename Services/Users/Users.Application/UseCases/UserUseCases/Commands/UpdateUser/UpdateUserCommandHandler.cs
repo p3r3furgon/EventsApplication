@@ -26,23 +26,18 @@ namespace Users.Application.UseCases.UserUseCases.Commands.UpdateUser
         public async Task<UpdateUserResponse> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
             UpdateUserCommandValidator validator = new();
-
             var results = await validator.ValidateAsync(request);
-
             if (!results.IsValid)
             {
                 throw new BadRequestException(results.Errors);
             }
 
             var user = await _userRepository.GetById(request.Id);
-
             if (user == null)
                 throw new UserNotFoundException(request.Id);
 
             user = _mapper.Map(request, user);
-
-            var passwordHash = _passwordHasher.Generate(request.Password);
-            user.PasswordHash = string.IsNullOrEmpty(passwordHash) ? user.PasswordHash : passwordHash;
+            user.PasswordHash = _passwordHasher.Generate(request.UserDto.Password);
 
             _userRepository.Update(user);
             await _unitOfWork.Save(cancellationToken);

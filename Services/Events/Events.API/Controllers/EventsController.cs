@@ -1,4 +1,5 @@
 ﻿using CommonFiles.Pagination;
+using Events.Application.Dtos;
 using Events.Application.UseCases.Commands.CreateEvent;
 using Events.Application.UseCases.Commands.DeleteEvent;
 using Events.Application.UseCases.Commands.SubscribeOnEvent;
@@ -53,51 +54,52 @@ namespace Events.API.Controllers
         [HttpPost]
         [Authorize(Policy = "Admin")]
         [Authorize(Policy = "SuperAdmin")]
-        public async Task<IActionResult> CreateEvent([FromForm] CreateEventCommand createEventCommand)
+        public async Task<IActionResult> CreateEvent([FromForm] EventRequestDto eventDto)
         {
-            var response = await _mediator.Send(createEventCommand);
+            var response = await _mediator.Send(new CreateEventCommand(eventDto));
             return StatusCode(StatusCodes.Status201Created, response);
         }
 
 
-        [HttpPut]
+        [HttpPut("{id}")]
         [Authorize(Policy = "Admin")]
         [Authorize(Policy = "SuperAdmin")]
-        public async Task<IActionResult> UpdateEvent([FromForm] UpdateEventCommand updateEventCommand)
+        public async Task<IActionResult> UpdateEvent(Guid id, [FromForm] EventRequestDto eventDto,
+            string? messageTitle, string? messageContent)
         {
-            var response = await _mediator.Send(updateEventCommand);
+            var response = await _mediator.Send(new UpdateEventCommand(id, eventDto, messageTitle, messageContent));
             return StatusCode(StatusCodes.Status200OK, response);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [Authorize(Policy = "Admin")]
         [Authorize(Policy = "SuperAdmin")]
-        public async Task<IActionResult> DeleteEvent(DeleteEventCommand deleteEventCommand)
+        public async Task<IActionResult> DeleteEvent(Guid id)
         {
-            var response = await _mediator.Send(deleteEventCommand);
+            var response = await _mediator.Send(new DeleteEventCommand(id));
             return StatusCode(StatusCodes.Status200OK, response);
         }
 
-        [HttpPost("subscribe")]
+        [HttpPost("{id}/subscribe")]
         [Authorize]
-        public  async Task<IActionResult> RegisterUserOnEvent(Guid eventId)
+        public  async Task<IActionResult> RegisterUserOnEvent(Guid id)
         {
             var firstName = User?.FindFirstValue(ClaimTypes.Name);
             var surname = User?.FindFirstValue(ClaimTypes.Surname);
             var email = User?.FindFirstValue(ClaimTypes.Email);
             var userId = User?.FindFirstValue(ClaimTypes.PrimarySid);
 
-            var response = await _mediator.Send(new SubscribeOnEventCommand(eventId, firstName, surname, email, Guid.Parse(userId)));
+            var response = await _mediator.Send(new SubscribeOnEventCommand(id, firstName, surname, email, Guid.Parse(userId)));
             return StatusCode(StatusCodes.Status200OK, response);
         }
 
-        [HttpDelete("unsubscribe")]
+        [HttpDelete("{id}/unsubscribe")]
         [Authorize]
-        public async Task<IActionResult> UnsubscribeFromEvent(Guid eventId)
+        public async Task<IActionResult> UnsubscribeFromEvent(Guid id)
         {
             var userId = User?.FindFirstValue(ClaimTypes.PrimarySid);
 
-            var response = await _mediator.Send(new UnsubscribeFromEventCommand(eventId, Guid.Parse(userId)));
+            var response = await _mediator.Send(new UnsubscribeFromEventCommand(id, Guid.Parse(userId)));
             return StatusCode(StatusCodes.Status200OK, response);
         }
 

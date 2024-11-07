@@ -2,6 +2,7 @@ using CommonFiles.Pagination;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Users.Application.Dtos;
 using Users.Application.UseCases.UserUseCases.Commands.DeleteUser;
 using Users.Application.UseCases.UserUseCases.Commands.GrantAdminRole;
 using Users.Application.UseCases.UserUseCases.Commands.RevokeAdminRole;
@@ -39,15 +40,15 @@ namespace Users.API.Controllers
             return StatusCode(StatusCodes.Status200OK, response);
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> UpdateUser([FromForm] UpdateUserCommand updateUserCommand)
+        public async Task<IActionResult> UpdateUser(Guid id, [FromForm] UserRequestDto userDto)
         {
-            var response = await _mediator.Send(updateUserCommand);
+            var response = await _mediator.Send(new UpdateUserCommand(id, userDto));
             return StatusCode(StatusCodes.Status200OK, response);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [Authorize]
         public async Task<IActionResult> DeleteUser(Guid id)
         {

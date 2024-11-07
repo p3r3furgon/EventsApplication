@@ -2,7 +2,7 @@
 using Notifications.Application.Dtos;
 using Notifications.Domain.Models;
 
-namespace Notifications.Application.Notifications.UseCases.Queries.Mapper
+namespace Notifications.Application.Notifications.UseCases.CommonMappers
 {
     public class NotificationsMapper : Profile
     {

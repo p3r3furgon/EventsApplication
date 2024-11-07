@@ -10,7 +10,7 @@
         public string? Category { get; set; } = string.Empty;
         public int MaxParticipantNumber { get; set; }
         public List<Participant> Participants { get; set; } = new List<Participant>();
-        public string? Image { get; set; } = string.Empty;
+        public string? Image { get; set; }
     
         public Event() { }
 

@@ -39,12 +39,12 @@ namespace Events.Application.UseCases.Commands.UpdateEvent
             var existingEvent = await _eventsRepository.GetById(request.Id);
             if (existingEvent == null)
                 throw new EventNotFoundException(request.Id);
-            if (existingEvent.Participants.Count > request.MaxParticipantNumber)
-                throw new EventCapacityException(existingEvent.Participants.Count, request.MaxParticipantNumber); 
+            if (existingEvent.Participants.Count > request.EventDto.MaxParticipantNumber)
+                throw new EventCapacityException(existingEvent.Participants.Count, request.EventDto.MaxParticipantNumber); 
 
             string? oldImageName = existingEvent.Image;
 
-            string? createdImageName = await _fileService.SaveFileAsync(request.Image, [".jpg", ".jpeg", ".png"]);
+            string? createdImageName = await _fileService.SaveFileAsync(request.EventDto.Image, [".jpg", ".jpeg", ".png"]);
             if (!string.IsNullOrEmpty(createdImageName))
             {
                 existingEvent.Image = createdImageName;

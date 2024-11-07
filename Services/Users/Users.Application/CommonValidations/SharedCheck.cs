@@ -1,4 +1,4 @@
-﻿namespace Users.Application.CommonValidation
+﻿namespace Users.Application.CommonValidations
 {
     public class SharedCheck
     {

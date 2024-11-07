@@ -24,7 +24,8 @@ namespace Users.Application.UseCases.AuthUseCases.Commands.UserRegister
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
-        public async Task<UserRegisterResponse> Handle(UserRegisterCommand request, CancellationToken cancellationToken)
+        public async Task<UserRegisterResponse> Handle(UserRegisterCommand request, 
+            CancellationToken cancellationToken)
         {
             UserRegisterCommandValidator validator = new();
             var results = validator.Validate(request);
@@ -33,17 +34,14 @@ namespace Users.Application.UseCases.AuthUseCases.Commands.UserRegister
                 throw new BadRequestException(results.Errors);
             }
 
-            var user = await _usersRepository.GetByEmail(request.Email);
+            var user = await _usersRepository.GetByEmail(request.UserDto.Email);
             if (user != null)
                 throw new BadRequestException("User with such email already exist");
 
-            string passwordHash = _passwordHasher.Generate(request.Password);
-
             user = _mapper.Map<User>(request);
-            user.PasswordHash = passwordHash;
+            user.PasswordHash = _passwordHasher.Generate(request.UserDto.Password); ;
 
             await _usersRepository.Create(user);
-
             await _unitOfWork.Save(cancellationToken);
 
             return new UserRegisterResponse(user.Id);
